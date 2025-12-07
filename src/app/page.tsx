@@ -1,4 +1,5 @@
 import Hero from "@/components/Hero";
+import Waitlist from "@/components/Waitlist";
 // import Testimonials from "@/components/Testimonials";
 import Pricing from "@/components/Pricing/Pricing";
 import FAQ from "@/components/FAQ";
@@ -12,6 +13,7 @@ const HomePage: React.FC = () => {
   return (
     <>
       <Hero />
+      <Waitlist />
       <Container>
         <Benefits />
 
