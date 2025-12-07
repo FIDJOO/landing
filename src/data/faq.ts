@@ -1,25 +1,24 @@
 import { IFAQ } from "@/types";
 import { siteDetails } from "./siteDetails";
-
 export const faqs: IFAQ[] = [
     {
-        question: `Is ${siteDetails.siteName} secure?`,
-        answer: 'Absolutely. We use bank-level encryption to protect your data and never store your login information. Plus, our biometric authentication adds an extra layer of security.',
+        question: `Is ${siteDetails.siteName} safe for children?`,
+        answer: `${siteDetails.siteName} is 100% ad-free and built as a closed, kid-friendly environment. All creations stay private and fully supervised by parents.`,
     },
     {
-        question: `Can I use ${siteDetails.siteName} on multiple devices?`,
-        answer: 'Absolutely! Your Finwise account syncs seamlessly across all your devices - smartphone, tablet, and computer.',
+        question: `What is ${siteDetails.siteName}?`,
+        answer: `${siteDetails.siteName} is a creative app where children turn simple choices into their own animated storybooks, replacing passive screen time with meaningful, imaginative play.`,
     },
     {
-        question: 'Can I connect all my bank accounts?',
-        answer: `Yes! ${siteDetails.siteName} supports connections with over 10,000 financial institutions worldwide. Simply log in through our secure portal to link your accounts.`
+        question: `What ages is ${siteDetails.siteName} designed for?`,
+        answer: `${siteDetails.siteName} is ideal for children aged 5 to 12, with stories and experiences adapted to different reading and developmental levels.`,
     },
     {
-        question: 'Do I need any financial expertise to use the investing features?',
-        answer: 'Not at all! Our expert-curated portfolios and educational resources make investing accessible to everyone, regardless of experience level.',
+        question: `Does ${siteDetails.siteName} work offline?`,
+        answer: `Yes. Once a story is created, it can be enjoyed offline anytime. A connection is only needed for creating or customizing new stories.`,
     },
     {
-        question: 'What if I need help using the app?',
-        answer: 'Our dedicated support team is available 24/7 via chat or email. Plus, we offer extensive in-app tutorials and a comprehensive knowledge base to help you make the most of Finwise.'
+        question: `How much does ${siteDetails.siteName} cost?`,
+        answer: `You can start for free with one story. Then, flexible subscriptions and credit packs allow families to choose the option that fits them best.`,
     }
 ];

@@ -1,6 +1,6 @@
 export const ctaDetails = {
-    heading: 'Join Over 1 Million Users To Transform Your Finances',
-    subheading: 'Your journey to financial freedom starts here. Download Finwise today and take the first step towards a brighter financial future!',
-    appStoreUrl: '#',
-    googlePlayUrl: '#'
+    heading: "Join Families Turning Screen Time Into Creativity",
+    subheading: "Give your child meaningful screen time. Download Fidjoo and start creating magical story moments together.",
+    appStoreUrl: "#",  // you will update when live
+    googlePlayUrl: "#" // same here
 }

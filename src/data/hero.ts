@@ -1,5 +1,5 @@
 export const heroDetails = {
-    heading: 'Smart, Secure, Simple Financial Management',
-    subheading: 'From effortless budgeting to real-time investment insights, Finwise puts you in control of your money like never before',
+    heading: 'Turn Screen Time Into Creative Storytime',
+    subheading: 'Fidjoo helps children build their own animated storybooks through meaningful, engaging, and positive screen time.',
     centerImageSrc: '/images/hero-mockup.webp',
 }

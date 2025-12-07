@@ -3,21 +3,21 @@ import { siteDetails } from "./siteDetails";
 
 export const testimonials: ITestimonial[] = [
     {
-        name: 'John Smith',
-        role: 'CEO at Company',
-        message: `${siteDetails.siteName}'s AI-driven insights have transformed how we approach financial planning for our clients. It's an invaluable resource in the modern financial landscape.`,
+        name: 'Sarah Mitchell',
+        role: 'Parent of two',
+        message: `${siteDetails.siteName} turned screen time into something meaningful at home. My kids create their own stories instead of scrolling — it’s the first app I feel good about letting them use.`,
         avatar: '/images/testimonial-1.webp',
     },
     {
-        name: 'Jane Doe',
-        role: 'CTO at Startup',
-        message: `As a CTO, I'm impressed by ${siteDetails.siteName}'s robust security measures and seamless integrations. It's rare to find an app that balances user-friendliness with such advanced technology.`,
+        name: 'Lucas Ramirez',
+        role: 'Elementary School Teacher',
+        message: `${siteDetails.siteName} encourages creativity and storytelling in a way that feels natural for children. It’s become one of my favorite tools to help students express themselves creatively.`,
         avatar: '/images/testimonial-2.webp',
     },
     {
-        name: 'Emily Johnson',
-        role: 'Product Manager',
-        message: `${siteDetails.siteName} is revolutionizing personal finance management. Its intuitive design and powerful features make it an indispensable tool for anyone serious about financial growth.`,
+        name: 'Dr. Amanda Lee',
+        role: 'Child Psychologist',
+        message: `${siteDetails.siteName} offers a healthy digital alternative for families. It promotes imagination, emotional expression, and confidence while keeping children in a safe environment.`,
         avatar: '/images/testimonial-3.webp',
     },
 ];

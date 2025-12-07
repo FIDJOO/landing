@@ -4,66 +4,66 @@ import { IBenefit } from "@/types"
 
 export const benefits: IBenefit[] = [
     {
-        title: "Smart Budgeting",
-        description: "Take the guesswork out of managing your money. Our AI-powered budgeting tool adapts to your lifestyle and helps you stay on track.",
+        title: "Meaningful Screen Time",
+        description: "Turn passive screen time into a creative experience. With Fidjoo, children build their own animated storybooks step by step.",
         bullets: [
             {
-                title: "Intelligent Categorization",
-                description: "Automatically sorts your transactions for crystal-clear insights.",
+                title: "Build-Your-Own Stories",
+                description: "Kids shape their story through simple choices — hero, world, challenge, ending.",
                 icon: <FiBarChart2 size={26} />
             },
             {
-                title: "Customizable Goals",
-                description: "Set and track financial objectives that matter to you.",
+                title: "Creativity First",
+                description: "Fidjoo encourages imagination, decision-making, and storytelling skills.",
                 icon: <FiTarget size={26} />
             },
             {
-                title: "Predictive Analysis",
-                description: "Get ahead of your finances with spending forecasts and alerts.",
+                title: "See Their Ideas Come Alive",
+                description: "Every choice transforms the story, helping children understand cause and effect.",
                 icon: <FiTrendingUp size={26} />
             }
         ],
         imageSrc: "/images/mockup-1.webp"
     },
     {
-        title: "Seamless Investing",
-        description: "Start building wealth today, no financial degree required. Finwise makes investing accessible and straightforward.",
+        title: "A Shared Family Moment",
+        description: "Fidjoo creates a safe and fun space where parents and kids imagine, build, and enjoy stories together.",
         bullets: [
             {
-                title: "Micro-Investing",
-                description: "Begin with as little as $1 and watch your money grow.",
+                title: "Co-Creation",
+                description: "Designed to strengthen the bond between children and parents through shared play.",
                 icon: <FiDollarSign size={26} />
             },
             {
-                title: "Expert Portfolios",
-                description: "Choose from investment strategies tailored to your risk tolerance.",
+                title: "Helpful Story Prompts",
+                description: "Simple suggestions guide children when they don't know how to begin.",
                 icon: <FiBriefcase size={26} />
             },
             {
-                title: "Real-Time Performance",
-                description: "Track your investments with easy-to-understand metrics and visuals.",
+                title: "Listen & Share",
+                description: "Children can listen to their completed story or share it with their family.",
                 icon: <FiPieChart size={26} />
             }
         ],
         imageSrc: "/images/mockup-2.webp"
     },
     {
-        title: "Bank-Grade Security",
-        description: "Your financial data deserves the best protection. Rest easy knowing Finwise employs cutting-edge security measures.",
+        title: "Safe & Kid-Friendly",
+        description: "Fidjoo replaces endless scrolling with safe, purposeful, and positive screen time — no ads, no distractions.",
         bullets: [
             {
-                title: "Military-Grade Encryption",
-                description: "Your information is safeguarded with the highest level of encryption.",
+                title: "Protected Space",
+                description: "All creations stay private and under parental supervision.",
                 icon: <FiLock size={26} />
             },
             {
-                title: "Biometric Authentication",
-                description: "Access your account securely with fingerprint or facial recognition.",
+                title: "Parent Controls",
+                description: "Easily manage profiles, permissions, and visibility settings.",
                 icon: <FiUser size={26} />
             },
             {
-                title: "Real-Time Fraud Detection",
-                description: "Our system constantly monitors for suspicious activity to keep your money safe.",
+                title: "Designed for Kids",
+                description: "Every story stays positive, age-appropriate, and aligned with healthy digital habits.",
                 icon: <FiShield size={26} />
             }
         ],
