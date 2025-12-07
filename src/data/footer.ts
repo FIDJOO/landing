@@ -20,6 +20,14 @@ export const footerDetails: {
         {
             text: "Testimonials",
             url: "#testimonials"
+        },
+        {
+            text: "Confidentiality",
+            url: "/confidentiality"
+        },
+        {
+            text: "Privacy Policy",
+            url: "/privacy"
         }
     ],
     email: 'contact@fidjoo.com',

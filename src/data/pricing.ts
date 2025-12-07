@@ -1,37 +1,39 @@
 import { IPricing } from "@/types";
 
-export const tiers: IPricing[] = [
+export const subscription: IPricing = {
+    name: 'Family Starter',
+    price: 9.99,
+    type: 'subscription',
+    credits: 12,
+    stories: 4,
+    description: 'Parfait pour les familles qui veulent créer régulièrement',
+    highlight: true,
+};
+
+export const creditPacks: IPricing[] = [
     {
-        name: 'Starter',
-        price: 29,
-        features: [
-            'Basic cloud integration',
-            'Up to 5 team members',
-            '20GB storage',
-            'Email support',
-        ],
+        name: 'Mini Pack',
+        price: 7.99,
+        type: 'one-time',
+        credits: 10,
+        stories: 3,
+        description: 'Idéal pour découvrir Fidjoo',
     },
     {
-        name: 'Pro',
-        price: 99,
-        features: [
-            'Advanced cloud integration',
-            'Up to 20 team members',
-            '100GB storage',
-            'Priority email & phone support',
-            'Advanced analytics',
-        ],
+        name: 'Standard Pack',
+        price: 15.99,
+        type: 'one-time',
+        credits: 20,
+        stories: 6,
+        description: 'Le plus populaire',
+        highlight: true,
     },
     {
-        name: 'Enterprise',
-        price: 'Custom',
-        features: [
-            'Full cloud integration',
-            'Unlimited team members',
-            'Unlimited storage',
-            '24/7 dedicated support',
-            'Custom solutions',
-            'On-site training',
-        ],
+        name: 'Large Pack',
+        price: 35.99,
+        type: 'one-time',
+        credits: 35,
+        stories: 11,
+        description: 'Meilleur rapport qualité-prix',
     },
-]
+];

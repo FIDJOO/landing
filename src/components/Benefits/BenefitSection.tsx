@@ -10,6 +10,7 @@ import { IBenefit } from "@/types";
 interface Props {
     benefit: IBenefit;
     imageAtRight?: boolean;
+    isLast?: boolean;
 }
 
 const containerVariants: Variants = {
@@ -46,13 +47,13 @@ export const childVariants = {
     },
 };
 
-const BenefitSection: React.FC<Props> = ({ benefit, imageAtRight }: Props) => {
+const BenefitSection: React.FC<Props> = ({ benefit, imageAtRight, isLast }: Props) => {
     const { title, description, imageSrc, bullets } = benefit;
 
     return (
-        <section className="benefit-section">
+        <section className={clsx("benefit-section py-16", !isLast && "border-b-4 border-primary")}>
             <motion.div
-                className="flex flex-wrap flex-col items-center justify-center gap-2 lg:flex-row lg:gap-20 lg:flex-nowrap mb-24"
+                className="flex flex-wrap flex-col items-center justify-center gap-2 lg:flex-row lg:gap-20 lg:flex-nowrap max-w-6xl mx-auto px-4"
                 variants={containerVariants}
                 initial="offscreen"
                 whileInView="onscreen"

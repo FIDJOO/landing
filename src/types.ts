@@ -18,8 +18,12 @@ export interface IBenefitBullet {
 
 export interface IPricing {
     name: string;
-    price: number | string;
-    features: string[];
+    price: number;
+    type: 'subscription' | 'one-time';
+    credits: number;
+    stories: number;
+    description?: string;
+    highlight?: boolean;
 }
 
 export interface IFAQ {

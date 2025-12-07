@@ -1,4 +1,4 @@
-import { FiBarChart2, FiBriefcase, FiDollarSign, FiLock, FiPieChart, FiShield, FiTarget, FiTrendingUp, FiUser } from "react-icons/fi";
+import { FiBook, FiEdit3, FiEye, FiHeart, FiHelpCircle, FiLock, FiShare2, FiShield, FiUser } from "react-icons/fi";
 
 import { IBenefit } from "@/types"
 
@@ -10,20 +10,20 @@ export const benefits: IBenefit[] = [
             {
                 title: "Build-Your-Own Stories",
                 description: "Kids shape their story through simple choices — hero, world, challenge, ending.",
-                icon: <FiBarChart2 size={26} />
+                icon: <FiBook size={26} />
             },
             {
                 title: "Creativity First",
                 description: "Fidjoo encourages imagination, decision-making, and storytelling skills.",
-                icon: <FiTarget size={26} />
+                icon: <FiEdit3 size={26} />
             },
             {
                 title: "See Their Ideas Come Alive",
                 description: "Every choice transforms the story, helping children understand cause and effect.",
-                icon: <FiTrendingUp size={26} />
+                icon: <FiEye size={26} />
             }
         ],
-        imageSrc: "/images/mockup-1.webp"
+        imageSrc: "/images/mockups/mckp_1.png"
     },
     {
         title: "A Shared Family Moment",
@@ -32,20 +32,20 @@ export const benefits: IBenefit[] = [
             {
                 title: "Co-Creation",
                 description: "Designed to strengthen the bond between children and parents through shared play.",
-                icon: <FiDollarSign size={26} />
+                icon: <FiHeart size={26} />
             },
             {
                 title: "Helpful Story Prompts",
                 description: "Simple suggestions guide children when they don't know how to begin.",
-                icon: <FiBriefcase size={26} />
+                icon: <FiHelpCircle size={26} />
             },
             {
                 title: "Listen & Share",
                 description: "Children can listen to their completed story or share it with their family.",
-                icon: <FiPieChart size={26} />
+                icon: <FiShare2 size={26} />
             }
         ],
-        imageSrc: "/images/mockup-2.webp"
+        imageSrc: "/images/mockups/mckp_2.png"
     },
     {
         title: "Safe & Kid-Friendly",
@@ -67,6 +67,6 @@ export const benefits: IBenefit[] = [
                 icon: <FiShield size={26} />
             }
         ],
-        imageSrc: "/images/mockup-1.webp"
+        imageSrc: "/images/mockups/mckp_3.png"
     },
 ]

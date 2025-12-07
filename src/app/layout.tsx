@@ -17,12 +17,14 @@ export const metadata: Metadata = {
     title: siteDetails.metadata.title,
     description: siteDetails.metadata.description,
     url: siteDetails.siteUrl,
+    siteName: siteDetails.siteName,
+    locale: siteDetails.locale,
     type: 'website',
     images: [
       {
-        url: '/images/og-image.jpg',
+        url: `${siteDetails.siteUrl}api/og`,
         width: 1200,
-        height: 675,
+        height: 630,
         alt: siteDetails.siteName,
       },
     ],
@@ -31,7 +33,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: siteDetails.metadata.title,
     description: siteDetails.metadata.description,
-    images: ['/images/twitter-image.jpg'],
+    images: [`${siteDetails.siteUrl}api/og`],
   },
 };
 

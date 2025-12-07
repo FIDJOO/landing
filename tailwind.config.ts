@@ -14,6 +14,9 @@ const config: Config = {
         primary: "var(--primary)",
         secondary: "var(--secondary)",
 
+        "primary-dark": "var(--primary-dark)",
+        "secondary-dark": "var(--secondary-dark)",
+
         "primary-accent": "var(--primary-accent)",
         "foreground-accent": "var(--foreground-accent)",
         "hero-background": "var(--hero-background)",

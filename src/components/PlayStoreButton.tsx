@@ -1,14 +1,35 @@
-import React from 'react'
+'use client';
+
+import React, { useState } from 'react'
 import clsx from 'clsx'
 
 import { ctaDetails } from '@/data/cta'
 
 const PlayStoreButton = ({ dark }: { dark?: boolean }) => {
+    const [isPressed, setIsPressed] = useState(false);
+    const shadowHeight = 6;
+
     return (
         <a href={ctaDetails.googlePlayUrl}>
             <button
                 type="button"
-                className={clsx("flex items-center justify-center min-w-[205px] mt-3 px-6 h-14 rounded-full w-full sm:w-fit", { "text-white bg-foreground": dark, "text-foreground bg-white": !dark })}
+                onMouseDown={() => setIsPressed(true)}
+                onMouseUp={() => setIsPressed(false)}
+                onMouseLeave={() => setIsPressed(false)}
+                onTouchStart={() => setIsPressed(true)}
+                onTouchEnd={() => setIsPressed(false)}
+                className={clsx(
+                    "flex items-center justify-center min-w-[205px] mt-3 px-6 h-14 rounded-2xl w-full sm:w-fit border-2 transition-transform duration-75 select-none",
+                    dark
+                        ? "text-white bg-foreground border-gray-800"
+                        : "text-foreground bg-white border-gray-300"
+                )}
+                style={{
+                    boxShadow: isPressed
+                        ? 'none'
+                        : `0 ${shadowHeight}px 0 0 ${dark ? '#1f2937' : '#d1d5db'}`,
+                    transform: isPressed ? `translateY(${shadowHeight}px)` : 'translateY(0)',
+                }}
             >
                 <div className="mr-3">
                     <svg viewBox="30 336.7 120.9 129.2" width="30">
