@@ -8,9 +8,5 @@ export const menuItems: IMenuItem[] = [
     {
         text: "Pricing",
         url: "#pricing"
-    },
-    {
-        text: "Testimonials",
-        url: "#testimonials"
     }
 ];
