@@ -39,14 +39,12 @@ const Header: React.FC = () => {
                     }`}>
                     {/* Logo */}
                     <Link href="/" className="flex items-center gap-2">
-                        <Image src={siteDetails.siteLogo} alt={siteDetails.siteName} width={50} height={50} />
-                        <span className="text-xl font-semibold text-foreground cursor-pointer">
-                            {siteDetails.siteName}
-                        </span>
+                        <Image src={siteDetails.textLogo} alt={siteDetails.siteName} width={120} height={50} />
+                        
                     </Link>
 
                     {/* Desktop Menu */}
-                    <ul className="hidden md:flex space-x-6">
+                    <ul className="hidden md:flex items-center space-x-6">
                         {menuItems.map(item => (
                             <li key={item.text}>
                                 <Link href={item.url} className="text-foreground hover:text-foreground-accent transition-colors">
