@@ -5,18 +5,18 @@ import { IStats } from "@/types";
 
 export const stats: IStats[] = [
     {
-        title: "20M+",
+        title: "500K+",
         icon: <BsBarChartFill size={34} className="text-blue-500" />,
-        description: "Transactions processed securely every day, providing real-time insights."
+        description: "Stories created and enjoyed by families turning screen time into creativity."
     },
     {
         title: "5.0",
         icon: <BsFillStarFill size={34} className="text-yellow-500" />,
-        description: "Star rating, consistently maintained across app stores."
+        description: "Average rating from parents who value meaningful and positive screen time."
     },
     {
-        title: "200+ ",
+        title: "30+",
         icon: <PiGlobeFill size={34} className="text-green-600" />,
-        description: "Financial Institutions, seamlessly integrated, so you can manage all accounts."
+        description: "Countries where families use Fidjoo to build stories and share magical moments."
     }
 ];

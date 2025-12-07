@@ -19,12 +19,9 @@ html {
 
 body {
   @apply text-lg;
-  
+
   color: var(--foreground);
   background: var(--background);
-  font-family: "Source Sans 3", sans-serif;
-  font-optical-sizing: auto;
-  font-style: normal;
 }
 
 @layer utilities {
@@ -33,16 +30,8 @@ body {
   }
 }
 
-.manrope {
-  font-family: "Manrope", sans-serif;
-  font-optical-sizing: auto;
-  font-style: normal;
-}
-
-h1, h2, h3, h4, h5, h6 {
-  font-family: "Manrope", sans-serif;
-  font-optical-sizing: auto;
-  font-style: normal;
+h1, h2, h3, h4, h5, h6, p, span, a, li, button, input, textarea, label {
+  font-family: inherit;
 }
 
 #logos svg {

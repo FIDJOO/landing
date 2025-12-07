@@ -13,7 +13,7 @@ const Footer: React.FC = () => {
                 <div>
                     <Link href="/" className="flex items-center gap-2">
                         <FaFingerprint className="min-w-fit w-5 h-5 md:w-7 md:h-7" />
-                        <h3 className="manrope text-xl font-semibold cursor-pointer">
+                        <h3 className="text-xl font-semibold cursor-pointer">
                             {siteDetails.siteName}
                         </h3>
                     </Link>
