@@ -48,7 +48,7 @@ const Waitlist: React.FC = () => {
                     {result === 'success' ? (
                         <div className="bg-green-100 border-2 border-green-500 rounded-2xl p-6">
                             <p className="text-green-700 font-semibold text-lg">
-                                Thank you! You're on the waitlist.
+                                Thank you! You&apos;re on the waitlist.
                             </p>
                         </div>
                     ) : (
