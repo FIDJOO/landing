@@ -7,7 +7,7 @@ export const footerDetails: {
     telephone: string;
     socials: ISocials;
 } = {
-    subheading: "Empowering businesses with cutting-edge financial technology solutions.",
+    subheading: "Fidjoo helps children build their own animated storybooks through meaningful, engaging, and positive screen time.",
     quickLinks: [
         {
             text: "Features",
@@ -22,8 +22,8 @@ export const footerDetails: {
             url: "#testimonials"
         }
     ],
-    email: 'address@yoursite.com',
-    telephone: '+1 (123) 456-7890',
+    email: 'contact@fidjoo.com',
+    telephone: '+33 6 21 80 16 15',
     socials: {
         // github: 'https://github.com',
         // x: 'https://twitter.com/x',
