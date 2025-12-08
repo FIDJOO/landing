@@ -24,15 +24,6 @@
   --hero-background: #F4F2EF;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #151718;
-    --card: #151718;
-    --foreground: #FFFFFF;
-    --border: #333;
-    --notification: #ff453a;
-  }
-}
 
 html {
   @apply scroll-smooth;
