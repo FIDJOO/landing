@@ -1,6 +1,6 @@
 import PricingColumn from "./PricingColumn";
 
-import { subscription, creditPacks } from "@/data/pricing";
+import { subscriptions, creditPacks } from "@/data/pricing";
 
 const Pricing: React.FC = () => {
     return (
@@ -23,8 +23,10 @@ const Pricing: React.FC = () => {
                         Pour les créateurs réguliers
                     </h3>
                 </div>
-                <div className="max-w-sm mx-auto">
-                    <PricingColumn tier={subscription} />
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-2xl mx-auto">
+                    {subscriptions.map((sub) => (
+                        <PricingColumn key={sub.name} tier={sub} />
+                    ))}
                 </div>
             </div>
 

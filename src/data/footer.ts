@@ -28,6 +28,14 @@ export const footerDetails: {
         {
             text: "Privacy Policy",
             url: "/privacy"
+        },
+        {
+            text: "Terms of Service",
+            url: "/terms"
+        },
+        {
+            text: "delete",
+            url: "/delete"
         }
     ],
     email: 'contact@fidjoo.com',
