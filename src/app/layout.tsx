@@ -4,6 +4,7 @@ import { Baloo_2 } from "next/font/google";
 
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { WaitlistDialogProvider } from "@/components/WaitlistDialog";
 import { siteDetails } from '@/data/siteDetails';
 
 import "./globals.css";
@@ -48,11 +49,13 @@ export default function RootLayout({
         className={`${baloo2.className} antialiased`}
       >
         {siteDetails.googleAnalyticsId && <GoogleAnalytics gaId={siteDetails.googleAnalyticsId} />}
-        <Header />
-        <main>
-          {children}
-        </main>
-        <Footer />
+        <WaitlistDialogProvider>
+          <Header />
+          <main>
+            {children}
+          </main>
+          <Footer />
+        </WaitlistDialogProvider>
       </body>
     </html>
   );

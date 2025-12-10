@@ -45,10 +45,10 @@ function DeleteAccount() {
         <Card className="shadow-lg">
           <CardHeader>
             <CardTitle className="text-2xl font-bold text-[#11181C]">
-              Demande de suppression de compte
+              Account Deletion Request
             </CardTitle>
             <CardDescription className="text-sm text-gray-500">
-              Entrez votre adresse email pour demander la suppression de votre compte et de vos données.
+              Enter your email address to request the deletion of your account and data.
             </CardDescription>
           </CardHeader>
 
@@ -56,7 +56,7 @@ function DeleteAccount() {
             {result === 'success' ? (
               <div className="bg-green-100 border-2 border-green-500 rounded-2xl p-6">
                 <p className="text-green-700 font-semibold text-lg">
-                  Votre demande a été envoyée. Nous traiterons votre demande sous 30 jours.
+                  Your request has been sent. We will process your request within 30 days.
                 </p>
               </div>
             ) : (
@@ -66,31 +66,31 @@ function DeleteAccount() {
                   name="email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  placeholder="votre@email.com"
+                  placeholder="your@email.com"
                   required
                   className="w-full px-6 py-3 text-base rounded-2xl border-2 border-foreground/20 focus:border-primary focus:outline-none transition-colors bg-white"
                 />
-                <input type="hidden" name="subject" value="Demande de suppression de compte Fidjoo" />
+                <input type="hidden" name="subject" value="Fidjoo Account Deletion Request" />
                 <Button3D
                   type="submit"
                   variant="primary"
                   size="md"
                   disabled={result === 'loading'}
                 >
-                  {result === 'loading' ? 'Envoi...' : 'Envoyer la demande'}
+                  {result === 'loading' ? 'Sending...' : 'Submit Request'}
                 </Button3D>
               </form>
             )}
 
             {result === 'error' && (
               <p className="mt-4 text-red-600 font-medium">
-                Une erreur est survenue. Veuillez réessayer plus tard.
+                An error occurred. Please try again later.
               </p>
             )}
 
             <p className="mt-6 text-sm text-gray-500">
-              Conformément au RGPD, votre demande sera traitée dans un délai maximum de 30 jours.
-              Pour toute question, contactez{' '}
+              In accordance with GDPR, your request will be processed within 30 days.
+              For any questions, contact{' '}
               <a href="mailto:dpo@fidjoo.com" className="text-[#49AAFF] hover:underline">
                 dpo@fidjoo.com
               </a>

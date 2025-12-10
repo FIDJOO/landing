@@ -4,6 +4,7 @@ import { useState } from 'react';
 import clsx from "clsx";
 
 import { IPricing } from "@/types";
+import { useWaitlistDialog } from "../WaitlistDialog";
 
 interface Props {
     tier: IPricing;
@@ -13,6 +14,7 @@ const PricingColumn: React.FC<Props> = ({ tier }: Props) => {
     const { name, price, type, credits, stories, description, highlight } = tier;
     const isSubscription = type === 'subscription';
     const [isButtonPressed, setIsButtonPressed] = useState(false);
+    const { openDialog } = useWaitlistDialog();
     const shadowHeight = 6;
 
     return (
@@ -62,6 +64,7 @@ const PricingColumn: React.FC<Props> = ({ tier }: Props) => {
                 </div>
 
                 <button
+                    onClick={openDialog}
                     onMouseDown={() => setIsButtonPressed(true)}
                     onMouseUp={() => setIsButtonPressed(false)}
                     onMouseLeave={() => setIsButtonPressed(false)}
