@@ -6,6 +6,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
 import { blogPosts, getBlogPost } from "@/data/blog";
 import { siteDetails } from "@/data/siteDetails";
+import { BlogPostJsonLd, BreadcrumbJsonLd } from "@/components/JsonLd";
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -27,9 +28,37 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     };
   }
 
+  const baseUrl = siteDetails.siteUrl.replace(/\/$/, '');
+
   return {
     title: `${post.title} | ${siteDetails.siteName}`,
     description: post.excerpt,
+    alternates: {
+      canonical: `/blog/${post.slug}`,
+    },
+    openGraph: {
+      title: post.title,
+      description: post.excerpt,
+      url: `${baseUrl}/blog/${post.slug}`,
+      siteName: siteDetails.siteName,
+      type: 'article',
+      publishedTime: post.date,
+      authors: [post.author],
+      images: post.coverImage ? [
+        {
+          url: `/api/og?title=${encodeURIComponent(post.title)}&description=${encodeURIComponent(post.excerpt)}`,
+          width: 1200,
+          height: 630,
+          alt: post.title,
+        },
+      ] : undefined,
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: post.title,
+      description: post.excerpt,
+      images: [`/api/og?title=${encodeURIComponent(post.title)}&description=${encodeURIComponent(post.excerpt)}`],
+    },
   };
 }
 
@@ -74,11 +103,28 @@ export default async function BlogPostPage({ params }: Props) {
   }
 
   const htmlContent = parseMarkdown(post.content);
+  const baseUrl = siteDetails.siteUrl.replace(/\/$/, '');
 
   return (
-    <div className="min-h-screen px-6 sm:px-12 lg:px-24 xl:px-40 py-12 pt-32">
-      <div className="max-w-3xl mx-auto">
-        <Link
+    <>
+      <BlogPostJsonLd
+        title={post.title}
+        description={post.excerpt}
+        url={`${baseUrl}/blog/${post.slug}`}
+        imageUrl={post.coverImage}
+        datePublished={post.date}
+        authorName={post.author}
+      />
+      <BreadcrumbJsonLd
+        items={[
+          { name: 'Home', url: baseUrl },
+          { name: 'Blog', url: `${baseUrl}/blog` },
+          { name: post.title, url: `${baseUrl}/blog/${post.slug}` },
+        ]}
+      />
+      <div className="min-h-screen px-6 sm:px-12 lg:px-24 xl:px-40 py-12 pt-32">
+        <div className="max-w-3xl mx-auto">
+          <Link
           href="/blog"
           className="inline-flex items-center text-primary hover:underline mb-8"
         >
@@ -154,7 +200,8 @@ export default async function BlogPostPage({ params }: Props) {
             Read more articles
           </Link>
         </div>
+        </div>
       </div>
-    </div>
+    </>
   );
 }

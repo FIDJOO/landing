@@ -11,6 +11,7 @@ const nextConfig = {
         hostname: "api.producthunt.com",
       },
     ],
+    dangerouslyAllowSVG: true,
   },
 };
 

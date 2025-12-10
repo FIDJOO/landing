@@ -1,3 +1,4 @@
+import { Metadata } from "next";
 import {
   Card,
   CardContent,
@@ -14,6 +15,15 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
+import { siteDetails } from "@/data/siteDetails";
+
+export const metadata: Metadata = {
+  title: `Privacy Policy | ${siteDetails.siteName}`,
+  description: "Learn how Fidjoo protects your privacy and handles your data. We are committed to keeping your family's information safe.",
+  alternates: {
+    canonical: '/privacy',
+  },
+};
 
 function Privacy() {
   return (

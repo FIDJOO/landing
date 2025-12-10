@@ -9,10 +9,15 @@ import Section from "@/components/Section";
 import Stats from "@/components/Stats";
 import CTA from "@/components/CTA";
 import BlogPreview from "@/components/BlogPreview";
+import { OrganizationJsonLd, WebsiteJsonLd, SoftwareApplicationJsonLd, FAQJsonLd } from "@/components/JsonLd";
 
 const HomePage: React.FC = () => {
   return (
     <>
+      <OrganizationJsonLd />
+      <WebsiteJsonLd />
+      <SoftwareApplicationJsonLd />
+      <FAQJsonLd />
       <Hero />
       <Waitlist />
       <Container>

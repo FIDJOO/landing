@@ -1,3 +1,4 @@
+import { Metadata } from "next";
 import {
   Card,
   CardContent,
@@ -14,6 +15,15 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
+import { siteDetails } from "@/data/siteDetails";
+
+export const metadata: Metadata = {
+  title: `Terms of Service | ${siteDetails.siteName}`,
+  description: "Read Fidjoo's terms of service to understand how our creative storytelling app works for your family.",
+  alternates: {
+    canonical: '/terms',
+  },
+};
 
 function Privacy() {
   return (

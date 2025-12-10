@@ -8,6 +8,9 @@ import { siteDetails } from "@/data/siteDetails";
 export const metadata: Metadata = {
   title: `Blog | ${siteDetails.siteName}`,
   description: "Articles about creative storytelling, meaningful screen time, and raising imaginative children.",
+  alternates: {
+    canonical: '/blog',
+  },
 };
 
 export default function BlogPage() {

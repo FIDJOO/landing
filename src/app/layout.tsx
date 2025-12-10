@@ -14,6 +14,28 @@ const baloo2 = Baloo_2({ subsets: ['latin'], weight: ['400', '500', '600', '700'
 export const metadata: Metadata = {
   title: siteDetails.metadata.title,
   description: siteDetails.metadata.description,
+  metadataBase: new URL(siteDetails.siteUrl),
+  alternates: {
+    canonical: '/',
+    types: {
+      'application/rss+xml': '/feed.xml',
+    },
+  },
+  keywords: ['children stories', 'kids storytelling app', 'creative screen time', 'animated storybooks', 'family app', 'kids creativity', 'educational app for kids', 'meaningful screen time'],
+  authors: [{ name: 'Fidjoo Team' }],
+  creator: 'Fidjoo',
+  publisher: 'Fidjoo',
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
   openGraph: {
     title: siteDetails.metadata.title,
     description: siteDetails.metadata.description,
@@ -23,7 +45,7 @@ export const metadata: Metadata = {
     type: 'website',
     images: [
       {
-        url: `${siteDetails.siteUrl}api/og`,
+        url: '/api/og',
         width: 1200,
         height: 630,
         alt: siteDetails.siteName,
@@ -34,7 +56,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: siteDetails.metadata.title,
     description: siteDetails.metadata.description,
-    images: [`${siteDetails.siteUrl}api/og`],
+    images: ['/api/og'],
   },
 };
 
