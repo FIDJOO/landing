@@ -2,6 +2,8 @@ import { ImageResponse } from 'next/og';
 
 export const runtime = 'edge';
 
+const siteUrl = 'https://fidjoo.app';
+
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url);
 
@@ -18,8 +20,8 @@ export async function GET(request: Request) {
     'https://fonts.gstatic.com/s/baloo2/v21/wXK0E3kTposypRydzVT08TS3JnAmtdgozapv9Fat7WcN.ttf'
   ).then((res) => res.arrayBuffer());
 
-  // Load the mascot image
-  const mascotUrl = new URL('/images/mascotte/blue/blue.png', request.url).toString();
+  // Load the mascot image using absolute URL
+  const mascotUrl = `${siteUrl}/images/mascotte/blue/blue.png`;
 
   return new ImageResponse(
     (
