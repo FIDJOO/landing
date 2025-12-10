@@ -8,6 +8,7 @@ import Container from "@/components/Container";
 import Section from "@/components/Section";
 import Stats from "@/components/Stats";
 import CTA from "@/components/CTA";
+import BlogPreview from "@/components/BlogPreview";
 
 const HomePage: React.FC = () => {
   return (
@@ -23,6 +24,14 @@ const HomePage: React.FC = () => {
           description="Simple, transparent pricing. No surprises."
         >
           <Pricing />
+        </Section>
+
+        <Section
+          id="blog"
+          title="Blog"
+          description="Tips and insights for creative parenting."
+        >
+          <BlogPreview />
         </Section>
 
         {/* <Section

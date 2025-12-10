@@ -55,3 +55,15 @@ export interface ISocials {
     x?: string;
     [key: string]: string | undefined;
 }
+
+export interface IBlogPost {
+    slug: string;
+    title: string;
+    excerpt: string;
+    content: string;
+    author: string;
+    date: string;
+    readTime: string;
+    coverImage?: string;
+    tags?: string[];
+}

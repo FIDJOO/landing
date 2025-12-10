@@ -1,0 +1,59 @@
+# Fidjoo - Creative Storytelling App for Children
+
+> Fidjoo is a creative app where children ages 5-12 turn simple choices into their own animated storybooks. It transforms passive screen time into meaningful, imaginative play through safe, ad-free, family-centered experiences.
+
+## About Fidjoo
+
+Fidjoo helps children build stories by making simple choices — hero, world, challenge, and ending. Every choice transforms the story, helping kids understand cause and effect while developing creativity, decision-making, and storytelling skills.
+
+### Key Features
+- **Build-Your-Own Stories**: Children shape their narrative through guided choices
+- **Family Co-Creation**: Designed for parents and kids to create together
+- **Safe & Kid-Friendly**: 100% ad-free, private, and age-appropriate content
+- **Offline Support**: Created stories can be enjoyed offline anytime
+- **Story Prompts**: Simple suggestions help children who don't know how to begin
+- **Listen & Share**: Children can listen to completed stories or share with family
+
+### Target Audience
+- Children aged 5-12
+- Parents seeking meaningful screen time alternatives
+- Families who want to create together
+
+## Pricing
+
+Fidjoo offers flexible pricing options:
+
+### Subscriptions
+- **Family Starter**: $9.99/month - 12 credits (~4 stories)
+- **Premium Creator**: $24.99/month - 22 credits (~7 stories)
+
+### Credit Packs (One-Time Purchase)
+- **Mini Pack**: $8.99 - 10 credits (~3 stories)
+- **Standard Pack**: $16.99 - 20 credits (~6 stories)
+- **Large Pack**: $34.99 - 35 credits (~11 stories)
+
+## Product
+
+- [Homepage](https://fidjoo.app/): Main landing page with features overview
+- [Pricing](https://fidjoo.app/#pricing): Subscription plans and credit packs
+- [FAQ](https://fidjoo.app/#faq): Frequently asked questions
+
+## FAQ
+
+**Is Fidjoo safe for children?**
+Fidjoo is 100% ad-free and built as a closed, kid-friendly environment. All creations stay private and fully supervised by parents.
+
+**What ages is Fidjoo designed for?**
+Fidjoo is ideal for children aged 5 to 12, with stories and experiences adapted to different reading and developmental levels.
+
+**Does Fidjoo work offline?**
+Yes. Once a story is created, it can be enjoyed offline anytime. A connection is only needed for creating or customizing new stories.
+
+**How much does Fidjoo cost?**
+You can start for free with one story. Then, flexible subscriptions and credit packs allow families to choose the option that fits them best.
+
+## Optional
+
+- [Privacy Policy](https://fidjoo.app/privacy): How we protect your data
+- [Terms of Service](https://fidjoo.app/terms): Terms and conditions
+- [Contact](https://fidjoo.app/contact): Get in touch with our team

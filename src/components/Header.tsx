@@ -10,6 +10,7 @@ import Container from './Container';
 import Link3D from './ui/Link3D';
 import { siteDetails } from '@/data/siteDetails';
 import { menuItems } from '@/data/menuItems';
+import { blogPosts } from '@/data/blog';
 
 const Header: React.FC = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -52,6 +53,43 @@ const Header: React.FC = () => {
                                 </Link>
                             </li>
                         ))}
+                        {/* Blog with dropdown */}
+                        <li className="relative group">
+                            <Link href="/blog" className="text-foreground hover:text-foreground-accent transition-colors">
+                                Blog
+                            </Link>
+                            {/* Dropdown */}
+                            <div className="absolute left-1/2 -translate-x-1/2 pt-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+                                <div className="bg-white rounded-2xl shadow-xl border border-gray-100 p-4 w-80">
+                                    <p className="text-xs text-gray-500 uppercase tracking-wide mb-3">Derniers articles</p>
+                                    <ul className="space-y-3">
+                                        {blogPosts.slice(0, 3).map(post => (
+                                            <li key={post.slug}>
+                                                <Link
+                                                    href={`/blog/${post.slug}`}
+                                                    className="block hover:bg-gray-50 rounded-lg p-2 -m-2 transition-colors"
+                                                >
+                                                    <p className="text-sm font-medium text-foreground line-clamp-1">{post.title}</p>
+                                                    <p className="text-xs text-gray-500 mt-1">{post.readTime}</p>
+                                                </Link>
+                                            </li>
+                                        ))}
+                                    </ul>
+                                    <Link
+                                        href="/blog"
+                                        className="block text-center text-sm text-primary hover:text-primary-dark font-medium mt-4 pt-3 border-t border-gray-100"
+                                    >
+                                        Voir tous les articles →
+                                    </Link>
+                                </div>
+                            </div>
+                        </li>
+                        {/* Contact */}
+                        <li>
+                            <Link href="/contact" className="text-foreground hover:text-foreground-accent transition-colors">
+                                Contact
+                            </Link>
+                        </li>
                         <li>
                             <Link3D href="#cta" variant="primary" size="sm" shadowHeight={4}>
                                 Download
@@ -109,6 +147,16 @@ const Header: React.FC = () => {
                                 </Link>
                             </li>
                         ))}
+                        <li>
+                            <Link href="/blog" className="text-foreground hover:text-primary block" onClick={toggleMenu}>
+                                Blog
+                            </Link>
+                        </li>
+                        <li>
+                            <Link href="/contact" className="text-foreground hover:text-primary block" onClick={toggleMenu}>
+                                Contact
+                            </Link>
+                        </li>
                         <li>
                             <Link3D href="#cta" variant="primary" size="sm" shadowHeight={4} onClick={toggleMenu}>
                                 Get Started
