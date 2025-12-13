@@ -41,13 +41,5 @@ export const creditPacks: IPricing[] = [
         credits: 20,
         stories: 6,
         description: 'Le plus populaire',
-    },
-    {
-        name: 'Large Pack',
-        price: 34.99,
-        type: 'one-time',
-        credits: 35,
-        stories: 11,
-        description: 'Meilleur rapport qualité-prix',
-    },
+    }
 ];
