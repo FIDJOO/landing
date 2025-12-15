@@ -3,17 +3,15 @@
 import React, { useState } from 'react'
 import clsx from 'clsx'
 
-import { useWaitlistDialog } from './WaitlistDialog'
-
 const AppStoreButton = ({ dark }: { dark?: boolean }) => {
     const [isPressed, setIsPressed] = useState(false);
-    const { openDialog } = useWaitlistDialog();
     const shadowHeight = 6;
 
     return (
-        <button
-            onClick={openDialog}
-            type="button"
+        <a
+            href="https://apps.apple.com/fr/app/fidjoo/id6753658765"
+            target="_blank"
+            rel="noopener noreferrer"
             onMouseDown={() => setIsPressed(true)}
             onMouseUp={() => setIsPressed(false)}
             onMouseLeave={() => setIsPressed(false)}
@@ -46,7 +44,7 @@ const AppStoreButton = ({ dark }: { dark?: boolean }) => {
                     App Store
                 </div>
             </div>
-        </button>
+        </a>
     )
 }
 
