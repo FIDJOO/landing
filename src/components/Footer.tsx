@@ -1,12 +1,27 @@
+'use client';
+
 import Link from 'next/link';
 import React from 'react';
 import Image from 'next/image';
+import { useTranslations } from 'next-intl';
 
 import { siteDetails } from '@/data/siteDetails';
 import { footerDetails } from '@/data/footer';
 import { getPlatformIconByName } from '@/utils';
 
 const Footer: React.FC = () => {
+    const t = useTranslations('footer');
+
+    const quickLinks = [
+        { key: 'features', url: '#features' },
+        { key: 'pricing', url: '#pricing' },
+        { key: 'testimonials', url: '#testimonials' },
+        { key: 'confidentiality', url: '/confidentiality' },
+        { key: 'privacy', url: '/privacy' },
+        { key: 'terms', url: '/terms' },
+        { key: 'delete', url: '/delete' },
+    ];
+
     return (
         <footer className="bg-hero-background text-foreground py-10">
             <div className="max-w-7xl w-full mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-10">
@@ -18,25 +33,25 @@ const Footer: React.FC = () => {
                         </h3>
                     </Link>
                     <p className="mt-3.5 text-foreground-accent">
-                        {footerDetails.subheading}
+                        {t('subheading')}
                     </p>
                 </div>
                 <div>
-                    <h4 className="text-lg font-semibold mb-4">Quick Links</h4>
+                    <h4 className="text-lg font-semibold mb-4">{t('quickLinks')}</h4>
                     <ul className="text-foreground-accent">
-                        {footerDetails.quickLinks.map(link => (
-                            <li key={link.text} className="mb-2">
-                                <Link href={link.url} className="hover:text-foreground">{link.text}</Link>
+                        {quickLinks.map(link => (
+                            <li key={link.key} className="mb-2">
+                                <Link href={link.url} className="hover:text-foreground">{t(`links.${link.key}`)}</Link>
                             </li>
                         ))}
                     </ul>
                 </div>
                 <div>
-                    <h4 className="text-lg font-semibold mb-4">Contact Us</h4>
+                    <h4 className="text-lg font-semibold mb-4">{t('contactUs')}</h4>
 
-                    {footerDetails.email && <a href={`mailto:${footerDetails.email}`}  className="block text-foreground-accent hover:text-foreground">Email: {footerDetails.email}</a>}
+                    {footerDetails.email && <a href={`mailto:${footerDetails.email}`}  className="block text-foreground-accent hover:text-foreground">{t('email')}: {footerDetails.email}</a>}
 
-                    {footerDetails.telephone && <a href={`tel:${footerDetails.telephone}`} className="block text-foreground-accent hover:text-foreground">Phone: {footerDetails.telephone}</a>}
+                    {footerDetails.telephone && <a href={`tel:${footerDetails.telephone}`} className="block text-foreground-accent hover:text-foreground">{t('phone')}: {footerDetails.telephone}</a>}
 
                     {footerDetails.socials && (
                         <div className="mt-5 flex items-center gap-5 flex-wrap">
@@ -57,7 +72,7 @@ const Footer: React.FC = () => {
                     )}
                 </div>
             </div>
-            
+
         </footer>
     );
 };

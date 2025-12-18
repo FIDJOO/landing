@@ -2,9 +2,11 @@
 
 import React, { useState } from 'react'
 import clsx from 'clsx'
+import { useTranslations } from 'next-intl';
 import { siteDetails } from '@/data/siteDetails';
 
 const AppStoreButton = ({ dark }: { dark?: boolean }) => {
+    const t = useTranslations('storeButtons.appStore');
     const [isPressed, setIsPressed] = useState(false);
     const shadowHeight = 6;
 
@@ -39,10 +41,10 @@ const AppStoreButton = ({ dark }: { dark?: boolean }) => {
             </div>
             <div>
                 <div className="text-xs">
-                    Download on the
+                    {t('label')}
                 </div>
                 <div className="-mt-1 font-sans text-xl font-semibold">
-                    App Store
+                    {t('store')}
                 </div>
             </div>
         </a>

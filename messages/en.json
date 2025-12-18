@@ -1,0 +1,194 @@
+{
+  "metadata": {
+    "title": "Fidjoo - Meaningful Screen Time Through Creative Storymaking",
+    "description": "Fidjoo transforms screen time into creativity by letting children build their own animated storybooks while developing imagination and soft skills."
+  },
+  "header": {
+    "features": "Features",
+    "pricing": "Pricing",
+    "blog": "Blog",
+    "contact": "Contact",
+    "download": "Download",
+    "getStarted": "Get Started",
+    "latestArticles": "Latest articles",
+    "viewAllArticles": "View all articles"
+  },
+  "hero": {
+    "heading": "Turn Screen Time Into Creative Storytime",
+    "subheading": "Fidjoo helps children build their own animated storybooks through meaningful, engaging, and positive screen time."
+  },
+  "benefits": {
+    "section1": {
+      "title": "Meaningful Screen Time",
+      "description": "Turn passive screen time into a creative experience. With Fidjoo, children build their own animated storybooks step by step.",
+      "bullet1": {
+        "title": "Build-Your-Own Stories",
+        "description": "Kids shape their story through simple choices - hero, world, challenge, ending."
+      },
+      "bullet2": {
+        "title": "Creativity First",
+        "description": "Fidjoo encourages imagination, decision-making, and storytelling skills."
+      },
+      "bullet3": {
+        "title": "See Their Ideas Come Alive",
+        "description": "Every choice transforms the story, helping children understand cause and effect."
+      }
+    },
+    "section2": {
+      "title": "A Shared Family Moment",
+      "description": "Fidjoo creates a safe and fun space where parents and kids imagine, build, and enjoy stories together.",
+      "bullet1": {
+        "title": "Co-Creation",
+        "description": "Designed to strengthen the bond between children and parents through shared play."
+      },
+      "bullet2": {
+        "title": "Helpful Story Prompts",
+        "description": "Simple suggestions guide children when they don't know how to begin."
+      },
+      "bullet3": {
+        "title": "Listen & Share",
+        "description": "Children can listen to their completed story or share it with their family."
+      }
+    },
+    "section3": {
+      "title": "Safe & Kid-Friendly",
+      "description": "Fidjoo replaces endless scrolling with safe, purposeful, and positive screen time - no ads, no distractions.",
+      "bullet1": {
+        "title": "Protected Space",
+        "description": "All creations stay private and under parental supervision."
+      },
+      "bullet2": {
+        "title": "Parent Controls",
+        "description": "Easily manage profiles, permissions, and visibility settings."
+      },
+      "bullet3": {
+        "title": "Designed for Kids",
+        "description": "Every story stays positive, age-appropriate, and aligned with healthy digital habits."
+      }
+    }
+  },
+  "pricing": {
+    "title": "Pricing",
+    "description": "Simple, transparent pricing. No surprises.",
+    "intro": "Fidjoo uses a credit system. <strong>1 animated story = 3 credits</strong>. Choose the option that suits you best.",
+    "subscription": "Subscription",
+    "subscriptionSubtitle": "For regular creators",
+    "creditPacks": "Credit Packs",
+    "creditPacksSubtitle": "One-time purchase, no commitment",
+    "or": "or",
+    "perMonth": "/month",
+    "credits": "credits",
+    "stories": "stories",
+    "perMonthLabel": "per month",
+    "included": "included",
+    "storyCredits": "1 story = 3 credits",
+    "subscribe": "Subscribe",
+    "buy": "Buy",
+    "recommended": "Recommended",
+    "popular": "Popular",
+    "plans": {
+      "familyStarter": {
+        "name": "Family Starter",
+        "description": "Perfect for families who want to create regularly"
+      },
+      "premiumCreator": {
+        "name": "Premium Creator",
+        "description": "For passionate creators"
+      },
+      "miniPack": {
+        "name": "Mini Pack",
+        "description": "Ideal for discovering Fidjoo"
+      },
+      "standardPack": {
+        "name": "Standard Pack",
+        "description": "The most popular"
+      }
+    }
+  },
+  "faq": {
+    "title": "Frequently Asked Questions",
+    "subtitle": "FAQ'S",
+    "askUs": "Ask us anything!",
+    "questions": {
+      "safe": {
+        "question": "Is Fidjoo safe for children?",
+        "answer": "Fidjoo is 100% ad-free and built as a closed, kid-friendly environment. All creations stay private and fully supervised by parents."
+      },
+      "what": {
+        "question": "What is Fidjoo?",
+        "answer": "Fidjoo is a creative app where children turn simple choices into their own animated storybooks, replacing passive screen time with meaningful, imaginative play."
+      },
+      "ages": {
+        "question": "What ages is Fidjoo designed for?",
+        "answer": "Fidjoo is ideal for children aged 5 to 12, with stories and experiences adapted to different reading and developmental levels."
+      },
+      "offline": {
+        "question": "Does Fidjoo work offline?",
+        "answer": "Yes. Once a story is created, it can be enjoyed offline anytime. A connection is only needed for creating or customizing new stories."
+      },
+      "cost": {
+        "question": "How much does Fidjoo cost?",
+        "answer": "You can start for free with one story. Then, flexible subscriptions and credit packs allow families to choose the option that fits them best."
+      }
+    }
+  },
+  "stats": {
+    "stories": {
+      "title": "500K+",
+      "description": "Stories created and enjoyed by families turning screen time into creativity."
+    },
+    "rating": {
+      "title": "5.0",
+      "description": "Average rating from parents who value meaningful and positive screen time."
+    },
+    "countries": {
+      "title": "30+",
+      "description": "Countries where families use Fidjoo to build stories and share magical moments."
+    }
+  },
+  "cta": {
+    "heading": "Join Families Turning Screen Time Into Creativity",
+    "subheading": "Give your child meaningful screen time. Download Fidjoo and start creating magical story moments together."
+  },
+  "blog": {
+    "title": "Blog",
+    "description": "Tips and insights for creative parenting."
+  },
+  "footer": {
+    "subheading": "Fidjoo helps children build their own animated storybooks through meaningful, engaging, and positive screen time.",
+    "quickLinks": "Quick Links",
+    "contactUs": "Contact Us",
+    "email": "Email",
+    "phone": "Phone",
+    "links": {
+      "features": "Features",
+      "pricing": "Pricing",
+      "testimonials": "Testimonials",
+      "confidentiality": "Confidentiality",
+      "privacy": "Privacy Policy",
+      "terms": "Terms of Service",
+      "delete": "Delete Account"
+    }
+  },
+  "storeDialog": {
+    "title": "Which device are you using?",
+    "subtitle": "Choose your store to continue",
+    "downloadOn": "Download on",
+    "availableOn": "Available on",
+    "cancel": "Cancel"
+  },
+  "storeButtons": {
+    "appStore": {
+      "label": "Download on the",
+      "store": "App Store"
+    },
+    "playStore": {
+      "label": "GET IT ON",
+      "store": "Google Play"
+    }
+  },
+  "common": {
+    "learnMore": "Learn more",
+    "readMore": "Read more"
+  }
+}

@@ -1,26 +1,28 @@
+'use client';
+
+import { useTranslations } from 'next-intl';
 import PricingColumn from "./PricingColumn";
 
 import { subscriptions, creditPacks } from "@/data/pricing";
 
 const Pricing: React.FC = () => {
+    const t = useTranslations('pricing');
+
     return (
         <div className="space-y-16">
             {/* Introduction */}
             <div className="text-center max-w-2xl mx-auto">
-                <p className="text-gray-600">
-                    Fidjoo utilise un système de crédits. <span className="font-semibold">1 histoire animée = 3 crédits</span>.
-                    Choisissez l&apos;option qui vous convient le mieux.
-                </p>
+                <p className="text-gray-600" dangerouslySetInnerHTML={{ __html: t.raw('intro') }} />
             </div>
 
             {/* Subscription Section */}
             <div>
                 <div className="text-center mb-8">
                     <span className="inline-block bg-secondary/10 text-secondary px-4 py-1 rounded-full text-sm font-semibold mb-3">
-                        Abonnement
+                        {t('subscription')}
                     </span>
                     <h3 className="text-2xl font-bold text-gray-900">
-                        Pour les créateurs réguliers
+                        {t('subscriptionSubtitle')}
                     </h3>
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-2xl mx-auto">
@@ -33,7 +35,7 @@ const Pricing: React.FC = () => {
             {/* Divider */}
             <div className="flex items-center gap-4">
                 <div className="flex-1 h-px bg-gray-200"></div>
-                <span className="text-gray-400 font-medium">ou</span>
+                <span className="text-gray-400 font-medium">{t('or')}</span>
                 <div className="flex-1 h-px bg-gray-200"></div>
             </div>
 
@@ -41,10 +43,10 @@ const Pricing: React.FC = () => {
             <div>
                 <div className="text-center mb-8">
                     <span className="inline-block bg-primary/10 text-primary px-4 py-1 rounded-full text-sm font-semibold mb-3">
-                        Packs de crédits
+                        {t('creditPacks')}
                     </span>
                     <h3 className="text-2xl font-bold text-gray-900">
-                        Achat unique, sans engagement
+                        {t('creditPacksSubtitle')}
                     </h3>
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">

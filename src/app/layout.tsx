@@ -4,9 +4,9 @@ import { Baloo_2 } from "next/font/google";
 
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import IntlProvider from "@/components/IntlProvider";
 import { siteDetails } from '@/data/siteDetails';
 import { Analytics } from "@vercel/analytics/next"
-
 
 import "./globals.css";
 
@@ -73,11 +73,13 @@ export default function RootLayout({
         className={`${baloo2.className} antialiased`}
       >
         {siteDetails.googleAnalyticsId && <GoogleAnalytics gaId={siteDetails.googleAnalyticsId} />}
-        <Header />
-        <main>
-          {children}
-        </main>
-        <Footer />
+        <IntlProvider>
+          <Header />
+          <main>
+            {children}
+          </main>
+          <Footer />
+        </IntlProvider>
       </body>
     </html>
   );

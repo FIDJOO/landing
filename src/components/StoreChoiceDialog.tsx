@@ -3,6 +3,7 @@
 import { useEffect, useRef } from 'react';
 import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useTranslations } from 'next-intl';
 import { siteDetails } from '@/data/siteDetails';
 
 interface StoreChoiceDialogProps {
@@ -11,6 +12,7 @@ interface StoreChoiceDialogProps {
 }
 
 const StoreChoiceDialog: React.FC<StoreChoiceDialogProps> = ({ isOpen, onClose }) => {
+    const t = useTranslations('storeDialog');
     const dialogRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
@@ -71,10 +73,10 @@ const StoreChoiceDialog: React.FC<StoreChoiceDialogProps> = ({ isOpen, onClose }
                                 />
                             </div>
                             <h2 className="text-xl font-bold text-gray-900 mb-2">
-                                Quel appareil utilisez-vous ?
+                                {t('title')}
                             </h2>
                             <p className="text-sm text-gray-500">
-                                Choisissez votre store pour continuer
+                                {t('subtitle')}
                             </p>
                         </div>
 
@@ -89,7 +91,7 @@ const StoreChoiceDialog: React.FC<StoreChoiceDialogProps> = ({ isOpen, onClose }
                                     </svg>
                                 </div>
                                 <div className="text-left">
-                                    <p className="text-xs text-gray-500">Télécharger sur</p>
+                                    <p className="text-xs text-gray-500">{t('downloadOn')}</p>
                                     <p className="font-bold text-gray-900 group-hover:text-primary transition-colors">App Store</p>
                                 </div>
                                 <svg className="w-5 h-5 text-gray-400 ml-auto group-hover:text-primary transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -110,7 +112,7 @@ const StoreChoiceDialog: React.FC<StoreChoiceDialogProps> = ({ isOpen, onClose }
                                     </svg>
                                 </div>
                                 <div className="text-left">
-                                    <p className="text-xs text-gray-500">Disponible sur</p>
+                                    <p className="text-xs text-gray-500">{t('availableOn')}</p>
                                     <p className="font-bold text-gray-900 group-hover:text-secondary transition-colors">Google Play</p>
                                 </div>
                                 <svg className="w-5 h-5 text-gray-400 ml-auto group-hover:text-secondary transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -123,7 +125,7 @@ const StoreChoiceDialog: React.FC<StoreChoiceDialogProps> = ({ isOpen, onClose }
                             onClick={onClose}
                             className="w-full mt-4 py-3 text-gray-500 hover:text-gray-700 text-sm font-medium transition-colors"
                         >
-                            Annuler
+                            {t('cancel')}
                         </button>
                     </motion.div>
                 </motion.div>

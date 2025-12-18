@@ -1,0 +1,194 @@
+{
+  "metadata": {
+    "title": "Fidjoo - Du temps d'écran utile grâce à la création d'histoires",
+    "description": "Fidjoo transforme le temps d'écran en créativité en permettant aux enfants de créer leurs propres livres animés tout en développant leur imagination."
+  },
+  "header": {
+    "features": "Fonctionnalités",
+    "pricing": "Tarifs",
+    "blog": "Blog",
+    "contact": "Contact",
+    "download": "Télécharger",
+    "getStarted": "Commencer",
+    "latestArticles": "Derniers articles",
+    "viewAllArticles": "Voir tous les articles"
+  },
+  "hero": {
+    "heading": "Transformez le temps d'écran en moments créatifs",
+    "subheading": "Fidjoo aide les enfants à créer leurs propres livres animés à travers un temps d'écran positif, engageant et enrichissant."
+  },
+  "benefits": {
+    "section1": {
+      "title": "Un temps d'écran utile",
+      "description": "Transformez le temps d'écran passif en expérience créative. Avec Fidjoo, les enfants créent leurs propres livres animés étape par étape.",
+      "bullet1": {
+        "title": "Créez vos propres histoires",
+        "description": "Les enfants façonnent leur histoire par des choix simples - héros, monde, défi, fin."
+      },
+      "bullet2": {
+        "title": "La créativité avant tout",
+        "description": "Fidjoo encourage l'imagination, la prise de décision et les compétences narratives."
+      },
+      "bullet3": {
+        "title": "Voir leurs idées prendre vie",
+        "description": "Chaque choix transforme l'histoire, aidant les enfants à comprendre la cause et l'effet."
+      }
+    },
+    "section2": {
+      "title": "Un moment familial partagé",
+      "description": "Fidjoo crée un espace sûr et amusant où parents et enfants imaginent, construisent et apprécient des histoires ensemble.",
+      "bullet1": {
+        "title": "Co-création",
+        "description": "Conçu pour renforcer le lien entre enfants et parents à travers le jeu partagé."
+      },
+      "bullet2": {
+        "title": "Suggestions d'histoires",
+        "description": "Des suggestions simples guident les enfants quand ils ne savent pas par où commencer."
+      },
+      "bullet3": {
+        "title": "Écouter & Partager",
+        "description": "Les enfants peuvent écouter leur histoire terminée ou la partager avec leur famille."
+      }
+    },
+    "section3": {
+      "title": "Sûr et adapté aux enfants",
+      "description": "Fidjoo remplace le défilement sans fin par un temps d'écran sûr, utile et positif - sans publicité, sans distraction.",
+      "bullet1": {
+        "title": "Espace protégé",
+        "description": "Toutes les créations restent privées et sous supervision parentale."
+      },
+      "bullet2": {
+        "title": "Contrôle parental",
+        "description": "Gérez facilement les profils, les autorisations et les paramètres de visibilité."
+      },
+      "bullet3": {
+        "title": "Conçu pour les enfants",
+        "description": "Chaque histoire reste positive, adaptée à l'âge et alignée sur de saines habitudes numériques."
+      }
+    }
+  },
+  "pricing": {
+    "title": "Tarifs",
+    "description": "Des tarifs simples et transparents. Sans surprises.",
+    "intro": "Fidjoo utilise un système de crédits. <strong>1 histoire animée = 3 crédits</strong>. Choisissez l'option qui vous convient le mieux.",
+    "subscription": "Abonnement",
+    "subscriptionSubtitle": "Pour les créateurs réguliers",
+    "creditPacks": "Packs de crédits",
+    "creditPacksSubtitle": "Achat unique, sans engagement",
+    "or": "ou",
+    "perMonth": "/mois",
+    "credits": "crédits",
+    "stories": "histoires",
+    "perMonthLabel": "par mois",
+    "included": "inclus",
+    "storyCredits": "1 histoire = 3 crédits",
+    "subscribe": "S'abonner",
+    "buy": "Acheter",
+    "recommended": "Recommandé",
+    "popular": "Populaire",
+    "plans": {
+      "familyStarter": {
+        "name": "Family Starter",
+        "description": "Parfait pour les familles qui veulent créer régulièrement"
+      },
+      "premiumCreator": {
+        "name": "Premium Creator",
+        "description": "Pour les créateurs passionnés"
+      },
+      "miniPack": {
+        "name": "Mini Pack",
+        "description": "Idéal pour découvrir Fidjoo"
+      },
+      "standardPack": {
+        "name": "Standard Pack",
+        "description": "Le plus populaire"
+      }
+    }
+  },
+  "faq": {
+    "title": "Questions Fréquentes",
+    "subtitle": "FAQ",
+    "askUs": "Posez-nous vos questions !",
+    "questions": {
+      "safe": {
+        "question": "Fidjoo est-il sûr pour les enfants ?",
+        "answer": "Fidjoo est 100% sans publicité et conçu comme un environnement fermé et adapté aux enfants. Toutes les créations restent privées et entièrement supervisées par les parents."
+      },
+      "what": {
+        "question": "Qu'est-ce que Fidjoo ?",
+        "answer": "Fidjoo est une application créative où les enfants transforment des choix simples en leurs propres livres animés, remplaçant le temps d'écran passif par un jeu imaginatif et enrichissant."
+      },
+      "ages": {
+        "question": "Pour quels âges Fidjoo est-il conçu ?",
+        "answer": "Fidjoo est idéal pour les enfants de 5 à 12 ans, avec des histoires et des expériences adaptées aux différents niveaux de lecture et de développement."
+      },
+      "offline": {
+        "question": "Fidjoo fonctionne-t-il hors ligne ?",
+        "answer": "Oui. Une fois une histoire créée, elle peut être appréciée hors ligne à tout moment. Une connexion n'est nécessaire que pour créer ou personnaliser de nouvelles histoires."
+      },
+      "cost": {
+        "question": "Combien coûte Fidjoo ?",
+        "answer": "Vous pouvez commencer gratuitement avec une histoire. Ensuite, des abonnements flexibles et des packs de crédits permettent aux familles de choisir l'option qui leur convient le mieux."
+      }
+    }
+  },
+  "stats": {
+    "stories": {
+      "title": "500K+",
+      "description": "Histoires créées et appréciées par des familles qui transforment le temps d'écran en créativité."
+    },
+    "rating": {
+      "title": "5.0",
+      "description": "Note moyenne des parents qui valorisent un temps d'écran positif et enrichissant."
+    },
+    "countries": {
+      "title": "30+",
+      "description": "Pays où les familles utilisent Fidjoo pour créer des histoires et partager des moments magiques."
+    }
+  },
+  "cta": {
+    "heading": "Rejoignez les familles qui transforment le temps d'écran en créativité",
+    "subheading": "Offrez à votre enfant un temps d'écran enrichissant. Téléchargez Fidjoo et commencez à créer des moments magiques ensemble."
+  },
+  "blog": {
+    "title": "Blog",
+    "description": "Conseils et astuces pour une parentalité créative."
+  },
+  "footer": {
+    "subheading": "Fidjoo aide les enfants à créer leurs propres livres animés à travers un temps d'écran positif, engageant et enrichissant.",
+    "quickLinks": "Liens rapides",
+    "contactUs": "Nous contacter",
+    "email": "Email",
+    "phone": "Téléphone",
+    "links": {
+      "features": "Fonctionnalités",
+      "pricing": "Tarifs",
+      "testimonials": "Témoignages",
+      "confidentiality": "Confidentialité",
+      "privacy": "Politique de confidentialité",
+      "terms": "Conditions d'utilisation",
+      "delete": "Supprimer le compte"
+    }
+  },
+  "storeDialog": {
+    "title": "Quel appareil utilisez-vous ?",
+    "subtitle": "Choisissez votre store pour continuer",
+    "downloadOn": "Télécharger sur",
+    "availableOn": "Disponible sur",
+    "cancel": "Annuler"
+  },
+  "storeButtons": {
+    "appStore": {
+      "label": "Télécharger sur",
+      "store": "App Store"
+    },
+    "playStore": {
+      "label": "TÉLÉCHARGER SUR",
+      "store": "Google Play"
+    }
+  },
+  "common": {
+    "learnMore": "En savoir plus",
+    "readMore": "Lire la suite"
+  }
+}

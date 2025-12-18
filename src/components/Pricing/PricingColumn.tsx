@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { useTranslations } from 'next-intl';
 import clsx from "clsx";
 
 import { IPricing } from "@/types";
@@ -11,11 +12,24 @@ interface Props {
 }
 
 const PricingColumn: React.FC<Props> = ({ tier }: Props) => {
-    const { name, price, type, credits, stories, description, highlight } = tier;
+    const t = useTranslations('pricing');
+    const { name, price, type, credits, stories, highlight } = tier;
     const isSubscription = type === 'subscription';
     const [isButtonPressed, setIsButtonPressed] = useState(false);
     const [isDialogOpen, setIsDialogOpen] = useState(false);
     const shadowHeight = 6;
+
+    // Map plan names to translation keys
+    const planKeyMap: Record<string, string> = {
+        'Family Starter': 'familyStarter',
+        'Premium Creator': 'premiumCreator',
+        'Mini Pack': 'miniPack',
+        'Standard Pack': 'standardPack',
+    };
+
+    const planKey = planKeyMap[name] || 'familyStarter';
+    const translatedName = t(`plans.${planKey}.name`);
+    const translatedDescription = t(`plans.${planKey}.description`);
 
     return (
         <div className={clsx(
@@ -24,18 +38,16 @@ const PricingColumn: React.FC<Props> = ({ tier }: Props) => {
         )}>
             {highlight && (
                 <div className="bg-secondary text-white text-center py-2 rounded-t-xl text-sm font-semibold">
-                    {isSubscription ? "Recommandé" : "Populaire"}
+                    {isSubscription ? t('recommended') : t('popular')}
                 </div>
             )}
             <div className={clsx("p-6", !highlight && "pt-8")}>
-                <h3 className="text-xl font-bold text-gray-900 mb-2">{name}</h3>
-                {description && (
-                    <p className="text-sm text-gray-500 mb-4">{description}</p>
-                )}
+                <h3 className="text-xl font-bold text-gray-900 mb-2">{translatedName}</h3>
+                <p className="text-sm text-gray-500 mb-4">{translatedDescription}</p>
 
                 <div className="mb-6">
                     <span className="text-4xl font-bold text-gray-900">€{price.toFixed(2).replace('.', ',')}</span>
-                    {isSubscription && <span className="text-gray-500 ml-1">/mois</span>}
+                    {isSubscription && <span className="text-gray-500 ml-1">{t('perMonth')}</span>}
                 </div>
 
                 <div className="space-y-3 mb-6">
@@ -46,8 +58,8 @@ const PricingColumn: React.FC<Props> = ({ tier }: Props) => {
                             </svg>
                         </div>
                         <div>
-                            <p className="font-semibold text-gray-900">{credits} crédits</p>
-                            <p className="text-sm text-gray-500">{isSubscription ? "par mois" : "inclus"}</p>
+                            <p className="font-semibold text-gray-900">{credits} {t('credits')}</p>
+                            <p className="text-sm text-gray-500">{isSubscription ? t('perMonthLabel') : t('included')}</p>
                         </div>
                     </div>
                     <div className="flex items-center gap-3">
@@ -57,8 +69,8 @@ const PricingColumn: React.FC<Props> = ({ tier }: Props) => {
                             </svg>
                         </div>
                         <div>
-                            <p className="font-semibold text-gray-900">{stories} histoires</p>
-                            <p className="text-sm text-gray-500">1 histoire = 3 crédits</p>
+                            <p className="font-semibold text-gray-900">{stories} {t('stories')}</p>
+                            <p className="text-sm text-gray-500">{t('storyCredits')}</p>
                         </div>
                     </div>
                 </div>
@@ -83,7 +95,7 @@ const PricingColumn: React.FC<Props> = ({ tier }: Props) => {
                         transform: isButtonPressed ? `translateY(${shadowHeight}px)` : 'translateY(0)',
                     }}
                 >
-                    {isSubscription ? "S'abonner" : "Acheter"}
+                    {isSubscription ? t('subscribe') : t('buy')}
                 </button>
 
                 <StoreChoiceDialog

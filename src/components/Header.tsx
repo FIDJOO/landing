@@ -5,14 +5,16 @@ import React, { useState, useEffect } from 'react';
 import { Transition } from '@headlessui/react';
 import { HiOutlineXMark, HiBars3 } from 'react-icons/hi2';
 import Image from 'next/image';
+import { useTranslations } from 'next-intl';
 
 import Container from './Container';
 import Link3D from './ui/Link3D';
+import LanguageSwitcher from './LanguageSwitcher';
 import { siteDetails } from '@/data/siteDetails';
-import { menuItems } from '@/data/menuItems';
 import { blogPosts } from '@/data/blog';
 
 const Header: React.FC = () => {
+    const t = useTranslations('header');
     const [isOpen, setIsOpen] = useState(false);
     const [isScrolled, setIsScrolled] = useState(false);
     const [isMenuButtonPressed, setIsMenuButtonPressed] = useState(false);
@@ -30,6 +32,11 @@ const Header: React.FC = () => {
         setIsOpen(!isOpen);
     };
 
+    const menuItems = [
+        { text: t('features'), url: '/#features' },
+        { text: t('pricing'), url: '/#pricing' },
+    ];
+
     return (
         <header className={`fixed top-0 left-0 right-0 z-50 mx-auto w-full transition-all duration-300 ${
             isScrolled ? 'bg-white/80 backdrop-blur-md shadow-md' : 'bg-transparent'
@@ -41,7 +48,7 @@ const Header: React.FC = () => {
                     {/* Logo */}
                     <Link href="/" className="flex items-center gap-2">
                         <Image src={siteDetails.textLogo} alt={siteDetails.siteName} width={120} height={50} />
-                        
+
                     </Link>
 
                     {/* Desktop Menu */}
@@ -56,12 +63,12 @@ const Header: React.FC = () => {
                         {/* Blog with dropdown */}
                         <li className="relative group">
                             <Link href="/blog" className="text-foreground hover:text-foreground-accent transition-colors">
-                                Blog
+                                {t('blog')}
                             </Link>
                             {/* Dropdown */}
                             <div className="absolute left-1/2 -translate-x-1/2 pt-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
                                 <div className="bg-white rounded-2xl shadow-xl border border-gray-100 p-4 w-80">
-                                    <p className="text-xs text-gray-500 uppercase tracking-wide mb-3">Derniers articles</p>
+                                    <p className="text-xs text-gray-500 uppercase tracking-wide mb-3">{t('latestArticles')}</p>
                                     <ul className="space-y-3">
                                         {blogPosts.slice(0, 3).map(post => (
                                             <li key={post.slug}>
@@ -79,7 +86,7 @@ const Header: React.FC = () => {
                                         href="/blog"
                                         className="block text-center text-sm text-primary hover:text-primary-dark font-medium mt-4 pt-3 border-t border-gray-100"
                                     >
-                                        Voir tous les articles →
+                                        {t('viewAllArticles')} →
                                     </Link>
                                 </div>
                             </div>
@@ -87,12 +94,15 @@ const Header: React.FC = () => {
                         {/* Contact */}
                         <li>
                             <Link href="/contact" className="text-foreground hover:text-foreground-accent transition-colors">
-                                Contact
+                                {t('contact')}
                             </Link>
                         </li>
                         <li>
+                            <LanguageSwitcher />
+                        </li>
+                        <li>
                             <Link3D href="#cta" variant="primary" size="sm" shadowHeight={4}>
-                                Download
+                                {t('download')}
                             </Link3D>
                         </li>
                     </ul>
@@ -149,17 +159,20 @@ const Header: React.FC = () => {
                         ))}
                         <li>
                             <Link href="/blog" className="text-foreground hover:text-primary block" onClick={toggleMenu}>
-                                Blog
+                                {t('blog')}
                             </Link>
                         </li>
                         <li>
                             <Link href="/contact" className="text-foreground hover:text-primary block" onClick={toggleMenu}>
-                                Contact
+                                {t('contact')}
                             </Link>
                         </li>
                         <li>
+                            <LanguageSwitcher />
+                        </li>
+                        <li>
                             <Link3D href="#cta" variant="primary" size="sm" shadowHeight={4} onClick={toggleMenu}>
-                                Get Started
+                                {t('getStarted')}
                             </Link3D>
                         </li>
                     </ul>

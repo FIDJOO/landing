@@ -2,9 +2,11 @@
 
 import React, { useState } from 'react'
 import clsx from 'clsx'
+import { useTranslations } from 'next-intl';
 import { siteDetails } from '@/data/siteDetails';
 
 const PlayStoreButton = ({ dark }: { dark?: boolean }) => {
+    const t = useTranslations('storeButtons.playStore');
     const [isPressed, setIsPressed] = useState(false);
     const shadowHeight = 6;
 
@@ -45,10 +47,10 @@ const PlayStoreButton = ({ dark }: { dark?: boolean }) => {
             </div>
             <div>
                 <div className="text-xs">
-                    GET IT ON
+                    {t('label')}
                 </div>
                 <div className="-mt-1 font-sans text-xl font-semibold">
-                    Google Play
+                    {t('store')}
                 </div>
             </div>
         </a>
