@@ -10,4 +10,6 @@ export const siteDetails = {
     siteLogo: `${process.env.BASE_PATH || ''}/images/mascotte/blue/blue.png`,
     textLogo: `${process.env.BASE_PATH || ''}/images/logo/blue/blue.png`,
     googleAnalyticsId: 'GTM-W8RQQC8P',
+    appStoreUrl: 'https://apps.apple.com/fr/app/fidjoo/id6753658765',
+    googlePlayUrl: 'https://play.google.com/store/apps/details?id=com.fidjoo.app&hl=fr',
 }

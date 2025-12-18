@@ -2,18 +2,17 @@
 
 import React, { useState } from 'react'
 import clsx from 'clsx'
-
-import { useWaitlistDialog } from './WaitlistDialog'
+import { siteDetails } from '@/data/siteDetails';
 
 const PlayStoreButton = ({ dark }: { dark?: boolean }) => {
     const [isPressed, setIsPressed] = useState(false);
-    const { openDialog } = useWaitlistDialog();
     const shadowHeight = 6;
 
     return (
-        <button
-            onClick={openDialog}
-            type="button"
+        <a
+            href={siteDetails.googlePlayUrl}
+            target="_blank"
+            rel="noopener noreferrer"
             onMouseDown={() => setIsPressed(true)}
             onMouseUp={() => setIsPressed(false)}
             onMouseLeave={() => setIsPressed(false)}
@@ -52,7 +51,7 @@ const PlayStoreButton = ({ dark }: { dark?: boolean }) => {
                     Google Play
                 </div>
             </div>
-        </button>
+        </a>
     )
 }
 

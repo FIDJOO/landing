@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react'
 import clsx from 'clsx'
+import { siteDetails } from '@/data/siteDetails';
 
 const AppStoreButton = ({ dark }: { dark?: boolean }) => {
     const [isPressed, setIsPressed] = useState(false);
@@ -9,7 +10,7 @@ const AppStoreButton = ({ dark }: { dark?: boolean }) => {
 
     return (
         <a
-            href="https://apps.apple.com/fr/app/fidjoo/id6753658765"
+            href={siteDetails.appStoreUrl}
             target="_blank"
             rel="noopener noreferrer"
             onMouseDown={() => setIsPressed(true)}

@@ -4,7 +4,7 @@ import { useState } from 'react';
 import clsx from "clsx";
 
 import { IPricing } from "@/types";
-import { useWaitlistDialog } from "../WaitlistDialog";
+import StoreChoiceDialog from '@/components/StoreChoiceDialog';
 
 interface Props {
     tier: IPricing;
@@ -14,7 +14,7 @@ const PricingColumn: React.FC<Props> = ({ tier }: Props) => {
     const { name, price, type, credits, stories, description, highlight } = tier;
     const isSubscription = type === 'subscription';
     const [isButtonPressed, setIsButtonPressed] = useState(false);
-    const { openDialog } = useWaitlistDialog();
+    const [isDialogOpen, setIsDialogOpen] = useState(false);
     const shadowHeight = 6;
 
     return (
@@ -64,14 +64,14 @@ const PricingColumn: React.FC<Props> = ({ tier }: Props) => {
                 </div>
 
                 <button
-                    onClick={openDialog}
+                    onClick={() => setIsDialogOpen(true)}
                     onMouseDown={() => setIsButtonPressed(true)}
                     onMouseUp={() => setIsButtonPressed(false)}
                     onMouseLeave={() => setIsButtonPressed(false)}
                     onTouchStart={() => setIsButtonPressed(true)}
                     onTouchEnd={() => setIsButtonPressed(false)}
                     className={clsx(
-                        "w-full py-3 px-4 rounded-2xl font-semibold transition-transform duration-75 select-none border-2",
+                        "w-full py-3 px-4 rounded-2xl font-semibold transition-transform duration-75 select-none border-2 text-center block cursor-pointer",
                         highlight
                             ? "bg-secondary text-white border-secondary-dark"
                             : "bg-primary text-black border-primary-dark"
@@ -85,6 +85,11 @@ const PricingColumn: React.FC<Props> = ({ tier }: Props) => {
                 >
                     {isSubscription ? "S'abonner" : "Acheter"}
                 </button>
+
+                <StoreChoiceDialog
+                    isOpen={isDialogOpen}
+                    onClose={() => setIsDialogOpen(false)}
+                />
             </div>
         </div>
     )
