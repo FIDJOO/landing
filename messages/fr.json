@@ -164,10 +164,33 @@
       "features": "Fonctionnalités",
       "pricing": "Tarifs",
       "testimonials": "Témoignages",
-      "confidentiality": "Confidentialité",
-      "privacy": "Politique de confidentialité",
-      "terms": "Conditions d'utilisation",
-      "delete": "Supprimer le compte"
+      "legal": "Mentions légales"
+    }
+  },
+  "legal": {
+    "title": "Mentions Légales",
+    "subtitle": "Tous nos documents et politiques juridiques",
+    "pages": {
+      "terms": {
+        "title": "Conditions d'Utilisation",
+        "description": "Conditions générales d'utilisation des services Fidjoo"
+      },
+      "confidentiality": {
+        "title": "Confidentialité",
+        "description": "Comment nous traitons vos données de manière confidentielle"
+      },
+      "privacy": {
+        "title": "Politique de Confidentialité",
+        "description": "Détails sur la collecte et le traitement des données personnelles"
+      },
+      "voice": {
+        "title": "Conditions du Système de Voix",
+        "description": "Conditions d'utilisation du système de voix Fidjoo"
+      },
+      "delete": {
+        "title": "Supprimer le Compte",
+        "description": "Demander la suppression de votre compte Fidjoo"
+      }
     }
   },
   "storeDialog": {
@@ -568,7 +591,7 @@
     "section1": {
       "title": "1. Objet",
       "p1": "La présente page a pour objet de définir les conditions d'utilisation du système de voix proposé par Fidjoo dans le cadre exclusif de la génération d'histoires audio personnalisées (ci-après le « Système de Voix »).",
-      "p2": "Ces conditions s'appliquent en complément des Conditions Générales d'Utilisation (CGU) et de la Politique de Confidentialité de Fidjoo.",
+      "p2": "Ces conditions s'appliquent en complément des <termsLink>Conditions Générales d'Utilisation (CGU)</termsLink> et de la <privacyLink>Politique de Confidentialité</privacyLink> de Fidjoo.",
       "p3": "En cas de contradiction, les présentes conditions spécifiques prévalent pour tout ce qui concerne la voix."
     },
     "section2": {

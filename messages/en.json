@@ -164,10 +164,33 @@
       "features": "Features",
       "pricing": "Pricing",
       "testimonials": "Testimonials",
-      "confidentiality": "Confidentiality",
-      "privacy": "Privacy Policy",
-      "terms": "Terms of Service",
-      "delete": "Delete Account"
+      "legal": "Legal"
+    }
+  },
+  "legal": {
+    "title": "Legal Information",
+    "subtitle": "All our legal documents and policies",
+    "pages": {
+      "terms": {
+        "title": "Terms of Service",
+        "description": "General terms of use of Fidjoo services"
+      },
+      "confidentiality": {
+        "title": "Confidentiality",
+        "description": "How we handle your data confidentially"
+      },
+      "privacy": {
+        "title": "Privacy Policy",
+        "description": "Details on personal data collection and processing"
+      },
+      "voice": {
+        "title": "Voice System Terms",
+        "description": "Terms of use for the Fidjoo voice system"
+      },
+      "delete": {
+        "title": "Delete Account",
+        "description": "Request the deletion of your Fidjoo account"
+      }
     }
   },
   "storeDialog": {
@@ -568,7 +591,7 @@
     "section1": {
       "title": "1. Purpose",
       "p1": "This page defines the terms of use for the voice system offered by Fidjoo exclusively for generating personalized audio stories (hereinafter the \"Voice System\").",
-      "p2": "These terms apply in addition to Fidjoo's General Terms of Use (GTU) and Privacy Policy.",
+      "p2": "These terms apply in addition to Fidjoo's <termsLink>General Terms of Use (GTU)</termsLink> and <privacyLink>Privacy Policy</privacyLink>.",
       "p3": "In case of conflict, these specific terms prevail for everything concerning voice."
     },
     "section2": {

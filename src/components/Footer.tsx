@@ -16,10 +16,7 @@ const Footer: React.FC = () => {
         { key: 'features', url: '#features' },
         { key: 'pricing', url: '#pricing' },
         { key: 'testimonials', url: '#testimonials' },
-        { key: 'confidentiality', url: '/confidentiality' },
-        { key: 'privacy', url: '/privacy' },
-        { key: 'terms', url: '/terms' },
-        { key: 'delete', url: '/delete' },
+        { key: 'legal', url: '/legal' },
     ];
 
     return (

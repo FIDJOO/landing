@@ -1,6 +1,7 @@
 'use client';
 
 import { useTranslations } from 'next-intl';
+import Link from 'next/link';
 import {
   Card,
   CardContent,
@@ -38,7 +39,18 @@ function VoicePage() {
                 {t('section1.p1')}
               </p>
               <p className="text-gray-700 leading-relaxed mb-4">
-                {t('section1.p2')}
+                {t.rich('section1.p2', {
+                  termsLink: (chunks) => (
+                    <Link href="/terms" className="text-[#49AAFF] hover:underline">
+                      {chunks}
+                    </Link>
+                  ),
+                  privacyLink: (chunks) => (
+                    <Link href="/confidentiality" className="text-[#49AAFF] hover:underline">
+                      {chunks}
+                    </Link>
+                  ),
+                })}
               </p>
               <p className="text-gray-700 leading-relaxed">
                 {t('section1.p3')}
