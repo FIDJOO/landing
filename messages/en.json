@@ -190,5 +190,478 @@
   "common": {
     "learnMore": "Learn more",
     "readMore": "Read more"
+  },
+  "cgu": {
+    "title": "Terms of Use",
+    "lastUpdated": "Effective date: November 7, 2025",
+    "article1": {
+      "title": "Article 1: Definitions",
+      "intro": "In these Terms of Use (hereinafter referred to as the \"Terms\"), the following terms shall have the following meaning:",
+      "client": "Client",
+      "clientDef": "means any person who uses the Services offered by Fidjoo.",
+      "compte": "Account",
+      "compteDef": "means the space accessible on the Site allowing Users to access all the features offered by Fidjoo.",
+      "contenu": "Content",
+      "contenuDef": "means any text, graphic, image, music, video or other element that may be posted online by a User.",
+      "donneesPersonnelles": "Personal Data",
+      "donneesPersonnellesDef": "means personal data within the meaning of the European regulation on the protection of personal data that Fidjoo collects, transmits or processes, making it possible to identify or make identifiable any natural person.",
+      "droitPI": "Intellectual Property Right",
+      "droitPIDef": "means property rights, registered or not, acquired and/or held by Fidjoo, on its trade name, trademarks, logos, designs, texts, images, software, domain names or any other distinctive characteristic of Fidjoo, regardless of its form or media used.",
+      "produit": "Product",
+      "produitDef": "means any item sold by Fidjoo via the Site or the Application.",
+      "services": "Service(s)",
+      "servicesDef": "means all functions, facilities, uses, information, partner and/or promotional offers or all other services accessible via the Site.",
+      "site": "Site",
+      "siteDef": "means the Fidjoo website accessible at",
+      "utilisateurs": "User(s)",
+      "utilisateursDef": "means any person with an Account who uses the Site or all or part of the Services offered by Fidjoo."
+    },
+    "article2": {
+      "title": "Article 2: Legal Information",
+      "businessName": "Business Name",
+      "address": "Address",
+      "siren": "SIREN Number",
+      "siret": "SIRET Number",
+      "contacts": "Contacts",
+      "dpo": "Data Protection Officer (DPO)",
+      "contact": "Contact",
+      "contactNote": "Both contacts are available for any questions regarding this policy or the use of our services."
+    },
+    "article3": {
+      "title": "Article 3: Purpose and Scope",
+      "p1": "Fidjoo develops and sells interactive audio and video stories designed to nurture children's imagination and transform passive screen time into active time.",
+      "p2": "These Terms define the legal framework for using the site",
+      "p2b": "and the application offered therein.",
+      "p3": "By using the Site and its Services, the User unreservedly accepts these Terms and declares having read and understood them."
+    },
+    "article4": {
+      "title": "Article 4: Creating an Account",
+      "sub1": "4.1 Creation and Responsibility",
+      "sub1p1": "To access all the features of the Site, the User must create an Account by providing an email address and password. The User must keep their credentials secret and is responsible for any use of their Account. Fidjoo may request additional information to verify the User's identity.",
+      "sub2": "4.2 Minimum Age",
+      "sub2p1": "The minimum age required to create an Account is 18 years. Minor Users must obtain consent from their parents or legal guardians before using the Service.",
+      "sub3": "4.3 Parental Responsibility",
+      "sub3p1": "Parents or legal guardians are fully responsible for the use of the Service by minors under their responsibility."
+    },
+    "article5": {
+      "title": "Article 5: Services",
+      "intro": "Creating an Account allows Users to access various features, including:",
+      "bullet1": "Access interactive animated storybooks offered by Fidjoo.",
+      "bullet2": "Manage viewing preferences and history.",
+      "bullet3": "Contact Fidjoo support.",
+      "bullet4": "Reset Account password.",
+      "bullet5": "View all available Products.",
+      "p1": "Fidjoo reserves the right to evolve the Services at any time."
+    },
+    "article6": {
+      "title": "Article 6: Obligations of the Parties",
+      "sub1": "6.1 User Obligations",
+      "sub1p1": "The User agrees to comply with applicable laws and not to infringe on the rights of third parties or public order when using the Site. The User agrees not to publish illegal, defamatory Content, or Content that infringes on the privacy of others. Fidjoo may suspend or delete the User's Account in case of non-compliance with the Terms.",
+      "sub2": "6.2 Security",
+      "sub2p1": "The User agrees not to attempt to circumvent the security measures put in place by Fidjoo."
+    },
+    "article7": {
+      "title": "Article 7: Liability",
+      "p1": "Fidjoo implements reasonable security measures to protect User data, but cannot guarantee absolute security. The User acknowledges and accepts this risk inherent in the use of the Internet."
+    },
+    "article8": {
+      "title": "Article 8: Intellectual Property Rights",
+      "sub1": "8.1 License of Use",
+      "sub1p1": "Fidjoo grants the User a limited, non-transferable and non-exclusive license to use the Site. All intellectual property rights on the Site and its Content belong to Fidjoo. Any unauthorized reproduction of the Site or its Content is prohibited.",
+      "sub2": "8.2 Copyright Infringement Notification Procedure",
+      "sub2p1": "Any rights holder believing that their content has been used illegally on the Site may notify Fidjoo at the email address:",
+      "sub2intro": "The notification must include the following elements:",
+      "sub2bullet1": "identification of the protected work",
+      "sub2bullet2": "identification of the infringing content",
+      "sub2bullet3": "complainant's contact details",
+      "sub2bullet4": "good faith declaration",
+      "sub2bullet5": "physical or electronic signature"
+    },
+    "article9": {
+      "title": "Article 9: Personal Data",
+      "sub1": "9.1 Privacy Policy",
+      "sub1p1": "Fidjoo collects and processes Personal Data in accordance with its Privacy Policy, available at the following address:",
+      "sub1p1b": ". The User has the right to access, modify, rectify and delete their data by contacting Fidjoo at the indicated address.",
+      "sub2": "9.2 GDPR Rights",
+      "sub2intro": "In accordance with the General Data Protection Regulation (GDPR), Users have the following rights:",
+      "sub2bullet1": "right of access",
+      "sub2bullet2": "right of rectification",
+      "sub2bullet3": "right of erasure",
+      "sub2bullet4": "right to restriction of processing",
+      "sub2bullet5": "right to data portability",
+      "sub2bullet6": "right to object",
+      "sub2p1": "To exercise these rights, the User can contact Fidjoo at:",
+      "sub3": "9.3 Data Backup and Restoration Policy",
+      "sub3p1": "Fidjoo performs regular backups of User data. In case of data loss due to a technical problem, Fidjoo will endeavor to restore the data from the most recent backup.",
+      "sub4": "9.4 Data Retention Period",
+      "sub4p1": "Users' personal data is retained for the duration of Service use, and up to 12 months after Account deletion, unless a longer legal retention obligation applies.",
+      "sub5": "9.5 Personal Data Breach",
+      "sub5p1": "In the event of a personal data breach, Fidjoo undertakes to notify the CNIL within 72 hours of becoming aware of the breach, and to inform the affected Users as soon as possible, in accordance with GDPR provisions."
+    },
+    "article10": {
+      "title": "Article 10: Security",
+      "p1": "The User agrees to take all reasonable precautions to preserve the confidentiality of their credentials and to secure their computer equipment. Fidjoo disclaims any responsibility in case of non-functioning or malfunction of the Site due to technical problems or misuse by the User."
+    },
+    "article11": {
+      "title": "Article 11: Force Majeure",
+      "p1": "Fidjoo cannot be held responsible in case of force majeure, as defined by French law and jurisprudence, suspending the obligations of the parties."
+    },
+    "article12": {
+      "title": "Article 12: Modifications to the Terms",
+      "sub1": "12.1 Notification of Modifications",
+      "sub1p1": "Fidjoo reserves the right to modify these Terms at any time. Users will be informed of any substantial modification by email and/or by a notification on the Site.",
+      "sub2": "12.2 Acceptance of Modifications",
+      "sub2p1": "The User is deemed to have accepted the modifications if they continue to use the Service after the effective date of the new Terms. If they refuse the modifications, the User must stop using the Service and delete their Account."
+    },
+    "article13": {
+      "title": "Article 13: Termination",
+      "sub1": "13.1 Termination by the User",
+      "sub1p1": "The User can terminate their Account at any time by sending a request to:",
+      "sub1p1b": ", or by deleting the account directly from the application. Termination will be effective within a maximum of 7 business days.",
+      "sub2": "13.2 Termination by Fidjoo",
+      "sub2p1": "Fidjoo reserves the right to terminate or suspend an Account in case of violation of these Terms, with 15 days notice, except in case of serious violation justifying immediate termination.",
+      "sub3": "13.3 Data Portability",
+      "sub3p1": "In case of termination, the User can request the portability of their data in a structured, commonly used and machine-readable format, within 30 days following termination."
+    },
+    "article14": {
+      "title": "Article 14: Refunds",
+      "sub1": "14.1 No-Refund Policy",
+      "sub1p1": "Unless otherwise required by law, paid services offered by Fidjoo are not refundable.",
+      "sub2": "14.2 Waiver of Right of Withdrawal",
+      "sub2p1": "By subscribing to a paid Fidjoo service, the User acknowledges and accepts that the service begins immediately after purchase and expressly waives their right of withdrawal, in accordance with Article L. 221-28 of the Consumer Code.",
+      "sub3": "14.3 Exceptional Refund",
+      "sub3p1": "In the exceptional case where a refund would be granted, at Fidjoo's sole discretion, it will be made according to the initial payment method used for the purchase.",
+      "sub4": "14.4 Technical Problems",
+      "sub4p1": "In case of technical problems preventing access to the service, Fidjoo undertakes to resolve the problem as soon as possible or to offer compensation in the form of subscription extension, at its discretion.",
+      "sub5": "14.5 End of Service",
+      "sub5p1": "If Fidjoo decides to end a paid service, Users who have subscribed to this service will be informed in advance and will be able to benefit from the service until the end of their current subscription period, without pro-rata refund for the unused period.",
+      "sub6": "14.6 Contact",
+      "sub6p1": "For any questions regarding this no-refund policy, the User can contact Fidjoo customer service at the following address:"
+    },
+    "article15": {
+      "title": "Article 15: Dispute Resolution",
+      "sub1": "15.1 Amicable Solution",
+      "sub1p1": "In case of dispute, the parties agree to seek an amicable solution before any legal action.",
+      "sub2": "15.2 Mediation",
+      "sub2p1": "If an amicable solution cannot be found, the parties may resort to mediation. The mediator will be chosen by mutual agreement between the parties.",
+      "sub3": "15.3 Competent Jurisdiction",
+      "sub3p1": "Failing amicable resolution or mediation, any dispute relating to the execution or interpretation of these Terms shall be submitted to the competent courts of Paris, France."
+    },
+    "article16": {
+      "title": "Article 16: Applicable Law",
+      "p1": "These Terms are governed by French law."
+    },
+    "article17": {
+      "title": "Article 17: Limitation of Liability",
+      "sub1": "17.1 Indirect Damages",
+      "sub1p1": "To the fullest extent permitted by applicable law, Fidjoo shall not be liable for indirect, incidental, special or consequential damages, including loss of profits or data, resulting from the use or inability to use the Service.",
+      "sub2": "17.2 Liability Cap",
+      "sub2p1": "Fidjoo's total liability, whatever the cause, shall not exceed the amount actually paid by the User for the use of the Service during the 12 months preceding the event giving rise to liability."
+    },
+    "article18": {
+      "title": "Article 18: Assignment and Transfer",
+      "p1": "Fidjoo reserves the right to assign or transfer its rights and obligations under these Terms to a third party, in particular in case of merger, acquisition or restructuring. The User will be informed of any change in control or ownership of Fidjoo."
+    },
+    "article19": {
+      "title": "Article 19: Severability",
+      "p1": "If any provision of these Terms is found to be illegal, void or unenforceable by a competent court, the other provisions shall remain in full force and effect."
+    },
+    "article20": {
+      "title": "Article 20: Entire Agreement",
+      "p1": "These Terms, together with the Privacy Policy and Payment Policy, constitute the entire agreement between the User and Fidjoo regarding the use of the Service, and supersede all prior or contemporaneous agreements, written or oral, relating to the subject matter hereof. By using the Service, the User acknowledges having read, understood and accepted all of these Terms."
+    },
+    "article21": {
+      "title": "Article 21: Virtual Currency - FIDJ",
+      "sub1": "21.1 Definition and Purpose",
+      "sub1p1": "Fidjoo makes available to its Users an internal virtual currency, called FIDJ, allowing them to access certain paid features of the Service, in particular the generation of personalized stories.",
+      "sub1p2": "FIDJ have no real monetary value and can under no circumstances be exchanged for fiat currency (euro or other currency), transferred between Users, or used outside the Fidjoo ecosystem.",
+      "sub2": "21.2 Acquiring FIDJ",
+      "sub2p1": "FIDJ can only be purchased via the official Google Play Store and Apple App Store platforms, according to the terms offered by Fidjoo.",
+      "sub2intro": "Users can choose between different credit packs or a monthly subscription, at the following rates:",
+      "sub2bullet1": "Pack 1: €7.99 equivalent to 10 credits",
+      "sub2bullet2": "Pack 2: €14.99 equivalent to 20 credits",
+      "sub2bullet3": "Pack 3: €35.99 equivalent to 35 credits",
+      "sub2bullet4": "Monthly subscription: €9.99/month equivalent to 10 credits",
+      "sub2p2": "These prices are indicated in euros including all taxes (VAT) and may be modified at any time by Fidjoo. Any order for FIDJ is firm and final, subject to mandatory legal provisions applicable to consumers.",
+      "sub3": "21.3 Using FIDJ",
+      "sub3p1": "One story generation (personalized audio and/or video creation) consumes three (3) FIDJ.",
+      "sub3p2": "When a User initiates the generation of a story, the corresponding three FIDJ are temporarily reserved in an internal cache.",
+      "sub3intro": "This reservation does not immediately result in the actual debit of credits:",
+      "sub3bullet1": "If the story generation is successful, the FIDJ are permanently debited from the User's balance.",
+      "sub3bullet2": "On the other hand, if the generation fails for technical reasons beyond Fidjoo's control (server error, API problem, connection interruption, etc.), the FIDJ are not debited and are automatically restored to the User's account.",
+      "sub3p3": "Fidjoo makes every effort to ensure the reliability of the generation process, without however being able to guarantee uninterrupted availability or operation of the Service.",
+      "sub4": "21.4 Validity and Expiration of FIDJ",
+      "sub4p1": "FIDJ are valid as long as the User's Account remains active, subject to the expiration conditions described below.",
+      "sub4highlightTitle": "Validity period of monthly subscription credits",
+      "sub4highlightP1": "FIDJ acquired as part of the monthly subscription have a validity period limited to 30 days from the date of attribution.",
+      "sub4highlightP2": "At the end of this period, unused FIDJ will be automatically removed from the User's account and can no longer be used, without possibility of refund or carryover.",
+      "sub4p2": "On the other hand, FIDJ acquired via credit packs (Pack 1, Pack 2, Pack 3) have no expiration date and remain available as long as the User's Account remains active.",
+      "sub4refundTitle": "No Refund",
+      "sub4refundP1": "In case of Account deletion, voluntary termination or closure by Fidjoo for non-compliance with these Terms, remaining FIDJ cannot be refunded, converted or compensated, unless otherwise required by law. Similarly, FIDJ cannot give rise to any cash or monetary value refund, including in case of Service discontinuation, unless expressly required by law.",
+      "sub5": "21.5 Modifications and Deletion of Virtual Currency",
+      "sub5p1": "Fidjoo reserves the right to modify, suspend or delete the FIDJ system at any time.",
+      "sub5p2": "In case of permanent deletion, Users still having active credits will be informed in advance by any appropriate means (notification in the application or email), and Fidjoo may offer fair compensation (e.g.: free generation of equivalent stories or subscription extension).",
+      "sub6": "21.6 Liability",
+      "sub6p1": "The User acknowledges that the management of FIDJ is strictly linked to their Fidjoo Account.",
+      "sub6intro": "Fidjoo cannot be held responsible for the loss of FIDJ resulting from:",
+      "sub6bullet1": "fraudulent use of the Account",
+      "sub6bullet2": "hacking",
+      "sub6bullet3": "voluntary or accidental deletion of the Account by the User",
+      "sub6bullet4": "or breach of these Terms"
+    },
+    "article22": {
+      "title": "Article 22: Platform Legal Obligations",
+      "p1": "The Fidjoo application is available on the Google Play Store and Apple App Store platforms. By using the application via these platforms, the User also accepts the specific terms of use of each platform.",
+      "p2": "For users of the application on the Apple App Store, use of the application is also subject to Apple's standard end-user license agreement (Standard EULA):",
+      "p3": "In case of conflict between these Terms and the platform terms of use, the platform terms of use shall prevail to the extent they specifically apply to the use of the application via these platforms."
+    }
+  },
+  "privacy": {
+    "title": "Privacy Policy",
+    "lastUpdated": "Last updated: November 6, 2025",
+    "section1": {
+      "title": "1. Introduction",
+      "p1": "Fidjoo (hereinafter \"we\", \"our\" or \"us\") is committed to protecting the privacy of its users and ensuring transparency about how their data is collected, used and protected.",
+      "p2": "This policy describes the terms of use of our services and how we process personal data in connection with the use of our mobile application and our website (collectively, the \"Services\")."
+    },
+    "section2": {
+      "title": "2. Legal Information",
+      "businessName": "Business Name",
+      "address": "Address",
+      "contacts": "Contacts",
+      "dpo": "Data Protection Officer (DPO)",
+      "contact": "Contact",
+      "contactNote": "Both contacts are available for any questions regarding this policy or the use of our services."
+    },
+    "section3": {
+      "title": "3. Use of Services",
+      "p1": "Our Services are intended for personal, non-commercial use. Any commercial use without express authorization from Fidjoo is prohibited.",
+      "intro": "Users agree to:",
+      "bullet1": "comply with applicable laws",
+      "bullet2": "not infringe on the rights of third parties",
+      "bullet3": "not disrupt the proper functioning of the Services"
+    },
+    "section4": {
+      "title": "4. Intellectual Property",
+      "p1": "All content on our Services (texts, images, sounds, videos, logos, illustrations, compilations, source codes, etc.) are the exclusive property of Fidjoo or its partners.",
+      "p2": "They are protected by French and international copyright and intellectual property laws.",
+      "p3": "Any unauthorized reproduction, distribution or exploitation is strictly prohibited."
+    },
+    "section5": {
+      "title": "5. Personal Data Collected",
+      "userDataTitle": "a. Data provided by the user",
+      "userDataBullet1": "Parent's email",
+      "userDataBullet2": "Parent's first name, last name and date of birth",
+      "userDataBullet3": "Parent's phone number",
+      "userDataBullet4": "Children's first names and ages",
+      "autoDataTitle": "b. Automatically collected data",
+      "autoDataBullet1": "Technical data and error reports (via Sentry and PostHog)",
+      "autoDataBullet2": "Anonymized usage data to improve performance",
+      "highlightTitle": "Fidjoo never records audio or video of children.",
+      "highlightDesc": "Children can only view their stories, which contain generated audio/video elements, but never recorded or stored by us."
+    },
+    "section6": {
+      "title": "6. Use of Data",
+      "intro": "The collected data is used to:",
+      "bullet1": "Provide and improve our Services",
+      "bullet2": "Personalize stories based on the child's interactions (with parental consent)",
+      "bullet3": "Manage error reports and technical stability",
+      "bullet4": "Communicate with parents, only if explicit consent has been given",
+      "legalBasisTitle": "Legal Basis for Processing",
+      "legalBasis1": "Consent: for children's data and marketing communications",
+      "legalBasis2": "Contract execution: to provide the Services",
+      "legalBasis3": "Legitimate interest: for security, fraud prevention and continuous improvement",
+      "legalBasis4": "Legal obligation: when required by law"
+    },
+    "section7": {
+      "title": "7. Data Sharing and Disclosure",
+      "partnersTitle": "a. Service Partners",
+      "partnersP1": "We share certain data with technical providers (hosting, analytics, security), exclusively for the proper functioning of Fidjoo.",
+      "partnersIntro": "These providers:",
+      "partnersBullet1": "can only use the data within the scope of their mission",
+      "partnersBullet2": "comply with the European Commission's standard contractual clauses",
+      "partnersHighlight": "All data is hosted on AWS servers located in Europe.",
+      "legalTitle": "b. Legal Obligations",
+      "legalP1": "We may disclose certain information if required by law or to protect our rights, the safety of our users or others."
+    },
+    "section8": {
+      "title": "8. Data Security",
+      "intro": "We apply robust technical and organizational measures:",
+      "bullet1": "encryption of data in transit and at rest",
+      "bullet2": "restricted access to personal data",
+      "bullet3": "regular security audits",
+      "bullet4": "backup and recovery procedures"
+    },
+    "section9": {
+      "title": "9. International Transfers",
+      "p1": "Some operations may involve data transfers outside the EU.",
+      "p2": "In this case, we guarantee an adequate level of protection in accordance with GDPR, through standard contractual clauses."
+    },
+    "section10": {
+      "title": "10. Data Retention Period",
+      "tableHeader1": "Data Type",
+      "tableHeader2": "Retention Period",
+      "tableRow1Col1": "Account data",
+      "tableRow1Col2": "Up to 12 months after last use",
+      "tableRow2Col1": "Audio recordings (if applicable)",
+      "tableRow2Col2": "30 days maximum",
+      "tableRow3Col1": "Billing data",
+      "tableRow3Col2": "10 years (legal requirement)",
+      "p1": "Users can request the deletion of their data at any time from Ruben Marciano.",
+      "p2": "Requests are processed within a maximum of 30 days."
+    },
+    "section11": {
+      "title": "11. Your Rights (GDPR)",
+      "intro": "You have the following rights:",
+      "bullet1": "Access to your personal data",
+      "bullet2": "Rectification or deletion",
+      "bullet3": "Restriction or objection to processing",
+      "bullet4": "Data portability",
+      "bullet5": "Withdrawal of consent at any time",
+      "p1": "To exercise these rights, contact Ethan Smadja (DPO).",
+      "p2": "A response will be provided within one month."
+    },
+    "section12": {
+      "title": "12. Cookies and Similar Technologies",
+      "intro": "We only use:",
+      "bullet1": "essential cookies for site functionality",
+      "bullet2": "anonymized analytics cookies (via PostHog) to improve user experience",
+      "p1": "Preferences can be managed in browser settings."
+    },
+    "section13": {
+      "title": "13. Policy Modifications",
+      "p1": "This policy may be modified at any time.",
+      "p2": "In case of significant change, a notification will be sent by email or via the application.",
+      "p3": "The date of last update is always indicated at the top of the document."
+    },
+    "section14": {
+      "title": "14. Right to Complain",
+      "p1": "If you believe your rights are not being respected, you can file a complaint with the CNIL"
+    },
+    "section15": {
+      "title": "15. Data Breach",
+      "intro": "In case of a breach presenting a high risk to your rights and freedoms, we will inform:",
+      "bullet1": "the individuals concerned",
+      "bullet2": "the CNIL, in accordance with GDPR"
+    },
+    "section16": {
+      "title": "16. Minimum Age and Parental Consent",
+      "p1": "Fidjoo is designed for children aged 5 and up, under the supervision of a parent or legal guardian.",
+      "p2": "No child data is collected without explicit and verifiable parental consent, obtained via their email address.",
+      "p3": "This consent can be withdrawn at any time by contacting Ruben Marciano."
+    },
+    "section17": {
+      "title": "17. Apple Terms of Use",
+      "p1": "Use of our iOS application implies acceptance of Apple's Internet Services Terms of Use, available here:"
+    },
+    "section18": {
+      "title": "18. Acceptance",
+      "p1": "By using our Services, you acknowledge having read and understood these Terms of Use and Privacy Policy.",
+      "contactIntro": "For any questions, contact:",
+      "contactDpo": "Ethan Smadja (DPO) for data-related questions",
+      "contactPresident": "Ruben Marciano (President) for any other inquiries"
+    }
+  },
+  "voiceTerms": {
+    "title": "Fidjoo Voice System Terms of Use",
+    "lastUpdated": "Last updated: November 7, 2025",
+    "section1": {
+      "title": "1. Purpose",
+      "p1": "This page defines the terms of use for the voice system offered by Fidjoo exclusively for generating personalized audio stories (hereinafter the \"Voice System\").",
+      "p2": "These terms apply in addition to Fidjoo's General Terms of Use (GTU) and Privacy Policy.",
+      "p3": "In case of conflict, these specific terms prevail for everything concerning voice."
+    },
+    "section2": {
+      "title": "2. Voice System Description",
+      "intro": "The Voice System allows a parent user to:",
+      "bullet1": "voluntarily record audio content (adult voice only),",
+      "bullet2": "to enable the generation of personalized audio stories for their child,",
+      "bullet3": "exclusively within the Fidjoo environment.",
+      "howItWorks": "How It Works",
+      "stepsIntro": "The System works according to the following steps:",
+      "step1": "The user records an audio narration via the Fidjoo app.",
+      "step2": "This recording is processed securely and confidentially.",
+      "step3": "The voice is transmitted to a specialized third-party technical provider (Cartesia) solely for audio generation.",
+      "step4": "A final audio file is generated and returned to the user in the Fidjoo app."
+    },
+    "section3": {
+      "title": "3. Exclusive Purpose and Usage Limitation",
+      "intro": "The voice provided by the user:",
+      "bullet1": "is used solely for generating Fidjoo audio stories,",
+      "bullet2": "is never made public,",
+      "bullet3": "is never shared with other users,",
+      "bullet4": "is never used for commercial, advertising, or marketing purposes,",
+      "bullet5": "is never reused outside the strict context of Fidjoo stories.",
+      "highlight": "The voice cannot be used by the user for other services, nor exported, nor reused outside Fidjoo."
+    },
+    "section4": {
+      "title": "4. Confidentiality and Security",
+      "intro": "Fidjoo applies strict technical and organizational measures to ensure:",
+      "bullet1": "complete confidentiality of voice recordings,",
+      "bullet2": "access strictly limited to only necessary systems,",
+      "bullet3": "secure storage on servers located in Europe,",
+      "bullet4": "no disclosure or access by unauthorized third parties.",
+      "highlight": "No other user can see, hear, or access another user's voice."
+    },
+    "section5": {
+      "title": "5. Third-Party Provider: Cartesia",
+      "p1": "For the technical needs of audio generation, Fidjoo uses the provider Cartesia.",
+      "intro": "In this context:",
+      "bullet1": "the voice is transmitted solely for the technical execution of the service,",
+      "bullet2": "Cartesia acts as a subcontractor within the meaning of GDPR,",
+      "bullet3": "Cartesia is not authorized to reuse the voice for its own purposes.",
+      "linkText": "Cartesia's terms of use are available here:"
+    },
+    "section6": {
+      "title": "6. Voice Data Retention",
+      "principle": "General principle: maximum minimization.",
+      "principleDesc": "Fidjoo does not retain any voice beyond what is strictly necessary.",
+      "bullet1": "Voice recordings are not permanently stored.",
+      "bullet2": "Once the voice is deleted, no usable trace is retained by Fidjoo."
+    },
+    "section7": {
+      "title": "7. Voice Deletion (Right to Erasure)",
+      "intro": "The user can delete their voice at any time, without justification:",
+      "bullet1": "directly from the Fidjoo app,",
+      "bullet2": "or via the following link:",
+      "deletionTitle": "Upon deletion:",
+      "deletionBullet1": "The voice is deleted from Fidjoo systems.",
+      "deletionBullet2": "All technical references are erased.",
+      "deletionBullet3": "The voice is also deleted from Cartesia.",
+      "deletionBullet4": "No copy is retained by Fidjoo or its providers.",
+      "highlight": "This deletion is final and irreversible."
+    },
+    "section8": {
+      "title": "8. Consent and Responsibility",
+      "intro": "Recording a voice implies:",
+      "bullet1": "explicit and voluntary consent from the user,",
+      "bullet2": "a guarantee that the user is the owner of the recorded voice,",
+      "bullet3": "a commitment not to use a third party's voice without their express authorization.",
+      "highlight": "Fidjoo disclaims all responsibility in case of fraudulent recording of a voice without the consent of the person concerned."
+    },
+    "section9": {
+      "title": "9. GDPR Rights",
+      "intro": "In accordance with GDPR, the user has the following rights regarding their voice:",
+      "bullet1": "right of access,",
+      "bullet2": "right of rectification,",
+      "bullet3": "right to erasure,",
+      "bullet4": "right to restriction of processing,",
+      "bullet5": "right to object.",
+      "contact": "Any request can be sent to:"
+    },
+    "section10": {
+      "title": "10. Voice System Evolution",
+      "p1": "Fidjoo reserves the right to evolve, suspend, or modify the Voice System for technical, legal, or security reasons.",
+      "p2": "In case of substantial modification, users will be informed by notification or email."
+    },
+    "section11": {
+      "title": "11. Applicable Law and Jurisdiction",
+      "p1": "These terms are governed by French law.",
+      "p2": "Any dispute shall fall under the exclusive jurisdiction of the Paris courts."
+    },
+    "section12": {
+      "title": "12. Acceptance",
+      "p1": "By using the Fidjoo Voice System, the user acknowledges having read, understood, and accepted these terms without reservation."
+    }
   }
 }

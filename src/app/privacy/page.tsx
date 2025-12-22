@@ -1,4 +1,6 @@
-import { Metadata } from "next";
+'use client';
+
+import { useTranslations } from 'next-intl';
 import {
   Card,
   CardContent,
@@ -15,27 +17,20 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import { siteDetails } from "@/data/siteDetails";
-
-export const metadata: Metadata = {
-  title: `Privacy Policy | ${siteDetails.siteName}`,
-  description: "Learn how Fidjoo protects your privacy and handles your data. We are committed to keeping your family's information safe.",
-  alternates: {
-    canonical: '/privacy',
-  },
-};
 
 function Privacy() {
+  const t = useTranslations('privacy');
+
   return (
     <div className="min-h-screen px-6 sm:px-12 lg:px-24 xl:px-40 py-12 flex justify-center items-center pt-32">
       <div className="max-w-4xl mx-auto w-full ">
         <Card className="shadow-lg ">
           <CardHeader>
             <CardTitle className="text-4xl font-bold text-[#11181C]">
-              Politique de Confidentialité
+              {t('title')}
             </CardTitle>
             <CardDescription className="text-sm text-gray-500">
-              Dernière mise à jour : 6 novembre 2025
+              {t('lastUpdated')}
             </CardDescription>
           </CardHeader>
 
@@ -45,21 +40,13 @@ function Privacy() {
             {/* Section 1 */}
             <section className="mb-10">
               <h2 className="text-2xl font-semibold text-[#11181C] mb-4">
-                1. Introduction
+                {t('section1.title')}
               </h2>
               <p className="text-gray-700 leading-relaxed mb-4">
-                Fidjoo <em>(ci-après « nous », « notre » ou « nos »)</em> s&apos;engage
-                à protéger la vie privée de ses utilisateurs et à assurer la
-                transparence sur la manière dont leurs données sont collectées,
-                utilisées et protégées.
+                {t('section1.p1')}
               </p>
               <p className="text-gray-700 leading-relaxed">
-                La présente politique décrit les conditions d&apos;utilisation de nos
-                services et la manière dont nous traitons les données personnelles
-                dans le cadre de l&apos;utilisation de notre{" "}
-                <strong>application mobile</strong> et de notre{" "}
-                <strong>site web</strong> (collectivement, les{" "}
-                <strong>« Services »</strong>).
+                {t('section1.p2')}
               </p>
             </section>
 
@@ -68,16 +55,16 @@ function Privacy() {
             {/* Section 2 */}
             <section className="mb-10">
               <h2 className="text-2xl font-semibold text-[#11181C] mb-4">
-                2. Informations légales
+                {t('section2.title')}
               </h2>
               <div className="bg-gray-50 p-6 rounded-lg mb-6">
                 <dl className="space-y-3">
                   <div>
-                    <dt className="font-semibold text-gray-900">Nom commercial</dt>
+                    <dt className="font-semibold text-gray-900">{t('section2.businessName')}</dt>
                     <dd className="text-gray-700">Fidjoo</dd>
                   </div>
                   <div>
-                    <dt className="font-semibold text-gray-900">Adresse</dt>
+                    <dt className="font-semibold text-gray-900">{t('section2.address')}</dt>
                     <dd className="text-gray-700">
                       11 boulevard de la Saussaye, 92200 Neuilly-sur-Seine
                     </dd>
@@ -94,13 +81,13 @@ function Privacy() {
               </div>
 
               <h3 className="text-lg font-semibold text-[#11181C] mb-3">
-                Contacts
+                {t('section2.contacts')}
               </h3>
               <div className="bg-gray-50 p-6 rounded-lg mb-4">
                 <dl className="space-y-3">
                   <div>
                     <dt className="font-semibold text-gray-900">
-                      Délégué à la Protection des Données (DPO)
+                      {t('section2.dpo')}
                     </dt>
                     <dd className="text-gray-700">
                       <a
@@ -112,7 +99,7 @@ function Privacy() {
                     </dd>
                   </div>
                   <div>
-                    <dt className="font-semibold text-gray-900">Contact</dt>
+                    <dt className="font-semibold text-gray-900">{t('section2.contact')}</dt>
                     <dd className="text-gray-700">
                       <a
                         href="mailto:bonjour@fidjoo.com"
@@ -125,9 +112,7 @@ function Privacy() {
                 </dl>
               </div>
               <p className="text-gray-700 leading-relaxed">
-                Ces deux contacts sont à votre disposition pour toute question
-                relative à la présente politique ou à l&apos;utilisation de nos
-                services.
+                {t('section2.contactNote')}
               </p>
             </section>
 
@@ -136,19 +121,18 @@ function Privacy() {
             {/* Section 3 */}
             <section className="mb-10">
               <h2 className="text-2xl font-semibold text-[#11181C] mb-4">
-                3. Utilisation des Services
+                {t('section3.title')}
               </h2>
               <p className="text-gray-700 leading-relaxed mb-4">
-                Nos Services sont destinés à un{" "}
-                <strong>usage personnel, non commercial</strong>. Toute
-                utilisation à des fins commerciales, sans autorisation expresse de
-                Fidjoo, est interdite.
+                {t('section3.p1')}
               </p>
-              <p className="text-gray-700 mb-3">Les utilisateurs s&apos;engagent à :</p>
+              <p className="text-gray-700 mb-3">
+                {t('section3.intro')}
+              </p>
               <ul className="list-disc list-inside text-gray-700 space-y-2 ml-4">
-                <li>respecter les lois en vigueur</li>
-                <li>ne pas porter atteinte aux droits de tiers</li>
-                <li>ne pas perturber le bon fonctionnement des Services</li>
+                <li>{t('section3.bullet1')}</li>
+                <li>{t('section3.bullet2')}</li>
+                <li>{t('section3.bullet3')}</li>
               </ul>
             </section>
 
@@ -157,20 +141,16 @@ function Privacy() {
             {/* Section 4 */}
             <section className="mb-10">
               <h2 className="text-2xl font-semibold text-[#11181C] mb-4">
-                4. Propriété intellectuelle
+                {t('section4.title')}
               </h2>
               <p className="text-gray-700 leading-relaxed mb-4">
-                Tous les contenus présents sur nos Services (textes, images, sons,
-                vidéos, logos, illustrations, compilations, codes sources, etc.)
-                sont la propriété exclusive de Fidjoo ou de ses partenaires.
+                {t('section4.p1')}
               </p>
               <p className="text-gray-700 leading-relaxed mb-4">
-                Ils sont protégés par les lois françaises et internationales sur le
-                droit d&apos;auteur et la propriété intellectuelle.
+                {t('section4.p2')}
               </p>
               <p className="text-gray-700 leading-relaxed">
-                Toute reproduction, distribution ou exploitation non autorisée est
-                strictement interdite.
+                {t('section4.p3')}
               </p>
             </section>
 
@@ -179,35 +159,32 @@ function Privacy() {
             {/* Section 5 */}
             <section className="mb-10">
               <h2 className="text-2xl font-semibold text-[#11181C] mb-4">
-                5. Données personnelles collectées
+                {t('section5.title')}
               </h2>
-
               <h3 className="text-lg font-semibold text-[#11181C] mb-3">
-                a. Données fournies par l&apos;utilisateur
+                {t('section5.userDataTitle')}
               </h3>
               <ul className="list-disc list-inside text-gray-700 space-y-2 ml-4 mb-6">
-                <li>Email du parent</li>
-                <li>Prénom, nom et date de naissance du parent</li>
-                <li>Numéro de téléphone du parent</li>
-                <li>Prénom et âge des enfants</li>
+                <li>{t('section5.userDataBullet1')}</li>
+                <li>{t('section5.userDataBullet2')}</li>
+                <li>{t('section5.userDataBullet3')}</li>
+                <li>{t('section5.userDataBullet4')}</li>
               </ul>
 
               <h3 className="text-lg font-semibold text-[#11181C] mb-3">
-                b. Données collectées automatiquement
+                {t('section5.autoDataTitle')}
               </h3>
               <ul className="list-disc list-inside text-gray-700 space-y-2 ml-4 mb-6">
-                <li>Données techniques et rapports d&apos;erreurs (via Sentry et PostHog)</li>
-                <li>Données d&apos;usage anonymisées pour améliorer la performance</li>
+                <li>{t('section5.autoDataBullet1')}</li>
+                <li>{t('section5.autoDataBullet2')}</li>
               </ul>
 
               <div className="bg-blue-50 border-l-4 border-[#49AAFF] p-6 rounded-lg">
-                <p className="text-gray-800 mb-3 font-semibold">
-                  Fidjoo n&apos;enregistre jamais d&apos;audio ou de vidéo d&apos;enfants.
+                <p className="text-gray-800 font-semibold mb-3">
+                  {t('section5.highlightTitle')}
                 </p>
                 <p className="text-gray-700">
-                  Les enfants peuvent uniquement visionner leurs histoires, qui
-                  contiennent des éléments audio/vidéo générés, mais jamais
-                  enregistrés ni stockés par nous.
+                  {t('section5.highlightDesc')}
                 </p>
               </div>
             </section>
@@ -217,42 +194,26 @@ function Privacy() {
             {/* Section 6 */}
             <section className="mb-10">
               <h2 className="text-2xl font-semibold text-[#11181C] mb-4">
-                6. Utilisation des données
+                {t('section6.title')}
               </h2>
               <p className="text-gray-700 mb-3">
-                Les données collectées servent à :
+                {t('section6.intro')}
               </p>
               <ul className="list-disc list-inside text-gray-700 space-y-2 ml-4 mb-6">
-                <li>Fournir et améliorer nos Services</li>
-                <li>
-                  Personnaliser les histoires en fonction des interactions de
-                  l&apos;enfant (avec consentement parental)
-                </li>
-                <li>Gérer les rapports d&apos;erreurs et la stabilité technique</li>
-                <li>
-                  Communiquer avec les parents, uniquement si un consentement
-                  explicite a été donné
-                </li>
+                <li>{t('section6.bullet1')}</li>
+                <li>{t('section6.bullet2')}</li>
+                <li>{t('section6.bullet3')}</li>
+                <li>{t('section6.bullet4')}</li>
               </ul>
 
               <h3 className="text-lg font-semibold text-[#11181C] mb-3">
-                Base légale du traitement
+                {t('section6.legalBasisTitle')}
               </h3>
               <ul className="list-disc list-inside text-gray-700 space-y-2 ml-4">
-                <li>
-                  <strong>Consentement</strong> : pour les données des enfants et
-                  les communications marketing
-                </li>
-                <li>
-                  <strong>Exécution du contrat</strong> : pour fournir les Services
-                </li>
-                <li>
-                  <strong>Intérêt légitime</strong> : pour la sécurité, la
-                  prévention de la fraude et l&apos;amélioration continue
-                </li>
-                <li>
-                  <strong>Obligation légale</strong> : lorsque la loi l&apos;exige
-                </li>
+                <li>{t('section6.legalBasis1')}</li>
+                <li>{t('section6.legalBasis2')}</li>
+                <li>{t('section6.legalBasis3')}</li>
+                <li>{t('section6.legalBasis4')}</li>
               </ul>
             </section>
 
@@ -261,40 +222,33 @@ function Privacy() {
             {/* Section 7 */}
             <section className="mb-10">
               <h2 className="text-2xl font-semibold text-[#11181C] mb-4">
-                7. Partage et divulgation des données
+                {t('section7.title')}
               </h2>
-
               <h3 className="text-lg font-semibold text-[#11181C] mb-3">
-                a. Partenaires de service
+                {t('section7.partnersTitle')}
               </h3>
-              <p className="text-gray-700 leading-relaxed mb-3">
-                Nous partageons certaines données avec des prestataires techniques
-                (hébergement, analyses, sécurité), exclusivement pour le bon
-                fonctionnement de Fidjoo.
+              <p className="text-gray-700 leading-relaxed mb-4">
+                {t('section7.partnersP1')}
               </p>
-              <p className="text-gray-700 mb-2">Ces prestataires :</p>
+              <p className="text-gray-700 mb-3">
+                {t('section7.partnersIntro')}
+              </p>
               <ul className="list-disc list-inside text-gray-700 space-y-2 ml-4 mb-6">
-                <li>ne peuvent utiliser les données que dans le cadre de leur mission</li>
-                <li>
-                  respectent les clauses contractuelles types de la Commission
-                  européenne
-                </li>
+                <li>{t('section7.partnersBullet1')}</li>
+                <li>{t('section7.partnersBullet2')}</li>
               </ul>
 
               <div className="bg-blue-50 border-l-4 border-[#49AAFF] p-6 rounded-lg mb-6">
                 <p className="text-gray-800 font-semibold">
-                  Toutes les données sont hébergées sur des serveurs AWS situés en
-                  Europe.
+                  {t('section7.partnersHighlight')}
                 </p>
               </div>
 
               <h3 className="text-lg font-semibold text-[#11181C] mb-3">
-                b. Obligations légales
+                {t('section7.legalTitle')}
               </h3>
               <p className="text-gray-700 leading-relaxed">
-                Nous pouvons divulguer certaines informations si la loi nous y
-                oblige ou pour protéger nos droits, la sécurité de nos utilisateurs
-                ou d&apos;autres personnes.
+                {t('section7.legalP1')}
               </p>
             </section>
 
@@ -303,17 +257,16 @@ function Privacy() {
             {/* Section 8 */}
             <section className="mb-10">
               <h2 className="text-2xl font-semibold text-[#11181C] mb-4">
-                8. Sécurité des données
+                {t('section8.title')}
               </h2>
               <p className="text-gray-700 mb-3">
-                Nous appliquons des mesures techniques et organisationnelles
-                robustes :
+                {t('section8.intro')}
               </p>
               <ul className="list-disc list-inside text-gray-700 space-y-2 ml-4">
-                <li>chiffrement des données en transit et au repos</li>
-                <li>accès restreint aux données personnelles</li>
-                <li>audits réguliers de sécurité</li>
-                <li>procédures de sauvegarde et de récupération</li>
+                <li>{t('section8.bullet1')}</li>
+                <li>{t('section8.bullet2')}</li>
+                <li>{t('section8.bullet3')}</li>
+                <li>{t('section8.bullet4')}</li>
               </ul>
             </section>
 
@@ -322,16 +275,13 @@ function Privacy() {
             {/* Section 9 */}
             <section className="mb-10">
               <h2 className="text-2xl font-semibold text-[#11181C] mb-4">
-                9. Transferts internationaux
+                {t('section9.title')}
               </h2>
-              <p className="text-gray-700 leading-relaxed mb-3">
-                Certaines opérations peuvent impliquer des transferts de données en
-                dehors de l&apos;UE.
+              <p className="text-gray-700 leading-relaxed mb-4">
+                {t('section9.p1')}
               </p>
               <p className="text-gray-700 leading-relaxed">
-                Dans ce cas, nous garantissons un niveau de protection adéquat
-                conformément au RGPD, grâce aux{" "}
-                <strong>clauses contractuelles types</strong>.
+                {t('section9.p2')}
               </p>
             </section>
 
@@ -340,51 +290,37 @@ function Privacy() {
             {/* Section 10 */}
             <section className="mb-10">
               <h2 className="text-2xl font-semibold text-[#11181C] mb-4">
-                10. Durée de conservation des données
+                {t('section10.title')}
               </h2>
-              <div className="rounded-lg border overflow-hidden mb-6">
+              <div className="overflow-x-auto mb-6">
                 <Table>
                   <TableHeader>
-                    <TableRow className="bg-[#49AAFF] hover:bg-[#49AAFF]">
-                      <TableHead className="text-white font-semibold">
-                        Type de données
-                      </TableHead>
-                      <TableHead className="text-white font-semibold">
-                        Durée de conservation
-                      </TableHead>
+                    <TableRow>
+                      <TableHead className="font-semibold">{t('section10.tableHeader1')}</TableHead>
+                      <TableHead className="font-semibold">{t('section10.tableHeader2')}</TableHead>
                     </TableRow>
                   </TableHeader>
                   <TableBody>
                     <TableRow>
-                      <TableCell className="font-medium">
-                        Données de compte
-                      </TableCell>
-                      <TableCell>
-                        Jusqu&apos;à 12 mois après la dernière utilisation
-                      </TableCell>
+                      <TableCell>{t('section10.tableRow1Col1')}</TableCell>
+                      <TableCell>{t('section10.tableRow1Col2')}</TableCell>
                     </TableRow>
                     <TableRow>
-                      <TableCell className="font-medium">
-                        Enregistrements audio (si applicables)
-                      </TableCell>
-                      <TableCell>30 jours maximum</TableCell>
+                      <TableCell>{t('section10.tableRow2Col1')}</TableCell>
+                      <TableCell>{t('section10.tableRow2Col2')}</TableCell>
                     </TableRow>
                     <TableRow>
-                      <TableCell className="font-medium">
-                        Données de facturation
-                      </TableCell>
-                      <TableCell>10 ans (obligation légale)</TableCell>
+                      <TableCell>{t('section10.tableRow3Col1')}</TableCell>
+                      <TableCell>{t('section10.tableRow3Col2')}</TableCell>
                     </TableRow>
                   </TableBody>
                 </Table>
               </div>
-
-              <p className="text-gray-700 leading-relaxed mb-3">
-                Les utilisateurs peuvent demander la suppression de leurs données à
-                tout moment auprès de <strong>Ruben Marciano</strong>.
+              <p className="text-gray-700 leading-relaxed mb-4">
+                {t('section10.p1')}
               </p>
               <p className="text-gray-700 leading-relaxed">
-                Les demandes sont traitées sous <strong>30 jours maximum</strong>.
+                {t('section10.p2')}
               </p>
             </section>
 
@@ -393,25 +329,23 @@ function Privacy() {
             {/* Section 11 */}
             <section className="mb-10">
               <h2 className="text-2xl font-semibold text-[#11181C] mb-4">
-                11. Vos droits (RGPD)
+                {t('section11.title')}
               </h2>
               <p className="text-gray-700 mb-3">
-                Vous disposez des droits suivants :
+                {t('section11.intro')}
               </p>
               <ul className="list-disc list-inside text-gray-700 space-y-2 ml-4 mb-6">
-                <li>Accès à vos données personnelles</li>
-                <li>Rectification ou suppression</li>
-                <li>Limitation ou opposition au traitement</li>
-                <li>Portabilité des données</li>
-                <li>Retrait du consentement à tout moment</li>
+                <li>{t('section11.bullet1')}</li>
+                <li>{t('section11.bullet2')}</li>
+                <li>{t('section11.bullet3')}</li>
+                <li>{t('section11.bullet4')}</li>
+                <li>{t('section11.bullet5')}</li>
               </ul>
-
-              <p className="text-gray-700 leading-relaxed mb-3">
-                Pour exercer ces droits, contactez{" "}
-                <strong>Ethan Smadja (DPO)</strong>.
+              <p className="text-gray-700 leading-relaxed mb-4">
+                {t('section11.p1')}
               </p>
               <p className="text-gray-700 leading-relaxed">
-                Une réponse vous sera apportée dans un délai d&apos;un mois.
+                {t('section11.p2')}
               </p>
             </section>
 
@@ -420,22 +354,17 @@ function Privacy() {
             {/* Section 12 */}
             <section className="mb-10">
               <h2 className="text-2xl font-semibold text-[#11181C] mb-4">
-                12. Cookies et technologies similaires
+                {t('section12.title')}
               </h2>
-              <p className="text-gray-700 mb-3">Nous utilisons uniquement :</p>
-              <ul className="list-disc list-inside text-gray-700 space-y-2 ml-4 mb-4">
-                <li>
-                  des <strong>cookies essentiels</strong> au fonctionnement du site
-                </li>
-                <li>
-                  des <strong>cookies analytiques anonymisés</strong> (via PostHog)
-                  pour améliorer l&apos;expérience utilisateur
-                </li>
+              <p className="text-gray-700 mb-3">
+                {t('section12.intro')}
+              </p>
+              <ul className="list-disc list-inside text-gray-700 space-y-2 ml-4 mb-6">
+                <li>{t('section12.bullet1')}</li>
+                <li>{t('section12.bullet2')}</li>
               </ul>
-
               <p className="text-gray-700 leading-relaxed">
-                Les préférences peuvent être gérées dans les paramètres du
-                navigateur.
+                {t('section12.p1')}
               </p>
             </section>
 
@@ -444,18 +373,16 @@ function Privacy() {
             {/* Section 13 */}
             <section className="mb-10">
               <h2 className="text-2xl font-semibold text-[#11181C] mb-4">
-                13. Modifications de la politique
+                {t('section13.title')}
               </h2>
-              <p className="text-gray-700 leading-relaxed mb-3">
-                Cette politique peut être modifiée à tout moment.
+              <p className="text-gray-700 leading-relaxed mb-4">
+                {t('section13.p1')}
               </p>
-              <p className="text-gray-700 leading-relaxed mb-3">
-                En cas de changement significatif, une notification sera envoyée
-                par email ou via l&apos;application.
+              <p className="text-gray-700 leading-relaxed mb-4">
+                {t('section13.p2')}
               </p>
               <p className="text-gray-700 leading-relaxed">
-                La <strong>date de dernière mise à jour</strong> est toujours
-                indiquée en haut du document.
+                {t('section13.p3')}
               </p>
             </section>
 
@@ -464,20 +391,18 @@ function Privacy() {
             {/* Section 14 */}
             <section className="mb-10">
               <h2 className="text-2xl font-semibold text-[#11181C] mb-4">
-                14. Droit de plainte
+                {t('section14.title')}
               </h2>
               <p className="text-gray-700 leading-relaxed">
-                Si vous estimez que vos droits ne sont pas respectés, vous pouvez
-                déposer une plainte auprès de la <strong>CNIL</strong> (
+                {t('section14.p1')}{" "}
                 <a
                   href="https://www.cnil.fr"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-[#49AAFF] hover:underline"
                 >
-                  www.cnil.fr
+                  (www.cnil.fr)
                 </a>
-                ).
               </p>
             </section>
 
@@ -486,15 +411,14 @@ function Privacy() {
             {/* Section 15 */}
             <section className="mb-10">
               <h2 className="text-2xl font-semibold text-[#11181C] mb-4">
-                15. Violation de données
+                {t('section15.title')}
               </h2>
               <p className="text-gray-700 mb-3">
-                En cas de violation présentant un risque élevé pour vos droits et
-                libertés, nous informerons :
+                {t('section15.intro')}
               </p>
               <ul className="list-disc list-inside text-gray-700 space-y-2 ml-4">
-                <li>les personnes concernées</li>
-                <li>la CNIL, conformément au RGPD</li>
+                <li>{t('section15.bullet1')}</li>
+                <li>{t('section15.bullet2')}</li>
               </ul>
             </section>
 
@@ -503,20 +427,16 @@ function Privacy() {
             {/* Section 16 */}
             <section className="mb-10">
               <h2 className="text-2xl font-semibold text-[#11181C] mb-4">
-                16. Âge minimum et consentement parental
+                {t('section16.title')}
               </h2>
-              <p className="text-gray-700 leading-relaxed mb-3">
-                Fidjoo s&apos;adresse aux <strong>enfants à partir de 5 ans</strong>,
-                sous supervision d&apos;un parent ou tuteur légal.
+              <p className="text-gray-700 leading-relaxed mb-4">
+                {t('section16.p1')}
               </p>
-              <p className="text-gray-700 leading-relaxed mb-3">
-                Aucune donnée d&apos;enfant n&apos;est collectée sans{" "}
-                <strong>consentement explicite et vérifiable</strong> du parent,
-                recueilli via son adresse email.
+              <p className="text-gray-700 leading-relaxed mb-4">
+                {t('section16.p2')}
               </p>
               <p className="text-gray-700 leading-relaxed">
-                Ce consentement peut être retiré à tout moment en contactant{" "}
-                <strong>Ruben Marciano</strong>.
+                {t('section16.p3')}
               </p>
             </section>
 
@@ -525,23 +445,17 @@ function Privacy() {
             {/* Section 17 */}
             <section className="mb-10">
               <h2 className="text-2xl font-semibold text-[#11181C] mb-4">
-                17. Conditions d&apos;utilisation d&apos;Apple
+                {t('section17.title')}
               </h2>
-              <p className="text-gray-700 leading-relaxed mb-3">
-                L&apos;utilisation de notre application iOS implique l&apos;acceptation des{" "}
-                <strong>
-                  Conditions d&apos;Utilisation des Services Internet d&apos;Apple
-                </strong>
-                , disponibles ici :
-              </p>
-              <p className="text-gray-700">
+              <p className="text-gray-700 leading-relaxed">
+                {t('section17.p1')}{" "}
                 <a
-                  href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/"
+                  href="https://www.apple.com/legal/internet-services/itunes/fr/terms.html"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-[#49AAFF] hover:underline break-all"
+                  className="text-[#49AAFF] hover:underline"
                 >
-                  https://www.apple.com/legal/internet-services/itunes/dev/stdeula/
+                  https://www.apple.com/legal/internet-services/itunes/fr/terms.html
                 </a>
               </p>
             </section>
@@ -551,22 +465,24 @@ function Privacy() {
             {/* Section 18 */}
             <section>
               <h2 className="text-2xl font-semibold text-[#11181C] mb-4">
-                18. Acceptation
+                {t('section18.title')}
               </h2>
-              <p className="text-gray-700 leading-relaxed mb-3">
-                En utilisant nos Services, vous reconnaissez avoir lu et compris
-                les présentes Conditions Générales d&apos;Utilisation et Politique de
-                Confidentialité.
+              <p className="text-gray-700 leading-relaxed mb-4">
+                {t('section18.p1')}
               </p>
-              <p className="text-gray-700 mb-3">Pour toute question, contactez :</p>
+              <p className="text-gray-700 mb-3">
+                {t('section18.contactIntro')}
+              </p>
               <ul className="list-disc list-inside text-gray-700 space-y-2 ml-4">
                 <li>
-                  <strong>Ethan Smadja (DPO)</strong> pour les questions relatives
-                  aux données
+                  <a href="mailto:dpo@fidjoo.com" className="text-[#49AAFF] hover:underline">
+                    {t('section18.contactDpo')}
+                  </a>
                 </li>
                 <li>
-                  <strong>Ruben Marciano (Président)</strong> pour toute autre
-                  demande
+                  <a href="mailto:bonjour@fidjoo.com" className="text-[#49AAFF] hover:underline">
+                    {t('section18.contactPresident')}
+                  </a>
                 </li>
               </ul>
             </section>

@@ -2,6 +2,77 @@ import { IBlogPost } from "@/types";
 
 export const blogPosts: IBlogPost[] = [
     {
+        slug: "bedtime-stories-for-kids-5-8",
+        title: "Bedtime Stories for Kids (5-8): A Calm Night Routine That Truly Connects",
+        excerpt: "Discover how bedtime stories help children aged 5-8 relax, feel safe, and strengthen the bond with their parents through a simple night routine.",
+        coverImage: "/images/blog/bedtime-stories.png",
+        content: `
+Bedtime can be a challenging moment for families with young children.
+
+After a long day, kids often struggle to slow down, and parents look for simple ways to create calm before sleep.
+
+One habit remains incredibly effective: **bedtime stories**.
+
+For children aged **5 to 8**, stories at night help them relax, feel safe, and gently transition toward sleep.
+
+## Why Bedtime Stories Matter
+
+Listening to a story before sleep helps children:
+
+- Calm their mind and body
+- Feel emotionally secure
+- Develop imagination and language
+- Strengthen the bond with their parent
+
+Stories give children a safe space to process emotions from the day — in a quiet, reassuring way.
+
+## A Simple Bedtime Routine (10-15 Minutes)
+
+A good bedtime routine doesn't need to be complicated:
+
+1. Dim the lights and reduce stimulation
+2. Share one calm moment together
+3. Listen to one story
+4. End with a familiar goodnight ritual
+
+Consistency is more important than duration.
+
+## When the Parent Becomes the Voice of the Story
+
+What makes bedtime stories even more powerful is **who tells them**.
+
+With Fidjoo's new feature, parents can **record their own voice** and become the **narrator** of their child's stories.
+
+For children, hearing a familiar voice brings:
+
+- Comfort and reassurance
+- A stronger sense of connection
+- Emotional security at bedtime
+
+Even when parents are tired or unavailable, their voice remains present in the story.
+
+## Screens at Night: It's About How They're Used
+
+Not all screen time is equal.
+
+Fast, noisy content can overstimulate children, but **calm, story-based experiences** can support bedtime when they focus on listening, imagination, and emotional connection.
+
+The key isn't removing screens entirely — it's using them **intentionally**.
+
+## A Meaningful Way to End the Day
+
+Bedtime stories aren't just a routine.
+
+They're a moment of connection, reassurance, and imagination that children carry with them into sleep.
+
+When stories are calm, personal, and told in a familiar voice, bedtime becomes something children look forward to — night after night.
+        `,
+        author: "Fidjoo Team",
+        date: "2024-12-22",
+        readTime: "4 min read",
+        tags: ["bedtime", "parenting", "storytelling", "sleep routine"]
+    },
+    {
         slug: "meaningful-screen-time-for-kids",
         title: "Meaningful Screen Time: How Fidjoo Transforms Passive Viewing into Creative Play",
         excerpt: "Discover how interactive storytelling can turn screen time into a powerful tool for imagination and learning.",
