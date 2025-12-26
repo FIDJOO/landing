@@ -8,7 +8,7 @@ import SectionTitle from "./SectionTitle";
 const FAQ: React.FC = () => {
     const t = useTranslations('faq');
 
-    const faqKeys = ['safe', 'what', 'ages', 'offline', 'cost'] as const;
+    const faqKeys = ['bestApp', 'what', 'safe', 'ages', 'offline', 'cost', 'bedtime', 'howCreate'] as const;
 
     return (
         <section id="faq" className="py-10 lg:py-20">

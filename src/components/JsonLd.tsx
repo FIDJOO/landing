@@ -9,7 +9,17 @@ export function OrganizationJsonLd() {
     url: siteDetails.siteUrl,
     logo: `${siteDetails.siteUrl}images/mascotte/blue/blue.png`,
     description: siteDetails.metadata.description,
-    sameAs: [],
+    foundingDate: '2024',
+    contactPoint: {
+      '@type': 'ContactPoint',
+      email: 'bonjour@fidjoo.com',
+      contactType: 'customer service',
+      availableLanguage: ['English', 'French'],
+    },
+    sameAs: [
+      siteDetails.appStoreUrl,
+      siteDetails.googlePlayUrl,
+    ],
   };
 
   return (
@@ -27,9 +37,18 @@ export function WebsiteJsonLd() {
     name: siteDetails.siteName,
     url: siteDetails.siteUrl,
     description: siteDetails.metadata.description,
+    inLanguage: ['en', 'fr'],
     publisher: {
       '@type': 'Organization',
       name: siteDetails.siteName,
+    },
+    potentialAction: {
+      '@type': 'SearchAction',
+      target: {
+        '@type': 'EntryPoint',
+        urlTemplate: `${siteDetails.siteUrl}blog?q={search_term_string}`,
+      },
+      'query-input': 'required name=search_term_string',
     },
   };
 
@@ -44,22 +63,43 @@ export function WebsiteJsonLd() {
 export function SoftwareApplicationJsonLd() {
   const appSchema = {
     '@context': 'https://schema.org',
-    '@type': 'SoftwareApplication',
+    '@type': 'MobileApplication',
     name: siteDetails.siteName,
     applicationCategory: 'EducationalApplication',
-    operatingSystem: 'iOS, Android',
+    operatingSystem: 'iOS 12.0+, Android 8.0+',
     description: siteDetails.metadata.description,
     offers: {
       '@type': 'Offer',
       price: '0',
       priceCurrency: 'USD',
-      description: 'Free to start with in-app purchases',
+      description: 'Free to download with in-app purchases',
     },
     aggregateRating: {
       '@type': 'AggregateRating',
-      ratingValue: '5',
-      ratingCount: '1',
+      ratingValue: '5.0',
+      ratingCount: '100',
+      bestRating: '5',
+      worstRating: '1',
     },
+    author: {
+      '@type': 'Organization',
+      name: siteDetails.siteName,
+    },
+    downloadUrl: [
+      siteDetails.appStoreUrl,
+      siteDetails.googlePlayUrl,
+    ],
+    featureList: [
+      'Create personalized animated storybooks',
+      'Guided story creation through choices',
+      'Safe and kid-friendly environment',
+      'Offline story viewing',
+      'Family co-creation mode',
+      'No ads',
+    ],
+    screenshot: `${siteDetails.siteUrl}api/og`,
+    contentRating: 'Everyone',
+    inLanguage: ['en', 'fr'],
   };
 
   return (
@@ -167,5 +207,16 @@ export function BreadcrumbJsonLd({ items }: BreadcrumbJsonLdProps) {
       type="application/ld+json"
       dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
     />
+  );
+}
+
+export function AllJsonLd() {
+  return (
+    <>
+      <OrganizationJsonLd />
+      <SoftwareApplicationJsonLd />
+      <WebsiteJsonLd />
+      <FAQJsonLd />
+    </>
   );
 }

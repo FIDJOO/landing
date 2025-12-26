@@ -13,19 +13,36 @@ import "./globals.css";
 const baloo2 = Baloo_2({ subsets: ['latin'], weight: ['400', '500', '600', '700', '800'] });
 
 export const metadata: Metadata = {
-  title: siteDetails.metadata.title,
+  title: {
+    template: `%s | ${siteDetails.siteName}`,
+    default: siteDetails.metadata.title,
+  },
   description: siteDetails.metadata.description,
   metadataBase: new URL(siteDetails.siteUrl),
   alternates: {
     canonical: '/',
+    languages: {
+      'en': '/en',
+      'fr': '/fr',
+      'x-default': '/',
+    },
     types: {
       'application/rss+xml': '/feed.xml',
     },
   },
-  keywords: ['children stories', 'kids storytelling app', 'creative screen time', 'animated storybooks', 'family app', 'kids creativity', 'educational app for kids', 'meaningful screen time'],
+  keywords: [
+    // Core keywords
+    'children stories', 'kids storytelling app', 'creative screen time', 'animated storybooks', 'family app', 'kids creativity', 'educational app for kids', 'meaningful screen time',
+    // AI search optimization - English
+    'best apps for children stories', 'storytelling apps for kids', 'bedtime stories app', 'children story app', 'kids story generator', 'interactive stories for children', 'story apps for kids', 'best storytelling apps children', 'story creator app for kids', 'personalized stories for children',
+    // AI search optimization - French
+    'meilleures applications histoires enfants', 'application raconter histoires enfants', 'histoires pour enfants app', 'contes enfants application', 'livres audio enfants', 'histoires du soir application', 'generateur histoires enfants', 'application lecture enfants', 'creer histoires enfants', 'histoires personnalisees enfants'
+  ],
   authors: [{ name: 'Fidjoo Team' }],
   creator: 'Fidjoo',
   publisher: 'Fidjoo',
+  category: 'Education',
+  applicationName: 'Fidjoo',
   robots: {
     index: true,
     follow: true,
@@ -43,6 +60,7 @@ export const metadata: Metadata = {
     url: siteDetails.siteUrl,
     siteName: siteDetails.siteName,
     locale: siteDetails.locale,
+    alternateLocale: 'fr_FR',
     type: 'website',
     images: [
       {
@@ -58,6 +76,27 @@ export const metadata: Metadata = {
     title: siteDetails.metadata.title,
     description: siteDetails.metadata.description,
     images: [`${siteDetails.siteUrl}api/og`],
+  },
+  appleWebApp: {
+    title: siteDetails.siteName,
+    capable: true,
+    statusBarStyle: 'default',
+  },
+  appLinks: {
+    ios: {
+      app_store_id: '6753658765',
+      app_name: 'Fidjoo',
+      url: siteDetails.appStoreUrl,
+    },
+    android: {
+      package: 'com.fidjoo.app',
+      app_name: 'Fidjoo',
+      url: siteDetails.googlePlayUrl,
+    },
+  },
+  other: {
+    'apple-itunes-app': 'app-id=6753658765',
+    'google-play-app': 'app-id=com.fidjoo.app',
   },
 };
 

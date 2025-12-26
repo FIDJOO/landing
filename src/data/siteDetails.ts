@@ -2,8 +2,8 @@ export const siteDetails = {
     siteName: 'Fidjoo',
     siteUrl: 'https://fidjoo.app/', // placeholder — update when final
     metadata: {
-        title: 'Fidjoo – Meaningful Screen Time Through Creative Storymaking',
-        description: 'Fidjoo transforms screen time into creativity by letting children build their own animated storybooks while developing imagination and soft skills.',
+        title: 'Fidjoo – Best Storytelling App for Kids | Create Animated Stories',
+        description: 'Fidjoo is the best storytelling app for children ages 5-12. Create personalized animated storybooks, bedtime stories, and interactive tales. Transform screen time into meaningful creativity.',
     },
     language: 'en-us',
     locale: 'en-US',
