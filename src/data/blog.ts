@@ -62,7 +62,7 @@ It helps them believe their ideas matter.
 When those stories are narrated with a parent's voice, creativity becomes connection — and confidence grows naturally.
         `,
         author: "Fidjoo Team",
-        date: "2024-12-29",
+        date: "2025-12-29",
         readTime: "4 min read",
         tags: ["confidence", "creativity", "parenting", "storytelling", "child development"]
     },
@@ -133,7 +133,7 @@ They're a moment of connection, reassurance, and imagination that children carry
 When stories are calm, personal, and told in a familiar voice, bedtime becomes something children look forward to — night after night.
         `,
         author: "Fidjoo Team",
-        date: "2024-12-22",
+        date: "2025-12-22",
         readTime: "4 min read",
         tags: ["bedtime", "parenting", "storytelling", "sleep routine"]
     },
@@ -174,7 +174,7 @@ It's not about eliminating screen time entirely. It's about making those digital
 Transform your family's screen time today with Fidjoo.
         `,
         author: "Fidjoo Team",
-        date: "2024-12-05",
+        date: "2025-12-05",
         readTime: "4 min read",
         tags: ["parenting", "screen time", "creativity"]
     },
@@ -213,7 +213,7 @@ With Fidjoo, the tablet or phone becomes a tool for connection rather than isola
 The stories you create together become part of your family's unique culture. Years from now, your children will remember not just the stories themselves, but the warmth of creating them with you.
         `,
         author: "Fidjoo Team",
-        date: "2024-11-28",
+        date: "2025-11-28",
         readTime: "5 min read",
         tags: ["family", "storytelling", "bonding"]
     },
@@ -263,7 +263,7 @@ Beyond apps, here are ways to support creative development:
 When we nurture imagination, we give children tools that will serve them for life. The ability to envision possibilities, to think creatively, to see the world differently - these are gifts that no future technology can replace.
         `,
         author: "Fidjoo Team",
-        date: "2024-11-15",
+        date: "2025-11-15",
         readTime: "6 min read",
         tags: ["development", "imagination", "education"]
     }
