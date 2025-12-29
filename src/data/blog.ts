@@ -2,6 +2,71 @@ import { IBlogPost } from "@/types";
 
 export const blogPosts: IBlogPost[] = [
     {
+        slug: "kids-create-stories-builds-confidence",
+        title: "Why Letting Kids Create Their Own Stories Builds Confidence (Ages 5–8)",
+        excerpt: "Discover how inventing stories helps children aged 5-8 develop imagination, emotional expression, and confidence — especially when parents become the narrator.",
+        coverImage: "/images/blog/kids-confidence-storytelling.png",
+        content: `
+Children love stories.
+
+But something even more powerful happens when they don't just listen — **they create**.
+
+For children aged **5 to 8**, inventing their own stories helps develop imagination, emotional expression, and confidence, especially when a parent is part of the experience.
+
+## Story Creation Helps Children Express Who They Are
+
+When children create stories, they project their thoughts and emotions onto characters.
+
+It's a natural way for them to explore feelings like courage, fear, or pride — without pressure.
+
+Storytelling becomes a safe space where:
+
+- Ideas are valued
+- Creativity is encouraged
+- There are no "wrong answers"
+
+This freedom builds self-confidence.
+
+## Why Hearing a Parent's Voice Changes Everything
+
+A story feels even more meaningful when it's told in a **familiar voice**.
+
+With Fidjoo, parents can record their own voice and become the **narrator** of the stories their child creates.
+
+For children, this means:
+
+- Feeling supported while expressing ideas
+- Hearing encouragement through a trusted voice
+- Building confidence in a safe emotional environment
+
+The parent's voice acts as reassurance throughout the story.
+
+## From Passive Screen Time to Creative Time
+
+Unlike passive content, story creation encourages children to think, choose, and imagine.
+
+When screens are used to support creativity and storytelling, they become a tool for:
+
+- Imagination
+- Emotional development
+- Positive interaction
+
+The difference isn't the screen — it's the intention behind it.
+
+## Creativity Builds Confidence That Lasts
+
+Letting children create their own stories isn't just play.
+
+It helps them believe their ideas matter.
+
+When those stories are narrated with a parent's voice, creativity becomes connection — and confidence grows naturally.
+        `,
+        author: "Fidjoo Team",
+        date: "2024-12-29",
+        readTime: "4 min read",
+        tags: ["confidence", "creativity", "parenting", "storytelling", "child development"]
+    },
+    {
         slug: "bedtime-stories-for-kids-5-8",
         title: "Bedtime Stories for Kids (5-8): A Calm Night Routine That Truly Connects",
         excerpt: "Discover how bedtime stories help children aged 5-8 relax, feel safe, and strengthen the bond with their parents through a simple night routine.",

@@ -3,6 +3,7 @@
 import React, { useState } from 'react'
 import clsx from 'clsx'
 import { useTranslations } from 'next-intl';
+import { track } from '@vercel/analytics';
 import { siteDetails } from '@/data/siteDetails';
 
 const PlayStoreButton = ({ dark }: { dark?: boolean }) => {
@@ -15,6 +16,7 @@ const PlayStoreButton = ({ dark }: { dark?: boolean }) => {
             href={siteDetails.googlePlayUrl}
             target="_blank"
             rel="noopener noreferrer"
+            onClick={() => track('Play Store Button Click', { store: 'play_store' })}
             onMouseDown={() => setIsPressed(true)}
             onMouseUp={() => setIsPressed(false)}
             onMouseLeave={() => setIsPressed(false)}

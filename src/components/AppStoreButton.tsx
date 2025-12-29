@@ -3,6 +3,7 @@
 import React, { useState } from 'react'
 import clsx from 'clsx'
 import { useTranslations } from 'next-intl';
+import { track } from '@vercel/analytics';
 import { siteDetails } from '@/data/siteDetails';
 
 const AppStoreButton = ({ dark }: { dark?: boolean }) => {
@@ -15,6 +16,7 @@ const AppStoreButton = ({ dark }: { dark?: boolean }) => {
             href={siteDetails.appStoreUrl}
             target="_blank"
             rel="noopener noreferrer"
+            onClick={() => track('App Store Button Click', { store: 'app_store' })}
             onMouseDown={() => setIsPressed(true)}
             onMouseUp={() => setIsPressed(false)}
             onMouseLeave={() => setIsPressed(false)}
