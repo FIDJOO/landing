@@ -30,6 +30,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   const baseUrl = siteDetails.siteUrl.replace(/\/$/, '');
 
+  // Use cover image if available, otherwise use dynamic OG image
+  const ogImageUrl = post.coverImage
+    ? post.coverImage
+    : `/api/og?title=${encodeURIComponent(post.title)}&description=${encodeURIComponent(post.excerpt)}`;
+
   return {
     title: `${post.title} | ${siteDetails.siteName}`,
     description: post.excerpt,
@@ -44,20 +49,20 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       type: 'article',
       publishedTime: post.date,
       authors: [post.author],
-      images: post.coverImage ? [
+      images: [
         {
-          url: `/api/og?title=${encodeURIComponent(post.title)}&description=${encodeURIComponent(post.excerpt)}`,
+          url: ogImageUrl,
           width: 1200,
           height: 630,
           alt: post.title,
         },
-      ] : undefined,
+      ],
     },
     twitter: {
       card: 'summary_large_image',
       title: post.title,
       description: post.excerpt,
-      images: [`/api/og?title=${encodeURIComponent(post.title)}&description=${encodeURIComponent(post.excerpt)}`],
+      images: [ogImageUrl],
     },
   };
 }
