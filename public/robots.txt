@@ -1,7 +1,7 @@
 # Robots.txt for Fidjoo
-# https://fidjoo.app
-
+# https://fidjoo.com
 # Default rules for all crawlers
+
 User-agent: *
 Allow: /
 Disallow: /delete
@@ -47,7 +47,7 @@ User-agent: Applebot
 Allow: /
 
 # Sitemap location
-Sitemap: https://fidjoo.app/sitemap.xml
+Sitemap: https://fidjoo.com/sitemap.xml
 
 # LLMs.txt for AI-friendly content
-# See: https://fidjoo.app/llms.txt
+# See: https://fidjoo.com/llms.txt

@@ -15,11 +15,11 @@
 
 ## Documentation
 
-- [Website](https://fidjoo.app/)
-- [Privacy Policy](https://fidjoo.app/privacy)
-- [Terms of Service](https://fidjoo.app/terms)
-- [Contact](https://fidjoo.app/contact)
-- [Blog](https://fidjoo.app/blog)
+- [Website](https://fidjoo.com/)
+- [Privacy Policy](https://fidjoo.com/privacy)
+- [Terms of Service](https://fidjoo.com/terms)
+- [Contact](https://fidjoo.com/contact)
+- [Blog](https://fidjoo.com/blog)
 
 ## App Downloads
 
@@ -105,10 +105,10 @@ Fidjoo is a French company creating educational and creative apps for children. 
 
 ## Contact Information
 
-- **Website**: https://fidjoo.app/
+- **Website**: https://fidjoo.com/
 - **Email**: bonjour@fidjoo.com
 - **App Store (iOS)**: https://apps.apple.com/fr/app/fidjoo/id6753658765
-- **Google Play (Android)**: https://play.google.com/store/apps/details?id=com.fidjoo.app
+- **Google Play (Android)**: https://play.google.com/store/apps/details?id=com.fidjoo.com
 
 ---
 

@@ -1,16 +1,17 @@
 import { ImageResponse } from 'next/og';
+import { siteDetails } from '@/data/siteDetails';
 
-export const runtime = 'edge';
+// Image metadata
+export const alt = siteDetails.siteName;
+export const size = {
+  width: 1200,
+  height: 630,
+};
 
-const siteUrl = 'https://fidjoo.com';
+export const contentType = 'image/png';
 
-export async function GET(request: Request) {
-  const { searchParams } = new URL(request.url);
-
-  // Dynamic params (with defaults)
-  const title = searchParams.get('title') || 'Meaningful Screen Time Through Creative Storymaking';
-  const description = searchParams.get('description') || 'Transform screen time into creativity with animated storybooks';
-
+// Image generation
+export default async function Image() {
   // Load Baloo 2 font from Google Fonts
   const baloo2Bold = await fetch(
     'https://fonts.gstatic.com/s/baloo2/v21/wXK0E3kTposypRydzVT08TS3JnAmtdgazapv9Fat7WcN.ttf'
@@ -21,7 +22,7 @@ export async function GET(request: Request) {
   ).then((res) => res.arrayBuffer());
 
   // Load the mascot image using absolute URL
-  const mascotUrl = `${siteUrl}/images/mascotte/blue/blue.png`;
+  const mascotUrl = `${siteDetails.siteUrl}images/mascotte/blue/blue.png`;
 
   return new ImageResponse(
     (
@@ -116,7 +117,7 @@ export async function GET(request: Request) {
                 marginBottom: 20,
               }}
             >
-              {title}
+              Meaningful Screen Time Through Creative Storymaking
             </h1>
 
             {/* Description */}
@@ -128,7 +129,7 @@ export async function GET(request: Request) {
                 lineHeight: 1.4,
               }}
             >
-              {description}
+              Transform screen time into creativity with animated storybooks
             </p>
           </div>
 
@@ -167,8 +168,7 @@ export async function GET(request: Request) {
       </div>
     ),
     {
-      width: 1200,
-      height: 630,
+      ...size,
       fonts: [
         {
           name: 'Baloo 2',

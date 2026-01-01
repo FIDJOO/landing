@@ -62,20 +62,11 @@ export const metadata: Metadata = {
     locale: siteDetails.locale,
     alternateLocale: 'fr_FR',
     type: 'website',
-    images: [
-      {
-        url: `${siteDetails.siteUrl}api/og`,
-        width: 1200,
-        height: 630,
-        alt: siteDetails.siteName,
-      },
-    ],
   },
   twitter: {
     card: 'summary_large_image',
     title: siteDetails.metadata.title,
     description: siteDetails.metadata.description,
-    images: [`${siteDetails.siteUrl}api/og`],
   },
   appleWebApp: {
     title: siteDetails.siteName,
