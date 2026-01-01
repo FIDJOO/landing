@@ -38,7 +38,7 @@ export const metadata: Metadata = {
     // AI search optimization - French
     'meilleures applications histoires enfants', 'application raconter histoires enfants', 'histoires pour enfants app', 'contes enfants application', 'livres audio enfants', 'histoires du soir application', 'generateur histoires enfants', 'application lecture enfants', 'creer histoires enfants', 'histoires personnalisees enfants'
   ],
-  authors: [{ name: 'Fidjoo Team' }],
+  authors: [{ name: 'Fidjoo' }],
   creator: 'Fidjoo',
   publisher: 'Fidjoo',
   category: 'Education',
