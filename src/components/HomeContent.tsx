@@ -10,6 +10,7 @@ import Section from "@/components/Section";
 //import Stats from "@/components/Stats";
 import CTA from "@/components/CTA";
 import BlogPreview from "@/components/BlogPreview";
+import WhatsAppCommunity from "@/components/WhatsAppCommunity";
 
 const HomeContent: React.FC = () => {
     const tPricing = useTranslations('pricing');
@@ -19,6 +20,8 @@ const HomeContent: React.FC = () => {
         <>
             <Hero />
             <Container>
+                <WhatsAppCommunity />
+
                 <Benefits />
 
                 <Section
@@ -38,6 +41,7 @@ const HomeContent: React.FC = () => {
                 </Section>
 
                 <FAQ />
+
 
                 {/* <Stats /> */}
 

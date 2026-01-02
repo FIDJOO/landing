@@ -2,8 +2,8 @@ export const siteDetails = {
     siteName: 'Fidjoo',
     siteUrl: 'https://fidjoo.com/', // placeholder — update when final
     metadata: {
-        title: 'Fidjoo – Best Storytelling App for Kids | Create Animated Stories',
-        description: 'Fidjoo is the best storytelling app for children ages 5-12. Create personalized animated storybooks, bedtime stories, and interactive tales. Transform screen time into meaningful creativity.',
+        title: 'Fidjoo – Storytelling App for Kids | Create Animated Stories',
+        description: 'Fidjoo is a storytelling app for children ages 5-12. Create personalized animated storybooks, bedtime stories, and interactive tales. Transform screen time into meaningful creativity.',
     },
     language: 'en-us',
     locale: 'en-US',
@@ -12,4 +12,5 @@ export const siteDetails = {
     googleAnalyticsId: 'GTM-W8RQQC8P',
     appStoreUrl: 'https://apps.apple.com/fr/app/fidjoo/id6753658765',
     googlePlayUrl: 'https://play.google.com/store/apps/details?id=com.fidjoo.app',
+    whatsappGroupUrl: 'https://chat.whatsapp.com/E77CsNUsYkkGQkf0rblNY4',
 }
