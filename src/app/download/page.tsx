@@ -8,6 +8,7 @@ import PlayStoreButton from '@/components/PlayStoreButton';
 import { track } from '@vercel/analytics';
 import Image from 'next/image';
 import { UAParser } from 'ua-parser-js';
+import { QRCodeSVG } from 'qrcode.react';
 
 type Platform = 'ios' | 'android' | 'desktop' | 'loading';
 
@@ -185,18 +186,34 @@ export default function DownloadPage() {
                     Transformez l&apos;imagination de vos enfants en histoires animées magiques.
                 </p>
 
-                <div className="flex flex-col sm:flex-row items-center justify-center gap-3 mb-6">
+                <div className="flex flex-col sm:flex-row items-center justify-center gap-3 mb-8">
                     <AppStoreButton />
                     <PlayStoreButton />
                 </div>
 
+                <div className="flex justify-center mb-4">
+                    <div className="bg-white p-4 rounded-2xl shadow-sm">
+                        <QRCodeSVG
+                            value={`${siteDetails.siteUrl}download`}
+                            size={180}
+                            level="M"
+                            imageSettings={{
+                                src: siteDetails.siteLogo,
+                                height: 40,
+                                width: 40,
+                                excavate: true,
+                            }}
+                        />
+                    </div>
+                </div>
+
+                <p className="text-sm text-foreground/50 mb-4">
+                    Scannez ce QR code avec votre téléphone
+                </p>
+
                 <div className="flex justify-center">
                     <ShareButton />
                 </div>
-
-                <p className="text-sm text-foreground/40 mt-8">
-                    Scannez ce lien depuis votre téléphone ou partagez-le !
-                </p>
             </div>
         </div>
     );
