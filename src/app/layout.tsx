@@ -19,6 +19,10 @@ export const metadata: Metadata = {
   },
   description: siteDetails.metadata.description,
   metadataBase: new URL(siteDetails.siteUrl),
+  icons: {
+    icon: '/images/mascotte/black/favicon.ico',
+    apple: '/images/mascotte/black/apple-touch-icon.png',
+  },
   alternates: {
     canonical: '/',
     languages: {

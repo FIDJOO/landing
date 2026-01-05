@@ -21,9 +21,9 @@ const Pricing: React.FC = () => {
                     <span className="inline-block bg-secondary/10 text-secondary px-4 py-1 rounded-full text-sm font-semibold mb-3">
                         {t('subscription')}
                     </span>
-                    <h3 className="text-2xl font-bold text-gray-900">
+                    <p className="text-2xl font-bold text-gray-900">
                         {t('subscriptionSubtitle')}
-                    </h3>
+                    </p>
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-2xl mx-auto">
                     {subscriptions.map((sub) => (
@@ -45,9 +45,9 @@ const Pricing: React.FC = () => {
                     <span className="inline-block bg-primary/10 text-primary px-4 py-1 rounded-full text-sm font-semibold mb-3">
                         {t('creditPacks')}
                     </span>
-                    <h3 className="text-2xl font-bold text-gray-900">
+                    <p className="text-2xl font-bold text-gray-900">
                         {t('creditPacksSubtitle')}
-                    </h3>
+                    </p>
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
                     {creditPacks.map((pack) => (

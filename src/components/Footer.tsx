@@ -25,16 +25,16 @@ const Footer: React.FC = () => {
                 <div>
                     <Link href="/" className="flex items-center gap-2">
                         <Image src={siteDetails.siteLogo} alt={siteDetails.siteName} width={50} height={50} />
-                        <h3 className="text-xl font-semibold cursor-pointer">
+                        <span className="text-xl font-semibold">
                             {siteDetails.siteName}
-                        </h3>
+                        </span>
                     </Link>
                     <p className="mt-3.5 text-foreground-accent">
                         {t('subheading')}
                     </p>
                 </div>
                 <div>
-                    <h4 className="text-lg font-semibold mb-4">{t('quickLinks')}</h4>
+                    <p className="text-lg font-semibold mb-4">{t('quickLinks')}</p>
                     <ul className="text-foreground-accent">
                         {quickLinks.map(link => (
                             <li key={link.key} className="mb-2">
@@ -44,7 +44,7 @@ const Footer: React.FC = () => {
                     </ul>
                 </div>
                 <div>
-                    <h4 className="text-lg font-semibold mb-4">{t('contactUs')}</h4>
+                    <p className="text-lg font-semibold mb-4">{t('contactUs')}</p>
 
                     {footerDetails.email && <a href={`mailto:${footerDetails.email}`}  className="block text-foreground-accent hover:text-foreground">{t('email')}: {footerDetails.email}</a>}
 

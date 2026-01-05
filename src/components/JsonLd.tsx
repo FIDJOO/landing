@@ -74,13 +74,15 @@ export function SoftwareApplicationJsonLd() {
       priceCurrency: 'USD',
       description: 'Free to download with in-app purchases',
     },
-    aggregateRating: {
-      '@type': 'AggregateRating',
-      ratingValue: '5.0',
-      ratingCount: '100',
-      bestRating: '5',
-      worstRating: '1',
-    },
+    // TODO: Add aggregateRating back when you have real App Store/Play Store ratings
+    // Example:
+    // aggregateRating: {
+    //   '@type': 'AggregateRating',
+    //   ratingValue: '4.8',
+    //   ratingCount: '50',
+    //   bestRating: '5',
+    //   worstRating: '1',
+    // },
     author: {
       '@type': 'Organization',
       name: siteDetails.siteName,

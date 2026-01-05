@@ -42,7 +42,7 @@ const PricingColumn: React.FC<Props> = ({ tier }: Props) => {
                 </div>
             )}
             <div className={clsx("p-6", !highlight && "pt-8")}>
-                <h3 className="text-xl font-bold text-gray-900 mb-2">{translatedName}</h3>
+                <p className="text-xl font-bold text-gray-900 mb-2">{translatedName}</p>
                 <p className="text-sm text-gray-500 mb-4">{translatedDescription}</p>
 
                 <div className="mb-6">
