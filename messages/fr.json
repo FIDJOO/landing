@@ -172,7 +172,12 @@
   },
   "blog": {
     "title": "Blog",
-    "description": "Conseils et astuces pour une parentalité créative."
+    "description": "Conseils et astuces pour une parentalité créative.",
+    "pageDescription": "Conseils, astuces et histoires sur le jeu créatif, le temps d'écran utile et le développement de l'imagination de votre enfant.",
+    "backToBlog": "Retour au Blog",
+    "readMoreArticles": "Lire plus d'articles",
+    "by": "Par",
+    "minRead": "min de lecture"
   },
   "footer": {
     "subheading": "Transformez le temps d'écran passif en moments créatifs que toute la famille appréciera.",
@@ -706,5 +711,30 @@
       "title": "12. Acceptation",
       "p1": "En utilisant le Système de Voix Fidjoo, l'utilisateur reconnaît avoir lu, compris et accepté sans réserve les présentes conditions."
     }
+  },
+  "download": {
+    "title": "Télécharger Fidjoo",
+    "description": "Transformez l'imagination de vos enfants en histoires animées magiques.",
+    "redirecting": "Redirection en cours...",
+    "redirectingTo": "Redirection vers {store}...",
+    "clickHere": "cliquez ici",
+    "ifNotRedirected": "Si la redirection ne fonctionne pas,",
+    "scanQrCode": "Scannez ce QR code avec votre téléphone",
+    "share": "Partager",
+    "linkCopied": "Lien copié !",
+    "shareTitle": "Fidjoo - Application d'histoires pour enfants",
+    "shareText": "Découvre Fidjoo, l'app qui transforme l'imagination des enfants en histoires animées !"
+  },
+  "contact": {
+    "title": "Nous contacter",
+    "description": "Vous avez une question ou une suggestion ? N'hésitez pas à nous écrire.",
+    "name": "Nom complet",
+    "email": "Email",
+    "message": "Votre message...",
+    "send": "Envoyer",
+    "sending": "Envoi en cours...",
+    "successTitle": "Merci pour votre message !",
+    "successMessage": "Nous vous répondrons dans les plus brefs délais.",
+    "errorMessage": "Une erreur s'est produite. Veuillez réessayer plus tard."
   }
 }

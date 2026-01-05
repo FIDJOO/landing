@@ -1,19 +1,25 @@
+'use client';
+
 import Link from "next/link";
+import { useLocale } from "next-intl";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
-import { blogPosts } from "@/data/blog";
+import { getBlogPosts } from "@/data/blog";
+import { Locale } from "@/i18n/config";
 
 const BlogPreview: React.FC = () => {
-  const latestPosts = blogPosts.slice(0, 3);
+  const locale = useLocale() as Locale;
+  const posts = getBlogPosts(locale);
+  const latestPosts = posts.slice(0, 3);
 
   return (
     <div className="grid md:grid-cols-3 gap-6">
       {latestPosts.map((post) => (
-        <Link key={post.slug} href={`/blog/${post.slug}`}>
+        <Link key={post.slug} href={`/${locale}/blog/${post.slug}`}>
           <Card className="h-full hover:shadow-lg transition-shadow cursor-pointer">
             <CardHeader>
               <div className="flex items-center gap-2 text-sm text-gray-500 mb-2">
                 <span>{post.date}</span>
-                <span>•</span>
+                <span>-</span>
                 <span>{post.readTime}</span>
               </div>
               <CardTitle className="text-lg font-bold text-foreground hover:text-primary transition-colors line-clamp-2">

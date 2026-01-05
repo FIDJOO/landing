@@ -9,6 +9,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { FiFileText, FiShield, FiLock, FiMic, FiTrash2 } from 'react-icons/fi';
+import { useLocalizedPath } from '@/hooks/useLocalizedPath';
 
 const legalPages = [
   {
@@ -40,6 +41,7 @@ const legalPages = [
 
 function LegalPage() {
   const t = useTranslations('legal');
+  const localizedPath = useLocalizedPath();
 
   return (
     <div className="min-h-screen px-6 sm:px-12 lg:px-24 xl:px-40 py-12 flex justify-center items-center pt-32">
@@ -61,7 +63,7 @@ function LegalPage() {
                 return (
                   <Link
                     key={page.key}
-                    href={page.href}
+                    href={localizedPath(page.href)}
                     className="flex items-center gap-4 p-4 rounded-lg bg-gray-50 hover:bg-gray-100 transition-colors group"
                   >
                     <div className="flex-shrink-0 w-12 h-12 rounded-full bg-[#49AAFF]/10 flex items-center justify-center group-hover:bg-[#49AAFF]/20 transition-colors">

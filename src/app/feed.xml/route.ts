@@ -1,17 +1,20 @@
-import { blogPosts } from '@/data/blog';
+import { getBlogPosts } from '@/data/blog';
 import { siteDetails } from '@/data/siteDetails';
 
 export async function GET() {
   const baseUrl = siteDetails.siteUrl.replace(/\/$/, '');
 
-  const rssItems = blogPosts
+  // Use English as the default language for the RSS feed
+  const posts = getBlogPosts('en');
+
+  const rssItems = posts
     .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
     .map(
       (post) => `
     <item>
       <title><![CDATA[${post.title}]]></title>
-      <link>${baseUrl}/blog/${post.slug}</link>
-      <guid isPermaLink="true">${baseUrl}/blog/${post.slug}</guid>
+      <link>${baseUrl}/en/blog/${post.slug}</link>
+      <guid isPermaLink="true">${baseUrl}/en/blog/${post.slug}</guid>
       <description><![CDATA[${post.excerpt}]]></description>
       <pubDate>${new Date(post.date).toUTCString()}</pubDate>
       <author>${post.author}</author>

@@ -8,9 +8,11 @@ import { useTranslations } from 'next-intl';
 import { siteDetails } from '@/data/siteDetails';
 import { footerDetails } from '@/data/footer';
 import { getPlatformIconByName } from '@/utils';
+import { useLocalizedPath } from '@/hooks/useLocalizedPath';
 
 const Footer: React.FC = () => {
     const t = useTranslations('footer');
+    const localizedPath = useLocalizedPath();
 
     const quickLinks = [
         { key: 'features', url: '#features' },
@@ -23,7 +25,7 @@ const Footer: React.FC = () => {
         <footer className="bg-hero-background text-foreground py-10">
             <div className="max-w-7xl w-full mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-10">
                 <div>
-                    <Link href="/" className="flex items-center gap-2">
+                    <Link href={localizedPath('/')} className="flex items-center gap-2">
                         <Image src={siteDetails.siteLogo} alt={siteDetails.siteName} width={50} height={50} />
                         <span className="text-xl font-semibold">
                             {siteDetails.siteName}
@@ -38,7 +40,7 @@ const Footer: React.FC = () => {
                     <ul className="text-foreground-accent">
                         {quickLinks.map(link => (
                             <li key={link.key} className="mb-2">
-                                <Link href={link.url} className="hover:text-foreground">{t(`links.${link.key}`)}</Link>
+                                <Link href={localizedPath(link.url)} className="hover:text-foreground">{t(`links.${link.key}`)}</Link>
                             </li>
                         ))}
                     </ul>

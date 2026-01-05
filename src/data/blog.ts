@@ -1,12 +1,52 @@
-import { IBlogPost } from "@/types";
+import { Locale } from "@/i18n/config";
 
-export const blogPosts: IBlogPost[] = [
+export interface IBlogPost {
+    slug: string;
+    coverImage?: string;
+    author: string;
+    date: string;
+    tags?: string[];
+}
+
+export interface ILocalizedBlogPost extends IBlogPost {
+    title: string;
+    excerpt: string;
+    content: string;
+    readTime: string;
+}
+
+export interface IBlogPostTranslations {
+    en: {
+        title: string;
+        excerpt: string;
+        content: string;
+        readTime: string;
+    };
+    fr: {
+        title: string;
+        excerpt: string;
+        content: string;
+        readTime: string;
+    };
+}
+
+export interface IBlogPostWithTranslations extends IBlogPost {
+    translations: IBlogPostTranslations;
+}
+
+export const blogPosts: IBlogPostWithTranslations[] = [
     {
         slug: "kids-create-stories-builds-confidence",
-        title: "Why Letting Kids Create Their Own Stories Builds Confidence (Ages 5–8)",
-        excerpt: "Discover how inventing stories helps children aged 5-8 develop imagination, emotional expression, and confidence — especially when parents become the narrator.",
         coverImage: "/images/blog/kids-confidence-storytelling.png",
-        content: `
+        author: "Fidjoo Team",
+        date: "2025-12-29",
+        tags: ["confidence", "creativity", "parenting", "storytelling", "child development"],
+        translations: {
+            en: {
+                title: "Why Letting Kids Create Their Own Stories Builds Confidence (Ages 5-8)",
+                excerpt: "Discover how inventing stories helps children aged 5-8 develop imagination, emotional expression, and confidence - especially when parents become the narrator.",
+                readTime: "4 min read",
+                content: `
 Children love stories.
 
 But something even more powerful happens when they don't just listen — **they create**.
@@ -60,18 +100,82 @@ Letting children create their own stories isn't just play.
 It helps them believe their ideas matter.
 
 When those stories are narrated with a parent's voice, creativity becomes connection — and confidence grows naturally.
-        `,
-        author: "Fidjoo Team",
-        date: "2025-12-29",
-        readTime: "4 min read",
-        tags: ["confidence", "creativity", "parenting", "storytelling", "child development"]
+                `
+            },
+            fr: {
+                title: "Pourquoi laisser les enfants créer leurs propres histoires renforce leur confiance (5-8 ans)",
+                excerpt: "Découvrez comment inventer des histoires aide les enfants de 5 à 8 ans à développer leur imagination, leur expression émotionnelle et leur confiance - surtout quand les parents deviennent narrateurs.",
+                readTime: "4 min de lecture",
+                content: `
+Les enfants adorent les histoires.
+
+Mais quelque chose d'encore plus puissant se produit quand ils ne font pas que les écouter — **ils les créent**.
+
+Pour les enfants de **5 à 8 ans**, inventer leurs propres histoires aide à développer l'imagination, l'expression émotionnelle et la confiance en soi, surtout quand un parent participe à l'expérience.
+
+## La création d'histoires aide les enfants à s'exprimer
+
+Quand les enfants créent des histoires, ils projettent leurs pensées et émotions sur les personnages.
+
+C'est une façon naturelle pour eux d'explorer des sentiments comme le courage, la peur ou la fierté — sans pression.
+
+La narration devient un espace sûr où :
+
+- Les idées sont valorisées
+- La créativité est encouragée
+- Il n'y a pas de "mauvaises réponses"
+
+Cette liberté construit la confiance en soi.
+
+## Pourquoi entendre la voix d'un parent change tout
+
+Une histoire est encore plus significative quand elle est racontée avec une **voix familière**.
+
+Avec Fidjoo, les parents peuvent enregistrer leur propre voix et devenir le **narrateur** des histoires que leur enfant crée.
+
+Pour les enfants, cela signifie :
+
+- Se sentir soutenu en exprimant ses idées
+- Entendre des encouragements d'une voix de confiance
+- Construire sa confiance dans un environnement émotionnel sûr
+
+La voix du parent agit comme une assurance tout au long de l'histoire.
+
+## Du temps d'écran passif au temps créatif
+
+Contrairement au contenu passif, la création d'histoires encourage les enfants à réfléchir, choisir et imaginer.
+
+Quand les écrans sont utilisés pour soutenir la créativité et la narration, ils deviennent un outil pour :
+
+- L'imagination
+- Le développement émotionnel
+- L'interaction positive
+
+La différence n'est pas l'écran — c'est l'intention derrière.
+
+## La créativité construit une confiance durable
+
+Laisser les enfants créer leurs propres histoires n'est pas qu'un jeu.
+
+Cela les aide à croire que leurs idées comptent.
+
+Quand ces histoires sont narrées avec la voix d'un parent, la créativité devient connexion — et la confiance grandit naturellement.
+                `
+            }
+        }
     },
     {
         slug: "bedtime-stories-for-kids-5-8",
-        title: "Bedtime Stories for Kids (5-8): A Calm Night Routine That Truly Connects",
-        excerpt: "Discover how bedtime stories help children aged 5-8 relax, feel safe, and strengthen the bond with their parents through a simple night routine.",
         coverImage: "/images/blog/bedtime-stories.png",
-        content: `
+        author: "Fidjoo Team",
+        date: "2025-12-22",
+        tags: ["bedtime", "parenting", "storytelling", "sleep routine"],
+        translations: {
+            en: {
+                title: "Bedtime Stories for Kids (5-8): A Calm Night Routine That Truly Connects",
+                excerpt: "Discover how bedtime stories help children aged 5-8 relax, feel safe, and strengthen the bond with their parents through a simple night routine.",
+                readTime: "4 min read",
+                content: `
 Bedtime can be a challenging moment for families with young children.
 
 After a long day, kids often struggle to slow down, and parents look for simple ways to create calm before sleep.
@@ -131,18 +235,88 @@ Bedtime stories aren't just a routine.
 They're a moment of connection, reassurance, and imagination that children carry with them into sleep.
 
 When stories are calm, personal, and told in a familiar voice, bedtime becomes something children look forward to — night after night.
-        `,
-        author: "Fidjoo Team",
-        date: "2025-12-22",
-        readTime: "4 min read",
-        tags: ["bedtime", "parenting", "storytelling", "sleep routine"]
+                `
+            },
+            fr: {
+                title: "Histoires du soir pour enfants (5-8 ans) : une routine apaisante qui crée du lien",
+                excerpt: "Découvrez comment les histoires du soir aident les enfants de 5 à 8 ans à se détendre, se sentir en sécurité et renforcer le lien avec leurs parents.",
+                readTime: "4 min de lecture",
+                content: `
+Le coucher peut être un moment difficile pour les familles avec de jeunes enfants.
+
+Après une longue journée, les enfants ont souvent du mal à ralentir, et les parents cherchent des moyens simples de créer le calme avant le sommeil.
+
+Une habitude reste incroyablement efficace : **les histoires du soir**.
+
+Pour les enfants de **5 à 8 ans**, les histoires du soir les aident à se détendre, se sentir en sécurité et faire la transition vers le sommeil.
+
+## Pourquoi les histoires du soir sont importantes
+
+Écouter une histoire avant de dormir aide les enfants à :
+
+- Calmer leur esprit et leur corps
+- Se sentir émotionnellement en sécurité
+- Développer leur imagination et leur langage
+- Renforcer le lien avec leur parent
+
+Les histoires offrent aux enfants un espace sûr pour traiter les émotions de la journée — de manière calme et rassurante.
+
+## Une routine du soir simple (10-15 minutes)
+
+Une bonne routine du coucher n'a pas besoin d'être compliquée :
+
+1. Tamisez les lumières et réduisez les stimulations
+2. Partagez un moment calme ensemble
+3. Écoutez une histoire
+4. Terminez par un rituel de bonne nuit familier
+
+La régularité est plus importante que la durée.
+
+## Quand le parent devient la voix de l'histoire
+
+Ce qui rend les histoires du soir encore plus puissantes, c'est **qui les raconte**.
+
+Avec la nouvelle fonctionnalité de Fidjoo, les parents peuvent **enregistrer leur propre voix** et devenir le **narrateur** des histoires de leur enfant.
+
+Pour les enfants, entendre une voix familière apporte :
+
+- Confort et réassurance
+- Un sentiment de connexion plus fort
+- Une sécurité émotionnelle au moment du coucher
+
+Même quand les parents sont fatigués ou indisponibles, leur voix reste présente dans l'histoire.
+
+## Les écrans le soir : c'est une question d'utilisation
+
+Tout le temps d'écran n'est pas égal.
+
+Le contenu rapide et bruyant peut sur-stimuler les enfants, mais **les expériences calmes basées sur des histoires** peuvent accompagner le coucher quand elles se concentrent sur l'écoute, l'imagination et la connexion émotionnelle.
+
+La clé n'est pas de supprimer totalement les écrans — c'est de les utiliser **intentionnellement**.
+
+## Une façon significative de terminer la journée
+
+Les histoires du soir ne sont pas qu'une routine.
+
+C'est un moment de connexion, de réassurance et d'imagination que les enfants emportent avec eux dans leur sommeil.
+
+Quand les histoires sont calmes, personnelles et racontées avec une voix familière, le coucher devient quelque chose que les enfants attendent avec impatience — soir après soir.
+                `
+            }
+        }
     },
     {
         slug: "meaningful-screen-time-for-kids",
-        title: "Meaningful Screen Time: How Fidjoo Transforms Passive Viewing into Creative Play",
-        excerpt: "Discover how interactive storytelling can turn screen time into a powerful tool for imagination and learning.",
         coverImage: "/images/baseline/black/black.png",
-        content: `
+        author: "Fidjoo Team",
+        date: "2025-12-05",
+        tags: ["parenting", "screen time", "creativity"],
+        translations: {
+            en: {
+                title: "Meaningful Screen Time: How Fidjoo Transforms Passive Viewing into Creative Play",
+                excerpt: "Discover how interactive storytelling can turn screen time into a powerful tool for imagination and learning.",
+                readTime: "4 min read",
+                content: `
 Screen time is often viewed as a necessary evil by parents. But what if we could transform those digital moments into opportunities for creativity and growth?
 
 ## The Problem with Passive Consumption
@@ -172,18 +346,58 @@ When children create their own stories, they develop:
 It's not about eliminating screen time entirely. It's about making those digital moments count. A 15-minute session creating a story can be more valuable than an hour of passive viewing.
 
 Transform your family's screen time today with Fidjoo.
-        `,
-        author: "Fidjoo Team",
-        date: "2025-12-05",
-        readTime: "4 min read",
-        tags: ["parenting", "screen time", "creativity"]
+                `
+            },
+            fr: {
+                title: "Un temps d'écran utile : comment Fidjoo transforme le visionnage passif en jeu créatif",
+                excerpt: "Découvrez comment la narration interactive peut transformer le temps d'écran en un outil puissant pour l'imagination et l'apprentissage.",
+                readTime: "4 min de lecture",
+                content: `
+Le temps d'écran est souvent perçu comme un mal nécessaire par les parents. Mais et si nous pouvions transformer ces moments numériques en opportunités de créativité et de croissance ?
+
+## Le problème de la consommation passive
+
+La plupart des applications et vidéos pour enfants ne demandent guère plus qu'un visionnage passif. Les enfants s'assoient, regardent et absorbent du contenu créé par d'autres. Bien qu'il n'y ait rien de fondamentalement mal à cela, les recherches montrent que les activités interactives et créatives offrent bien plus d'avantages développementaux.
+
+## Place à la narration interactive
+
+Fidjoo adopte une approche différente. Au lieu de regarder des histoires préfabriquées, les enfants deviennent les auteurs de leurs propres aventures. Ils choisissent :
+
+- **Le héros** - Qui mènera l'histoire ?
+- **Le monde** - Où se déroulera l'aventure ?
+- **Le défi** - Quel obstacle doit être surmonté ?
+- **La fin** - Comment l'histoire se terminera-t-elle ?
+
+## Les avantages
+
+Quand les enfants créent leurs propres histoires, ils développent :
+
+1. **L'imagination** - Envisager différents scénarios et résultats
+2. **Les compétences décisionnelles** - Peser les options et faire des choix
+3. **La compréhension narrative** - Apprendre naturellement la structure des histoires
+4. **L'intelligence émotionnelle** - Explorer différents sentiments à travers les personnages
+
+## La qualité plutôt que la quantité
+
+Il ne s'agit pas d'éliminer complètement le temps d'écran. Il s'agit de faire compter ces moments numériques. Une session de 15 minutes à créer une histoire peut être plus précieuse qu'une heure de visionnage passif.
+
+Transformez le temps d'écran de votre famille dès aujourd'hui avec Fidjoo.
+                `
+            }
+        }
     },
     {
         slug: "family-storytelling-traditions",
-        title: "Building Family Bonds Through Collaborative Storytelling",
-        excerpt: "Learn how co-creating stories with your children can strengthen family connections and create lasting memories.",
         coverImage: "/images/mascotte/black/black.png",
-        content: `
+        author: "Fidjoo Team",
+        date: "2025-11-28",
+        tags: ["family", "storytelling", "bonding"],
+        translations: {
+            en: {
+                title: "Building Family Bonds Through Collaborative Storytelling",
+                excerpt: "Learn how co-creating stories with your children can strengthen family connections and create lasting memories.",
+                readTime: "5 min read",
+                content: `
 Some of our fondest childhood memories involve stories. Whether it was a bedtime tale, a silly improvised adventure, or a family legend passed down through generations, stories connect us.
 
 ## The Power of Creating Together
@@ -211,18 +425,56 @@ With Fidjoo, the tablet or phone becomes a tool for connection rather than isola
 ## Creating Memories That Last
 
 The stories you create together become part of your family's unique culture. Years from now, your children will remember not just the stories themselves, but the warmth of creating them with you.
-        `,
-        author: "Fidjoo Team",
-        date: "2025-11-28",
-        readTime: "5 min read",
-        tags: ["family", "storytelling", "bonding"]
+                `
+            },
+            fr: {
+                title: "Renforcer les liens familiaux grâce à la création d'histoires collaborative",
+                excerpt: "Découvrez comment co-créer des histoires avec vos enfants peut renforcer les liens familiaux et créer des souvenirs durables.",
+                readTime: "5 min de lecture",
+                content: `
+Certains de nos plus beaux souvenirs d'enfance impliquent des histoires. Qu'il s'agisse d'un conte du soir, d'une aventure improvisée farfelue ou d'une légende familiale transmise de génération en génération, les histoires nous connectent.
+
+## Le pouvoir de créer ensemble
+
+Quand parents et enfants créent des histoires ensemble, quelque chose de magique se produit. La dynamique habituelle change - au lieu qu'une personne dirige, les deux collaborent en égaux dans un espace imaginatif.
+
+## Pourquoi la narration collaborative fonctionne
+
+### Une expérience partagée
+Créer une histoire ensemble signifie partager une expérience qui appartient uniquement à votre famille. "Tu te souviens quand on a inventé cette histoire du dragon qui adorait la pizza ?" devient une blague privée précieuse.
+
+### Sur un pied d'égalité
+Dans la narration, l'idée d'un enfant est tout aussi valide que celle d'un adulte. Cette égalité construit la confiance et montre aux enfants que leur imagination compte.
+
+### Le temps d'écran devient du temps en famille
+Avec Fidjoo, la tablette ou le téléphone devient un outil de connexion plutôt que d'isolement. Parents et enfants se penchent ensemble, débattant si le héros devrait prendre le chemin de la forêt ou escalader la montagne.
+
+## Conseils pour les sessions d'histoires en famille
+
+1. **Laissez votre enfant diriger** - Résistez à l'envie de guider. Suivez ses idées, même si elles semblent farfelues.
+2. **Posez des questions** - "Que se passe-t-il ensuite ?" ou "Comment se sent le héros ?" encourage un engagement plus profond.
+3. **Célébrez l'étrange** - Les meilleures histoires familiales impliquent souvent des rebondissements absurdes qui font rire tout le monde.
+4. **Faites-en une routine** - Une soirée histoires hebdomadaire peut devenir une tradition que les enfants attendent avec impatience.
+
+## Créer des souvenirs durables
+
+Les histoires que vous créez ensemble deviennent partie de la culture unique de votre famille. Dans des années, vos enfants se souviendront non seulement des histoires elles-mêmes, mais de la chaleur de les avoir créées avec vous.
+                `
+            }
+        }
     },
     {
         slug: "imagination-development-in-children",
-        title: "Why Imagination Matters: The Cognitive Benefits of Creative Play",
-        excerpt: "Explore the science behind imaginative play and why it's crucial for your child's development.",
         coverImage: "/images/logo/black/black.png",
-        content: `
+        author: "Fidjoo Team",
+        date: "2025-11-15",
+        tags: ["development", "imagination", "education"],
+        translations: {
+            en: {
+                title: "Why Imagination Matters: The Cognitive Benefits of Creative Play",
+                excerpt: "Explore the science behind imaginative play and why it's crucial for your child's development.",
+                readTime: "6 min read",
+                content: `
 In our rush to prepare children for the future, we sometimes forget that imagination is one of the most valuable skills we can nurture. Here's why creative play matters more than ever.
 
 ## The Science of Imagination
@@ -261,14 +513,88 @@ Beyond apps, here are ways to support creative development:
 ## The Gift of Imagination
 
 When we nurture imagination, we give children tools that will serve them for life. The ability to envision possibilities, to think creatively, to see the world differently - these are gifts that no future technology can replace.
-        `,
-        author: "Fidjoo Team",
-        date: "2025-11-15",
-        readTime: "6 min read",
-        tags: ["development", "imagination", "education"]
+                `
+            },
+            fr: {
+                title: "Pourquoi l'imagination compte : les bienfaits cognitifs du jeu créatif",
+                excerpt: "Explorez la science derrière le jeu imaginatif et pourquoi il est crucial pour le développement de votre enfant.",
+                readTime: "6 min de lecture",
+                content: `
+Dans notre empressement à préparer les enfants pour l'avenir, nous oublions parfois que l'imagination est l'une des compétences les plus précieuses que nous pouvons cultiver. Voici pourquoi le jeu créatif compte plus que jamais.
+
+## La science de l'imagination
+
+Les recherches en psychologie du développement montrent que le jeu imaginatif active simultanément plusieurs zones du cerveau. Quand un enfant imagine un scénario, il pratique :
+
+- **La pensée abstraite** - Représenter une chose par une autre
+- **La résolution de problèmes** - Naviguer des défis imaginaires
+- **La régulation émotionnelle** - Traiter les sentiments à travers le jeu
+- **La compréhension sociale** - Adopter différentes perspectives
+
+## L'imagination et le succès futur
+
+Le Forum économique mondial classe la créativité parmi les compétences les plus importantes pour la main-d'œuvre du futur. Dans un monde où l'IA peut gérer les tâches routinières, la créativité humaine devient notre atout le plus précieux.
+
+## Comment Fidjoo soutient le développement imaginatif
+
+### Choix et autonomie
+Chaque histoire dans Fidjoo commence par des choix. Les enfants décident qui est leur héros, où se déroule l'aventure et comment les défis sont résolus. Cette autonomie renforce l'idée que leurs idées comptent.
+
+### Exploration sécurisée
+Les histoires offrent un espace sûr pour explorer de grands sentiments et des scénarios effrayants. Un enfant peut affronter un dragon dans une histoire sans aucun danger réel, construisant ainsi courage et résilience.
+
+### Possibilités infinies
+Avec d'innombrables combinaisons de personnages, de décors et d'intrigues, les enfants ne manquent jamais de nouvelles histoires à créer. Cette variété garde l'imagination flexible et active.
+
+## Nourrir l'imagination de votre enfant
+
+Au-delà des applications, voici des moyens de soutenir le développement créatif :
+
+1. **Offrez du temps non structuré** - L'ennui stimule la créativité
+2. **Proposez des jouets ouverts** - Blocs, fournitures artistiques, costumes
+3. **Posez des questions "et si"** - Émerveillez-vous ensemble à voix haute
+4. **Valorisez le processus** - Concentrez-vous sur la création, pas seulement le résultat
+
+## Le don de l'imagination
+
+Quand nous nourrissons l'imagination, nous donnons aux enfants des outils qui les serviront toute leur vie. La capacité d'envisager des possibilités, de penser créativement, de voir le monde différemment - ce sont des dons qu'aucune technologie future ne peut remplacer.
+                `
+            }
+        }
     }
 ];
 
-export const getBlogPost = (slug: string): IBlogPost | undefined => {
-    return blogPosts.find(post => post.slug === slug);
+export const getBlogPost = (slug: string, locale: Locale): ILocalizedBlogPost | undefined => {
+    const post = blogPosts.find(p => p.slug === slug);
+    if (!post) return undefined;
+
+    const translation = post.translations[locale];
+    return {
+        slug: post.slug,
+        coverImage: post.coverImage,
+        author: post.author,
+        date: post.date,
+        tags: post.tags,
+        title: translation.title,
+        excerpt: translation.excerpt,
+        content: translation.content,
+        readTime: translation.readTime,
+    };
+};
+
+export const getBlogPosts = (locale: Locale): ILocalizedBlogPost[] => {
+    return blogPosts.map(post => {
+        const translation = post.translations[locale];
+        return {
+            slug: post.slug,
+            coverImage: post.coverImage,
+            author: post.author,
+            date: post.date,
+            tags: post.tags,
+            title: translation.title,
+            excerpt: translation.excerpt,
+            content: translation.content,
+            readTime: translation.readTime,
+        };
+    });
 };

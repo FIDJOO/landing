@@ -1,8 +1,8 @@
 'use client';
 
 import { useLocale } from 'next-intl';
+import { usePathname, useRouter } from 'next/navigation';
 import { Locale, locales } from '@/i18n/config';
-import { setLocale } from './IntlProvider';
 
 const localeNames: Record<Locale, string> = {
   en: 'EN',
@@ -11,10 +11,19 @@ const localeNames: Record<Locale, string> = {
 
 export default function LanguageSwitcher() {
   const locale = useLocale() as Locale;
+  const pathname = usePathname();
+  const router = useRouter();
 
   const handleLocaleChange = (newLocale: Locale) => {
     if (newLocale === locale) return;
-    setLocale(newLocale);
+
+    // Replace the current locale in the path with the new one
+    // pathname is like /en/about or /fr/contact
+    const segments = pathname.split('/');
+    segments[1] = newLocale; // Replace locale segment
+    const newPath = segments.join('/');
+
+    router.push(newPath);
   };
 
   return (

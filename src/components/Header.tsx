@@ -5,16 +5,21 @@ import React, { useState, useEffect } from 'react';
 import { Transition } from '@headlessui/react';
 import { HiOutlineXMark, HiBars3 } from 'react-icons/hi2';
 import Image from 'next/image';
-import { useTranslations } from 'next-intl';
+import { useTranslations, useLocale } from 'next-intl';
 
 import Container from './Container';
 import Link3D from './ui/Link3D';
 import LanguageSwitcher from './LanguageSwitcher';
 import { siteDetails } from '@/data/siteDetails';
-import { blogPosts } from '@/data/blog';
+import { getBlogPosts } from '@/data/blog';
+import { useLocalizedPath } from '@/hooks/useLocalizedPath';
+import { Locale } from '@/i18n/config';
 
 const Header: React.FC = () => {
     const t = useTranslations('header');
+    const localizedPath = useLocalizedPath();
+    const locale = useLocale() as Locale;
+    const blogPosts = getBlogPosts(locale);
     const [isOpen, setIsOpen] = useState(false);
     const [isScrolled, setIsScrolled] = useState(false);
     const [isMenuButtonPressed, setIsMenuButtonPressed] = useState(false);
@@ -33,8 +38,8 @@ const Header: React.FC = () => {
     };
 
     const menuItems = [
-        { text: t('features'), url: '/#features' },
-        { text: t('pricing'), url: '/#pricing' },
+        { text: t('features'), url: '#features' },
+        { text: t('pricing'), url: '#pricing' },
     ];
 
     return (
@@ -46,9 +51,8 @@ const Header: React.FC = () => {
                         isScrolled ? 'md:py-4' : 'md:py-10'
                     }`}>
                     {/* Logo */}
-                    <Link href="/" className="flex items-center gap-2">
+                    <Link href={localizedPath('/')} className="flex items-center gap-2">
                         <Image src={siteDetails.textLogo} alt={siteDetails.siteName} width={120} height={50} />
-
                     </Link>
 
                     {/* Desktop Menu */}
@@ -62,7 +66,7 @@ const Header: React.FC = () => {
                         ))}
                         {/* Blog with dropdown */}
                         <li className="relative group">
-                            <Link href="/blog" className="text-foreground hover:text-foreground-accent transition-colors">
+                            <Link href={localizedPath('/blog')} className="text-foreground hover:text-foreground-accent transition-colors">
                                 {t('blog')}
                             </Link>
                             {/* Dropdown */}
@@ -73,7 +77,7 @@ const Header: React.FC = () => {
                                         {blogPosts.slice(0, 3).map(post => (
                                             <li key={post.slug}>
                                                 <Link
-                                                    href={`/blog/${post.slug}`}
+                                                    href={localizedPath(`/blog/${post.slug}`)}
                                                     className="block hover:bg-gray-50 rounded-lg p-2 -m-2 transition-colors"
                                                 >
                                                     <p className="text-sm font-medium text-foreground line-clamp-1">{post.title}</p>
@@ -83,7 +87,7 @@ const Header: React.FC = () => {
                                         ))}
                                     </ul>
                                     <Link
-                                        href="/blog"
+                                        href={localizedPath('/blog')}
                                         className="block text-center text-sm text-primary hover:text-primary-dark font-medium mt-4 pt-3 border-t border-gray-100"
                                     >
                                         {t('viewAllArticles')} →
@@ -93,7 +97,7 @@ const Header: React.FC = () => {
                         </li>
                         {/* Contact */}
                         <li>
-                            <Link href="/contact" className="text-foreground hover:text-foreground-accent transition-colors">
+                            <Link href={localizedPath('/contact')} className="text-foreground hover:text-foreground-accent transition-colors">
                                 {t('contact')}
                             </Link>
                         </li>
@@ -158,12 +162,12 @@ const Header: React.FC = () => {
                             </li>
                         ))}
                         <li>
-                            <Link href="/blog" className="text-foreground hover:text-primary block" onClick={toggleMenu}>
+                            <Link href={localizedPath('/blog')} className="text-foreground hover:text-primary block" onClick={toggleMenu}>
                                 {t('blog')}
                             </Link>
                         </li>
                         <li>
-                            <Link href="/contact" className="text-foreground hover:text-primary block" onClick={toggleMenu}>
+                            <Link href={localizedPath('/contact')} className="text-foreground hover:text-primary block" onClick={toggleMenu}>
                                 {t('contact')}
                             </Link>
                         </li>

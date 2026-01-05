@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
+import { useTranslations } from 'next-intl';
 import {
   Card,
   CardContent,
@@ -11,6 +12,7 @@ import {
 import Button3D from '@/components/ui/Button3D';
 
 function ContactPage() {
+  const t = useTranslations('contact');
   const [result, setResult] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
   const [formData, setFormData] = useState({
     name: '',
@@ -53,10 +55,10 @@ function ContactPage() {
         <Card className="shadow-lg">
           <CardHeader>
             <CardTitle className="text-2xl font-bold text-[#11181C]">
-              Contact Us
+              {t('title')}
             </CardTitle>
             <CardDescription className="text-sm text-gray-500">
-              Have a question or suggestion? Feel free to reach out.
+              {t('description')}
             </CardDescription>
           </CardHeader>
 
@@ -64,7 +66,7 @@ function ContactPage() {
             {result === 'success' ? (
               <div className="bg-green-100 border-2 border-green-500 rounded-2xl p-6">
                 <p className="text-green-700 font-semibold text-lg">
-                  Thank you for your message! We will get back to you as soon as possible.
+                  {t('successTitle')} {t('successMessage')}
                 </p>
               </div>
             ) : (
@@ -74,7 +76,7 @@ function ContactPage() {
                   name="name"
                   value={formData.name}
                   onChange={handleChange}
-                  placeholder="Full name"
+                  placeholder={t('name')}
                   required
                   className="w-full px-6 py-3 text-base rounded-2xl border-2 border-foreground/20 focus:border-primary focus:outline-none transition-colors bg-white"
                 />
@@ -83,7 +85,7 @@ function ContactPage() {
                   name="email"
                   value={formData.email}
                   onChange={handleChange}
-                  placeholder="Email"
+                  placeholder={t('email')}
                   required
                   className="w-full px-6 py-3 text-base rounded-2xl border-2 border-foreground/20 focus:border-primary focus:outline-none transition-colors bg-white"
                 />
@@ -91,7 +93,7 @@ function ContactPage() {
                   name="message"
                   value={formData.message}
                   onChange={handleChange}
-                  placeholder="Your message..."
+                  placeholder={t('message')}
                   required
                   rows={5}
                   className="w-full px-6 py-3 text-base rounded-2xl border-2 border-foreground/20 focus:border-primary focus:outline-none transition-colors bg-white resize-none"
@@ -103,14 +105,14 @@ function ContactPage() {
                   size="md"
                   disabled={result === 'loading'}
                 >
-                  {result === 'loading' ? 'Sending...' : 'Send'}
+                  {result === 'loading' ? t('sending') : t('send')}
                 </Button3D>
               </form>
             )}
 
             {result === 'error' && (
               <p className="mt-4 text-red-600 font-medium">
-                An error occurred. Please try again later.
+                {t('errorMessage')}
               </p>
             )}
           </CardContent>

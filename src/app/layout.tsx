@@ -2,9 +2,6 @@ import type { Metadata } from "next";
 import { GoogleAnalytics } from '@next/third-parties/google';
 import { Baloo_2 } from "next/font/google";
 
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
-import IntlProvider from "@/components/IntlProvider";
 import { siteDetails } from '@/data/siteDetails';
 import { Analytics } from "@vercel/analytics/next"
 
@@ -101,19 +98,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <Analytics />
-      <body
-        className={`${baloo2.className} antialiased`}
-      >
+      <body className={`${baloo2.className} antialiased`}>
         {siteDetails.googleAnalyticsId && <GoogleAnalytics gaId={siteDetails.googleAnalyticsId} />}
-        <IntlProvider>
-          <Header />
-          <main>
-            {children}
-          </main>
-          <Footer />
-        </IntlProvider>
+        {children}
       </body>
     </html>
   );

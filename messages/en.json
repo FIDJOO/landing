@@ -172,7 +172,12 @@
   },
   "blog": {
     "title": "Blog",
-    "description": "Tips and insights for creative parenting."
+    "description": "Tips and insights for creative parenting.",
+    "pageDescription": "Tips, insights, and stories about creative play, meaningful screen time, and nurturing your child's imagination.",
+    "backToBlog": "Back to Blog",
+    "readMoreArticles": "Read more articles",
+    "by": "By",
+    "minRead": "min read"
   },
   "footer": {
     "subheading": "Transform passive screen time into creative storytelling moments your whole family will treasure.",
@@ -706,5 +711,30 @@
       "title": "12. Acceptance",
       "p1": "By using the Fidjoo Voice System, the user acknowledges having read, understood, and accepted these terms without reservation."
     }
+  },
+  "download": {
+    "title": "Download Fidjoo",
+    "description": "Transform your children's imagination into magical animated stories.",
+    "redirecting": "Redirecting...",
+    "redirectingTo": "Redirecting to {store}...",
+    "clickHere": "click here",
+    "ifNotRedirected": "If the redirect doesn't work,",
+    "scanQrCode": "Scan this QR code with your phone",
+    "share": "Share",
+    "linkCopied": "Link copied!",
+    "shareTitle": "Fidjoo - Storytelling App for Kids",
+    "shareText": "Discover Fidjoo, the app that transforms children's imagination into animated stories!"
+  },
+  "contact": {
+    "title": "Contact Us",
+    "description": "Have a question or suggestion? Feel free to reach out.",
+    "name": "Full name",
+    "email": "Email",
+    "message": "Your message...",
+    "send": "Send",
+    "sending": "Sending...",
+    "successTitle": "Thank you for your message!",
+    "successMessage": "We will get back to you as soon as possible.",
+    "errorMessage": "An error occurred. Please try again later."
   }
 }
