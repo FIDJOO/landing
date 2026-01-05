@@ -36,6 +36,155 @@ export interface IBlogPostWithTranslations extends IBlogPost {
 
 export const blogPosts: IBlogPostWithTranslations[] = [
     {
+        slug: "kids-emotions-storytelling",
+        coverImage: "/images/blog/kids-emotions-storytelling.jpeg",
+        author: "Fidjoo Team",
+        date: "2026-01-05",
+        tags: ["emotions", "storytelling", "parenting", "child development", "emotional intelligence"],
+        translations: {
+            en: {
+                title: "Helping Kids Understand Their Emotions Through Storytelling (Ages 5–8)",
+                excerpt: "Discover how storytelling helps children aged 5-8 name their feelings, build emotional intelligence, and feel safe exploring emotions with a familiar voice.",
+                readTime: "4 min read",
+                content: `
+Children experience many emotions every day — joy, frustration, fear, excitement — but they don't always have the words to express them.
+
+For kids aged **5 to 8**, storytelling is one of the most natural ways to explore emotions in a safe, gentle, and meaningful way.
+
+---
+
+## Stories Help Children Name What They Feel
+
+When children listen to or create stories, they often identify with the characters.
+
+Through those characters, they learn to recognize emotions without feeling judged or exposed.
+
+Stories help children:
+
+- Understand complex feelings
+- See that emotions are normal
+- Learn that every emotion can be expressed
+
+It's easier to say *"the hero felt scared"* than *"I feel scared"* — and that's exactly why stories work.
+
+---
+
+## Why a Familiar Voice Makes Emotional Learning Easier
+
+Emotions feel safer when they're guided by someone a child trusts.
+
+With Fidjoo, parents can **record their own voice** and become the **narrative voice** of their child's stories.
+
+Hearing a parent's voice while a story unfolds helps children:
+
+- Feel reassured while exploring emotions
+- Stay calm and attentive
+- Build emotional security
+
+The voice becomes a comforting guide through the story.
+
+---
+
+## A Gentle Alternative to Passive Screen Time
+
+Not all screen time supports emotional development.
+
+Fast, overstimulating content can overwhelm children.
+
+Story-based experiences, especially those focused on emotions and imagination, encourage:
+
+- Listening instead of reacting
+- Reflection instead of distraction
+- Emotional awareness instead of overload
+
+Used intentionally, screens can support emotional growth.
+
+---
+
+## Stories That Build Emotional Intelligence
+
+Helping children understand their emotions doesn't require long conversations or complex explanations.
+
+Sometimes, all it takes is a story — told calmly, creatively, and in a familiar voice.
+
+When storytelling becomes personal and emotional, children learn something essential:
+
+**their feelings matter, and they are not alone.**
+                `
+            },
+            fr: {
+                title: "Aider les enfants à comprendre leurs émotions grâce aux histoires (5-8 ans)",
+                excerpt: "Découvrez comment les histoires aident les enfants de 5 à 8 ans à nommer leurs sentiments, développer leur intelligence émotionnelle et explorer leurs émotions en toute sécurité.",
+                readTime: "4 min de lecture",
+                content: `
+Les enfants vivent de nombreuses émotions chaque jour — joie, frustration, peur, excitation — mais ils n'ont pas toujours les mots pour les exprimer.
+
+Pour les enfants de **5 à 8 ans**, les histoires sont l'un des moyens les plus naturels d'explorer les émotions de manière sûre, douce et significative.
+
+---
+
+## Les histoires aident les enfants à nommer ce qu'ils ressentent
+
+Quand les enfants écoutent ou créent des histoires, ils s'identifient souvent aux personnages.
+
+À travers ces personnages, ils apprennent à reconnaître les émotions sans se sentir jugés ou exposés.
+
+Les histoires aident les enfants à :
+
+- Comprendre des sentiments complexes
+- Voir que les émotions sont normales
+- Apprendre que chaque émotion peut être exprimée
+
+Il est plus facile de dire *« le héros avait peur »* que *« j'ai peur »* — et c'est exactement pourquoi les histoires fonctionnent.
+
+---
+
+## Pourquoi une voix familière facilite l'apprentissage émotionnel
+
+Les émotions semblent plus sûres quand elles sont guidées par quelqu'un en qui l'enfant a confiance.
+
+Avec Fidjoo, les parents peuvent **enregistrer leur propre voix** et devenir la **voix narrative** des histoires de leur enfant.
+
+Entendre la voix d'un parent pendant qu'une histoire se déroule aide les enfants à :
+
+- Se sentir rassurés en explorant les émotions
+- Rester calmes et attentifs
+- Construire une sécurité émotionnelle
+
+La voix devient un guide réconfortant tout au long de l'histoire.
+
+---
+
+## Une alternative douce au temps d'écran passif
+
+Tout le temps d'écran ne soutient pas le développement émotionnel.
+
+Le contenu rapide et sur-stimulant peut submerger les enfants.
+
+Les expériences basées sur des histoires, surtout celles axées sur les émotions et l'imagination, encouragent :
+
+- L'écoute plutôt que la réaction
+- La réflexion plutôt que la distraction
+- La conscience émotionnelle plutôt que la surcharge
+
+Utilisés intentionnellement, les écrans peuvent soutenir la croissance émotionnelle.
+
+---
+
+## Des histoires qui construisent l'intelligence émotionnelle
+
+Aider les enfants à comprendre leurs émotions ne nécessite pas de longues conversations ou d'explications complexes.
+
+Parfois, il suffit d'une histoire — racontée calmement, créativement et avec une voix familière.
+
+Quand la narration devient personnelle et émotionnelle, les enfants apprennent quelque chose d'essentiel :
+
+**leurs sentiments comptent, et ils ne sont pas seuls.**
+                `
+            }
+        }
+    },
+    {
         slug: "kids-create-stories-builds-confidence",
         coverImage: "/images/blog/kids-confidence-storytelling.png",
         author: "Fidjoo Team",

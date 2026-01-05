@@ -82,3 +82,128 @@ Landing page sections pull content from `src/data/` files:
 - `footer.ts` - Footer content
 
 To modify section content, edit the corresponding data file rather than the component.
+
+## Internationalization (i18n)
+
+The site supports **English (en)** and **French (fr)** with static generation for both languages.
+
+### Architecture
+
+All pages are under `src/app/[lang]/` and statically generated for `/en` and `/fr`:
+- Root `/` redirects to `/en` or `/fr` based on geo-location (Vercel headers) or browser language
+- Each page has `generateStaticParams()` returning both locales
+
+### Key Files
+
+| File | Purpose |
+|------|---------|
+| `src/i18n/config.ts` | Locales config (`en`, `fr`), `defaultLocale`, `isValidLocale()` |
+| `messages/en.json` | English translations |
+| `messages/fr.json` | French translations |
+| `src/components/LocaleProvider.tsx` | Wraps pages with `NextIntlClientProvider` |
+| `src/hooks/useLocalizedPath.ts` | Hook to prefix paths with current locale |
+
+### Translations Structure
+
+Translations are organized by section in `messages/*.json`:
+```json
+{
+  "metadata": { "title": "...", "description": "..." },
+  "header": { "features": "...", "pricing": "...", ... },
+  "hero": { "heading": "...", "subheading": "..." },
+  "benefits": { "section1": { ... }, "section2": { ... }, ... },
+  "pricing": { ... },
+  "faq": { ... },
+  "blog": { "title": "...", "pageDescription": "...", "backToBlog": "...", ... },
+  "footer": { ... },
+  "contact": { ... },
+  "download": { ... },
+  ...
+}
+```
+
+### Using Translations in Components
+
+**Client Components** - Use `useTranslations` hook:
+```tsx
+'use client';
+import { useTranslations } from 'next-intl';
+
+function MyComponent() {
+  const t = useTranslations('section');
+  return <h1>{t('title')}</h1>;
+}
+```
+
+**Server Components** - Import messages directly:
+```tsx
+import enMessages from '../../../messages/en.json';
+import frMessages from '../../../messages/fr.json';
+
+const messages = { en: enMessages, fr: frMessages };
+
+export default async function Page({ params }: { params: Promise<{ lang: Locale }> }) {
+  const { lang } = await params;
+  const t = messages[lang];
+  return <h1>{t.section.title}</h1>;
+}
+```
+
+### Localized Links
+
+Use `useLocalizedPath` hook in client components:
+```tsx
+import { useLocalizedPath } from '@/hooks/useLocalizedPath';
+
+function Nav() {
+  const localizedPath = useLocalizedPath();
+  return <Link href={localizedPath('/blog')}>Blog</Link>;
+  // Renders /en/blog or /fr/blog based on current locale
+}
+```
+
+### Blog Translations
+
+Blog posts are stored in `src/data/blog.ts` with translations per post:
+```ts
+export const blogPosts: IBlogPostWithTranslations[] = [
+  {
+    slug: "my-post",
+    coverImage: "/images/blog/post.png",
+    author: "Fidjoo Team",
+    date: "2025-01-01",
+    tags: ["parenting"],
+    translations: {
+      en: {
+        title: "English Title",
+        excerpt: "English excerpt...",
+        content: "English content...",
+        readTime: "4 min read"
+      },
+      fr: {
+        title: "Titre Français",
+        excerpt: "Extrait français...",
+        content: "Contenu français...",
+        readTime: "4 min de lecture"
+      }
+    }
+  }
+];
+```
+
+Use helper functions:
+- `getBlogPost(slug, locale)` - Get single post with localized content
+- `getBlogPosts(locale)` - Get all posts with localized content
+
+### Adding a New Language
+
+1. Add locale to `src/i18n/config.ts`:
+   ```ts
+   export const locales = ['en', 'fr', 'es'] as const;
+   ```
+2. Create `messages/es.json` with all translations
+3. Update `LocaleProvider.tsx` to import new messages
+4. Add translations to `blog.ts` for each post
+
+
+always run pnpm build at the end of each run 
