@@ -105,7 +105,7 @@ const Header: React.FC = () => {
                             <LanguageSwitcher />
                         </li>
                         <li>
-                            <Link3D href="#cta" variant="primary" size="sm" shadowHeight={4}>
+                            <Link3D href={localizedPath('/download')} variant="primary" size="sm" shadowHeight={4}>
                                 {t('download')}
                             </Link3D>
                         </li>
@@ -175,7 +175,7 @@ const Header: React.FC = () => {
                             <LanguageSwitcher />
                         </li>
                         <li>
-                            <Link3D href="#cta" variant="primary" size="sm" shadowHeight={4} onClick={toggleMenu}>
+                            <Link3D href={localizedPath('/download')} variant="primary" size="sm" shadowHeight={4} onClick={toggleMenu}>
                                 {t('getStarted')}
                             </Link3D>
                         </li>
