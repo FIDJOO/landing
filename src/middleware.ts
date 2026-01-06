@@ -5,6 +5,29 @@ import { locales, defaultLocale, francophoneCountries, Locale } from '@/i18n/con
 // Paths that should not be processed by the middleware
 const PUBLIC_FILE = /\.(.*)$/;
 
+// Common bot/crawler user agents for OG preview, SEO, etc.
+const BOT_USER_AGENTS = [
+  'facebookexternalhit',
+  'Facebot',
+  'Twitterbot',
+  'LinkedInBot',
+  'WhatsApp',
+  'Slackbot',
+  'TelegramBot',
+  'Discordbot',
+  'Googlebot',
+  'bingbot',
+  'Baiduspider',
+  'YandexBot',
+  'DuckDuckBot',
+  'Applebot',
+];
+
+function isBot(userAgent: string | null): boolean {
+  if (!userAgent) return false;
+  return BOT_USER_AGENTS.some(bot => userAgent.toLowerCase().includes(bot.toLowerCase()));
+}
+
 function getPreferredLocale(acceptLanguage: string | null): Locale {
   if (!acceptLanguage) return defaultLocale;
 
@@ -54,14 +77,22 @@ export function middleware(request: NextRequest) {
     return NextResponse.next();
   }
 
-  // Redirect to the appropriate locale
-  const locale = getLocaleFromRequest(request);
-  const newUrl = new URL(`/${locale}${pathname}`, request.url);
-
-  // Preserve query string
+  const userAgent = request.headers.get('user-agent');
+  const newUrl = new URL(`/${defaultLocale}${pathname}`, request.url);
   newUrl.search = request.nextUrl.search;
 
-  return NextResponse.redirect(newUrl);
+  // For bots/crawlers: use rewrite (no redirect) to serve English content
+  // This ensures OG previews always show English metadata
+  if (isBot(userAgent)) {
+    return NextResponse.rewrite(newUrl);
+  }
+
+  // For regular users: redirect to appropriate locale based on geo/language
+  const locale = getLocaleFromRequest(request);
+  const localizedUrl = new URL(`/${locale}${pathname}`, request.url);
+  localizedUrl.search = request.nextUrl.search;
+
+  return NextResponse.redirect(localizedUrl);
 }
 
 export const config = {

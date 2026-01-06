@@ -736,5 +736,39 @@
     "successTitle": "Thank you for your message!",
     "successMessage": "We will get back to you as soon as possible.",
     "errorMessage": "An error occurred. Please try again later."
+  },
+  "pages": {
+    "download": {
+      "metaTitle": "Download Fidjoo | Children's Storytelling App",
+      "metaDescription": "Download Fidjoo for iOS and Android. Create personalized animated stories with your children. Free to download with creative story packs available."
+    },
+    "contact": {
+      "metaTitle": "Contact Us",
+      "metaDescription": "Have a question about Fidjoo? Get in touch with our team. We'd love to hear from you."
+    },
+    "delete": {
+      "metaTitle": "Delete Account",
+      "metaDescription": "Request deletion of your Fidjoo account and associated data. We respect your privacy and right to be forgotten."
+    },
+    "legal": {
+      "metaTitle": "Legal Notice",
+      "metaDescription": "Legal information about Fidjoo. Company details, publisher information, and hosting provider for our children's storytelling app."
+    },
+    "voice": {
+      "metaTitle": "Voice System Terms",
+      "metaDescription": "Terms of use for the Fidjoo voice recording system. Learn how we handle your voice recordings to create personalized stories."
+    },
+    "confidentiality": {
+      "metaTitle": "Confidentiality",
+      "metaDescription": "Fidjoo's confidentiality policy. Learn how we keep your family's stories and data private and secure."
+    },
+    "terms": {
+      "metaTitle": "Terms of Service",
+      "metaDescription": "Read Fidjoo's terms of service. Understand the rules and guidelines for using our children's storytelling app."
+    },
+    "privacy": {
+      "metaTitle": "Privacy Policy",
+      "metaDescription": "Learn how Fidjoo protects your child's data. Our privacy policy explains what information we collect, how we use it, and your rights under GDPR."
+    }
   }
 }

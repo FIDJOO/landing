@@ -736,5 +736,39 @@
     "successTitle": "Merci pour votre message !",
     "successMessage": "Nous vous répondrons dans les plus brefs délais.",
     "errorMessage": "Une erreur s'est produite. Veuillez réessayer plus tard."
+  },
+  "pages": {
+    "download": {
+      "metaTitle": "Télécharger Fidjoo | Application d'histoires pour enfants",
+      "metaDescription": "Téléchargez Fidjoo pour iOS et Android. Créez des histoires animées personnalisées avec vos enfants. Téléchargement gratuit avec des packs de crédits disponibles."
+    },
+    "contact": {
+      "metaTitle": "Nous contacter",
+      "metaDescription": "Une question sur Fidjoo ? Contactez notre équipe. Nous serons ravis de vous répondre."
+    },
+    "delete": {
+      "metaTitle": "Supprimer le compte",
+      "metaDescription": "Demandez la suppression de votre compte Fidjoo et des données associées. Nous respectons votre vie privée et votre droit à l'oubli."
+    },
+    "legal": {
+      "metaTitle": "Mentions légales",
+      "metaDescription": "Informations légales sur Fidjoo. Détails de l'entreprise, informations sur l'éditeur et l'hébergeur de notre application d'histoires pour enfants."
+    },
+    "voice": {
+      "metaTitle": "Conditions du système de voix",
+      "metaDescription": "Conditions d'utilisation du système d'enregistrement vocal Fidjoo. Découvrez comment nous traitons vos enregistrements pour créer des histoires personnalisées."
+    },
+    "confidentiality": {
+      "metaTitle": "Confidentialité",
+      "metaDescription": "Politique de confidentialité de Fidjoo. Découvrez comment nous protégeons les histoires et les données de votre famille."
+    },
+    "terms": {
+      "metaTitle": "Conditions d'utilisation",
+      "metaDescription": "Lisez les conditions d'utilisation de Fidjoo. Comprenez les règles et directives pour utiliser notre application d'histoires pour enfants."
+    },
+    "privacy": {
+      "metaTitle": "Politique de confidentialité",
+      "metaDescription": "Découvrez comment Fidjoo protège les données de votre enfant. Notre politique de confidentialité explique les informations collectées, leur utilisation et vos droits RGPD."
+    }
   }
 }
