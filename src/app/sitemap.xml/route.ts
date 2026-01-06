@@ -29,15 +29,39 @@ export async function GET() {
 
   const allPages: SitemapPage[] = [];
 
+  // Generate non-prefixed URLs (for bots that get rewritten content)
+  // These URLs serve English content via middleware rewrite
+  for (const { path, changeFrequency, priority } of staticPaths) {
+    const url = `${baseUrl}${path || '/'}`;
+    const ogImage = `${baseUrl}/en/opengraph-image`;
+
+    // Create alternates linking to all locale versions
+    const alternates: Record<string, string> = {
+      'x-default': url,
+    };
+    for (const altLang of locales) {
+      alternates[altLang] = `${baseUrl}/${altLang}${path}`;
+    }
+
+    allPages.push({
+      url,
+      lastModified: new Date(),
+      changeFrequency,
+      priority,
+      images: [ogImage],
+      alternates,
+    });
+  }
+
   // Generate localized pages for each static path
   for (const { path, changeFrequency, priority } of staticPaths) {
     for (const lang of locales) {
       const url = `${baseUrl}/${lang}${path}`;
       const ogImage = `${baseUrl}/${lang}/opengraph-image`;
 
-      // Create alternates for all locales
+      // Create alternates for all locales, with x-default pointing to non-prefixed URL
       const alternates: Record<string, string> = {
-        'x-default': `${baseUrl}/en${path}`,
+        'x-default': `${baseUrl}${path || '/'}`,
       };
       for (const altLang of locales) {
         alternates[altLang] = `${baseUrl}/${altLang}${path}`;
@@ -54,6 +78,30 @@ export async function GET() {
     }
   }
 
+  // Generate non-prefixed blog post URLs
+  for (const post of blogPosts) {
+    const url = `${baseUrl}/blog/${post.slug}`;
+    const ogImage = `${baseUrl}/en/opengraph-image`;
+
+    const alternates: Record<string, string> = {
+      'x-default': url,
+    };
+    for (const altLang of locales) {
+      alternates[altLang] = `${baseUrl}/${altLang}/blog/${post.slug}`;
+    }
+
+    allPages.push({
+      url,
+      lastModified: new Date(post.date),
+      changeFrequency: 'monthly',
+      priority: 0.7,
+      images: post.coverImage
+        ? [`${baseUrl}${post.coverImage}`, ogImage]
+        : [ogImage],
+      alternates,
+    });
+  }
+
   // Generate localized blog post pages
   for (const post of blogPosts) {
     for (const lang of locales) {
@@ -61,7 +109,7 @@ export async function GET() {
       const ogImage = `${baseUrl}/${lang}/opengraph-image`;
 
       const alternates: Record<string, string> = {
-        'x-default': `${baseUrl}/en/blog/${post.slug}`,
+        'x-default': `${baseUrl}/blog/${post.slug}`,
       };
       for (const altLang of locales) {
         alternates[altLang] = `${baseUrl}/${altLang}/blog/${post.slug}`;
