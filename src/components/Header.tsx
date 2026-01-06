@@ -38,8 +38,8 @@ const Header: React.FC = () => {
     };
 
     const menuItems = [
-        { text: t('features'), url: '#features' },
-        { text: t('pricing'), url: '#pricing' },
+        { text: t('features'), url: localizedPath('/#features') },
+        { text: t('pricing'), url: localizedPath('/#pricing') },
     ];
 
     return (
