@@ -5,6 +5,7 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/com
 import { getBlogPosts } from "@/data/blog";
 import { siteDetails } from "@/data/siteDetails";
 import { Locale, locales } from "@/i18n/config";
+import { BlogListJsonLd, BreadcrumbJsonLd } from "@/components/JsonLd";
 
 import enMessages from "../../../../messages/en.json";
 import frMessages from "../../../../messages/fr.json";
@@ -55,9 +56,25 @@ export default async function BlogPage({
   const { lang } = await params;
   const t = messages[lang];
   const posts = getBlogPosts(lang);
+  const baseUrl = siteDetails.siteUrl.replace(/\/$/, "");
+
+  const blogListPosts = posts.map((post) => ({
+    title: post.title,
+    url: `${baseUrl}/${lang}/blog/${post.slug}`,
+    datePublished: post.date,
+    imageUrl: post.coverImage,
+  }));
 
   return (
-    <div className="min-h-screen px-6 sm:px-12 lg:px-24 xl:px-40 py-12 pt-32">
+    <>
+      <BlogListJsonLd posts={blogListPosts} locale={lang} />
+      <BreadcrumbJsonLd
+        items={[
+          { name: lang === "fr" ? "Accueil" : "Home", url: `${baseUrl}/${lang}` },
+          { name: t.blog.title, url: `${baseUrl}/${lang}/blog` },
+        ]}
+      />
+      <div className="min-h-screen px-6 sm:px-12 lg:px-24 xl:px-40 py-12 pt-32">
       <div className="max-w-4xl mx-auto">
         <header className="mb-12 text-center">
           <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
@@ -115,5 +132,6 @@ export default async function BlogPage({
         </div>
       </div>
     </div>
+    </>
   );
 }

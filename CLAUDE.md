@@ -5,6 +5,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ## About Fidjoo
 
 Fidjoo is a creative app where children (ages 5-12) turn simple choices into their own animated storybooks. It transforms passive screen time into meaningful, imaginative play. Key values:
+
 - **Meaningful screen time** - Children build stories through choices (hero, world, challenge, ending)
 - **Family co-creation** - Designed for parents and kids to create together
 - **Safe & kid-friendly** - No ads, no distractions, all content stays private and age-appropriate
@@ -22,15 +23,18 @@ pnpm lint       # Run ESLint
 ## Architecture
 
 ### Tech Stack
+
 - Next.js 14 (App Router) with TypeScript
 - Tailwind CSS v3 with CSS custom properties for theming
 - Framer Motion for animations
 - Baloo 2 font (Google Fonts) - playful, kid-friendly typography
 
 ### Path Alias
+
 `@/*` maps to `./src/*`
 
 ### Key Directories
+
 - `src/app/` - Next.js pages and API routes
 - `src/components/` - React components (Hero, Benefits, Pricing, FAQ, etc.)
 - `src/data/` - Static content data files (pricing, faq, benefits, hero, etc.)
@@ -40,6 +44,7 @@ pnpm lint       # Run ESLint
 ## Design System
 
 ### Color Palette (defined in `globals.css`)
+
 | Token | Light Mode | Dark Mode | Usage |
 |-------|------------|-----------|-------|
 | `--primary` | #49AAFF | same | Main brand blue |
@@ -52,6 +57,7 @@ pnpm lint       # Run ESLint
 | `--foreground` | #11181C | #FFFFFF | Text color |
 
 ### 3D Buttons (`Button3D`, `Link3D`)
+
 Signature playful buttons with press-down shadow effect. Located in `src/components/ui/`.
 
 Variants: `primary`, `secondary`, `outline`, `dark`
@@ -59,13 +65,16 @@ Sizes: `sm`, `md`, `lg`
 Props: `shadowHeight` controls 3D depth (default: 6px)
 
 Usage:
+
 ```tsx
 <Button3D variant="primary" size="md">Click me</Button3D>
 <Link3D href="/page" variant="secondary">Go somewhere</Link3D>
 ```
 
 ### Brand Assets
+
 Logo and mascot available in multiple colors at `public/images/`:
+
 - `logo/` - Text logo
 - `mascotte/` - Character mascot (includes favicon sets)
 - `baseline/` - Logo with tagline
@@ -73,6 +82,7 @@ Logo and mascot available in multiple colors at `public/images/`:
 ## Data-Driven Content
 
 Landing page sections pull content from `src/data/` files:
+
 - `siteDetails.ts` - Site name, URL, meta, analytics ID, logo paths
 - `hero.ts` - Hero section heading and subheading
 - `benefits.tsx` - Three benefit sections with bullets and icons
@@ -90,6 +100,7 @@ The site supports **English (en)** and **French (fr)** with static generation fo
 ### Architecture
 
 All pages are under `src/app/[lang]/` and statically generated for `/en` and `/fr`:
+
 - Root `/` redirects to `/en` or `/fr` based on geo-location (Vercel headers) or browser language
 - Each page has `generateStaticParams()` returning both locales
 
@@ -106,6 +117,7 @@ All pages are under `src/app/[lang]/` and statically generated for `/en` and `/f
 ### Translations Structure
 
 Translations are organized by section in `messages/*.json`:
+
 ```json
 {
   "metadata": { "title": "...", "description": "..." },
@@ -125,6 +137,7 @@ Translations are organized by section in `messages/*.json`:
 ### Using Translations in Components
 
 **Client Components** - Use `useTranslations` hook:
+
 ```tsx
 'use client';
 import { useTranslations } from 'next-intl';
@@ -136,6 +149,7 @@ function MyComponent() {
 ```
 
 **Server Components** - Import messages directly:
+
 ```tsx
 import enMessages from '../../../messages/en.json';
 import frMessages from '../../../messages/fr.json';
@@ -152,6 +166,7 @@ export default async function Page({ params }: { params: Promise<{ lang: Locale 
 ### Localized Links
 
 Use `useLocalizedPath` hook in client components:
+
 ```tsx
 import { useLocalizedPath } from '@/hooks/useLocalizedPath';
 
@@ -165,6 +180,7 @@ function Nav() {
 ### Blog Translations
 
 Blog posts are stored in `src/data/blog.ts` with translations per post:
+
 ```ts
 export const blogPosts: IBlogPostWithTranslations[] = [
   {
@@ -192,18 +208,22 @@ export const blogPosts: IBlogPostWithTranslations[] = [
 ```
 
 Use helper functions:
+
 - `getBlogPost(slug, locale)` - Get single post with localized content
 - `getBlogPosts(locale)` - Get all posts with localized content
 
 ### Adding a New Language
 
 1. Add locale to `src/i18n/config.ts`:
+
    ```ts
    export const locales = ['en', 'fr', 'es'] as const;
    ```
+
 2. Create `messages/es.json` with all translations
 3. Update `LocaleProvider.tsx` to import new messages
 4. Add translations to `blog.ts` for each post
 
+always run pnpm build at the end of each run
 
-always run pnpm build at the end of each run 
+each page should have a cannonical url a metadata tag and everything related to seo
