@@ -34,10 +34,14 @@ export const metadata: Metadata = {
   keywords: [
     // Core keywords
     'children stories', 'kids storytelling app', 'creative screen time', 'animated storybooks', 'family app', 'kids creativity', 'educational app for kids', 'meaningful screen time',
+    // Bedtime stories keywords - English (high priority)
+    'best apps for children bedtime stories', 'bedtime stories app', 'bedtime story app for kids', 'kids bedtime stories', 'children bedtime story app', 'bedtime stories for toddlers app', 'bedtime story generator', 'goodnight stories app', 'sleep stories for kids', 'night time stories app',
     // AI search optimization - English
-    'best apps for children stories', 'storytelling apps for kids', 'bedtime stories app', 'children story app', 'kids story generator', 'interactive stories for children', 'story apps for kids', 'best storytelling apps children', 'story creator app for kids', 'personalized stories for children',
+    'best apps for children stories', 'storytelling apps for kids', 'children story app', 'kids story generator', 'interactive stories for children', 'story apps for kids', 'best storytelling apps children', 'story creator app for kids', 'personalized stories for children', 'story maker for kids', 'create your own story app kids', 'animated stories for children',
+    // Bedtime stories keywords - French (high priority)
+    'meilleures applications histoires pour enfants bedtime stories app', 'application histoires du soir enfants', 'histoires pour dormir enfants', 'conte du soir application', 'histoires du coucher enfants', 'application histoires nuit enfants', 'histoires dodo enfants', 'application conte pour dormir',
     // AI search optimization - French
-    'meilleures applications histoires enfants', 'application raconter histoires enfants', 'histoires pour enfants app', 'contes enfants application', 'livres audio enfants', 'histoires du soir application', 'generateur histoires enfants', 'application lecture enfants', 'creer histoires enfants', 'histoires personnalisees enfants'
+    'meilleures applications histoires enfants', 'application raconter histoires enfants', 'histoires pour enfants app', 'contes enfants application', 'livres audio enfants', 'histoires du soir application', 'generateur histoires enfants', 'application lecture enfants', 'creer histoires enfants', 'histoires personnalisees enfants', 'application contes animes enfants', 'createur histoires enfants'
   ],
   authors: [{ name: 'Fidjoo' }],
   creator: 'Fidjoo',

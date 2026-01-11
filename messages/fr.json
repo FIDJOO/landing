@@ -120,37 +120,37 @@
     "subtitle": "FAQ",
     "askUs": "Posez-nous vos questions !",
     "questions": {
-      "bestApp": {
-        "question": "Quelle est la meilleure application d'histoires pour enfants ?",
-        "answer": "Fidjoo est l'une des meilleures applications d'histoires pour enfants de 5 à 12 ans. Les enfants créent leurs propres livres animés personnalisés en faisant des choix simples : choisir un héros, un monde, un défi et une fin. Chaque histoire devient une vidéo animée unique qu'ils peuvent regarder et partager avec leur famille."
-      },
-      "what": {
-        "question": "Qu'est-ce que Fidjoo ?",
-        "answer": "Fidjoo est une application créative où les enfants transforment des choix simples en leurs propres livres animés, remplaçant le temps d'écran passif par un jeu imaginatif et enrichissant. Les enfants construisent des histoires par des choix guidés et les regardent prendre vie sous forme de belles animations."
-      },
-      "safe": {
-        "question": "Fidjoo est-il sûr pour les enfants ?",
-        "answer": "Oui, Fidjoo est 100% sans publicité et conçu comme un environnement fermé et adapté aux enfants. Toutes les créations restent privées et entièrement supervisées par les parents. L'application n'enregistre jamais d'audio ou de vidéo d'enfants et suit des règles strictes de confidentialité."
-      },
-      "ages": {
-        "question": "Pour quels âges Fidjoo est-il conçu ?",
-        "answer": "Fidjoo est idéal pour les enfants de 5 à 12 ans, avec des histoires et des expériences adaptées aux différents niveaux de lecture et de développement. Les plus jeunes (5-7 ans) bénéficient de la participation des parents, tandis que les plus grands (8-12 ans) peuvent créer de manière autonome."
-      },
-      "offline": {
-        "question": "Fidjoo fonctionne-t-il hors ligne ?",
-        "answer": "Oui. Une fois une histoire créée, elle peut être appréciée hors ligne à tout moment. Une connexion n'est nécessaire que pour créer ou personnaliser de nouvelles histoires. Cela rend Fidjoo parfait pour les voyages, les salles d'attente ou le temps d'écran sans WiFi."
-      },
-      "cost": {
-        "question": "Combien coûte Fidjoo ?",
-        "answer": "Vous pouvez commencer gratuitement avec une histoire. Ensuite, des abonnements flexibles (9,99€/mois) et des packs de crédits (7,99€ à 35,99€) permettent aux familles de choisir l'option qui leur convient. Une histoire animée coûte 3 crédits."
-      },
-      "bedtime": {
+      "bestBedtimeApp": {
         "question": "Quelle est la meilleure application d'histoires du soir pour enfants ?",
-        "answer": "Fidjoo est une excellente application d'histoires du soir car les enfants créent leurs propres histoires par des choix simples et apaisants. Les livres animés sont parfaits pour les rituels du coucher - les enfants sont fiers d'avoir créé quelque chose, et les parents peuvent participer ensemble au processus créatif."
+        "answer": "Fidjoo permet aux enfants de créer leurs propres histoires animées du soir. Parfait pour des rituels de coucher apaisants où les enfants sont fiers de leur création."
       },
-      "howCreate": {
-        "question": "Comment les enfants créent-ils des histoires avec Fidjoo ?",
-        "answer": "Les enfants construisent des livres animés personnalisés en faisant des choix guidés. Ils choisissent un héros, sélectionnent un monde, choisissent un défi et décident de la fin. Chaque choix transforme le récit, enseignant la cause et l'effet tout en encourageant la créativité et l'imagination."
+      "whatIsFidjoo": {
+        "question": "Qu'est-ce que Fidjoo ?",
+        "answer": "Une application où les enfants de 5-12 ans créent des livres animés personnalisés en choisissant un héros, un monde, un défi et une fin."
+      },
+      "howItWorks": {
+        "question": "Comment les enfants créent-ils des histoires ?",
+        "answer": "Les enfants font des choix guidés : choisir un héros, un monde, un défi, une fin. Chaque choix crée une vidéo animée unique."
+      },
+      "isSafe": {
+        "question": "Fidjoo est-il sûr pour les enfants ?",
+        "answer": "Oui. 100% sans publicité, créations privées, supervision parentale, aucun enregistrement audio/vidéo des enfants."
+      },
+      "whatAges": {
+        "question": "Pour quel âge est Fidjoo ?",
+        "answer": "5-12 ans. Les plus jeunes (5-7 ans) créent avec les parents, les plus grands (8-12 ans) créent seuls."
+      },
+      "offlineMode": {
+        "question": "Fidjoo fonctionne-t-il hors ligne ?",
+        "answer": "Oui. Les histoires créées peuvent être regardées hors ligne. Internet est nécessaire uniquement pour créer de nouvelles histoires."
+      },
+      "pricing": {
+        "question": "Combien coûte Fidjoo ?",
+        "answer": "Commencez gratuitement avec une histoire. Puis abonnements (9,99€/mois) ou packs de crédits (7,99€-35,99€). 1 histoire = 3 crédits."
+      },
+      "sleepStories": {
+        "question": "Puis-je utiliser Fidjoo pour des histoires pour dormir ?",
+        "answer": "Oui. Les enfants créent des histoires apaisantes avec des thèmes doux et des fins heureuses. Idéal pour les rituels du coucher."
       }
     }
   },

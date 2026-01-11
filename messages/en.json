@@ -120,37 +120,37 @@
     "subtitle": "FAQ'S",
     "askUs": "Ask us anything!",
     "questions": {
-      "bestApp": {
-        "question": "What is the best storytelling app for kids?",
-        "answer": "Fidjoo is one of the best storytelling apps for kids ages 5-12. Children create their own personalized animated storybooks by making simple choices: selecting a hero, a world, a challenge, and an ending. Each story becomes a unique animated video they can watch and share with family."
-      },
-      "what": {
-        "question": "What is Fidjoo?",
-        "answer": "Fidjoo is a creative app where children turn simple choices into their own animated storybooks, replacing passive screen time with meaningful, imaginative play. Kids build stories through guided choices and watch them come to life as beautiful animations."
-      },
-      "safe": {
-        "question": "Is Fidjoo safe for children?",
-        "answer": "Yes, Fidjoo is 100% ad-free and built as a closed, kid-friendly environment. All creations stay private and fully supervised by parents. The app never records audio or video of children and follows strict privacy guidelines."
-      },
-      "ages": {
-        "question": "What ages is Fidjoo designed for?",
-        "answer": "Fidjoo is ideal for children aged 5 to 12, with stories and experiences adapted to different reading and developmental levels. Younger children (5-7) benefit from parent participation, while older kids (8-12) can create independently."
-      },
-      "offline": {
-        "question": "Does Fidjoo work offline?",
-        "answer": "Yes. Once a story is created, it can be enjoyed offline anytime. An internet connection is only needed for creating or customizing new stories. This makes Fidjoo perfect for travel, waiting rooms, or screen time without WiFi."
-      },
-      "cost": {
-        "question": "How much does Fidjoo cost?",
-        "answer": "You can start for free with one story. Then, flexible subscriptions ($9.99/month) and credit packs ($7.99-$35.99) allow families to choose the option that fits them best. One animated story costs 3 credits."
-      },
-      "bedtime": {
+      "bestBedtimeApp": {
         "question": "What is the best bedtime story app for kids?",
-        "answer": "Fidjoo is an excellent bedtime story app because children create their own stories through simple, calming choices. The animated storybooks are perfect for bedtime routines - kids feel accomplished having created something themselves, and parents can participate in the creative process together."
+        "answer": "Fidjoo lets children create their own animated bedtime stories through simple choices. Perfect for calming bedtime routines where kids feel proud of their creation."
       },
-      "howCreate": {
-        "question": "How do kids create stories with Fidjoo?",
-        "answer": "Children build personalized animated storybooks by making guided choices. They pick a hero, select a world, choose a challenge, and decide the ending. Every choice transforms the narrative, teaching cause and effect while encouraging creativity and imagination."
+      "whatIsFidjoo": {
+        "question": "What is Fidjoo?",
+        "answer": "A storytelling app where children ages 5-12 build personalized animated storybooks by choosing a hero, world, challenge, and ending."
+      },
+      "howItWorks": {
+        "question": "How do kids create stories?",
+        "answer": "Kids make guided choices: pick a hero, select a world, choose a challenge, decide the ending. Each choice creates a unique animated video."
+      },
+      "isSafe": {
+        "question": "Is Fidjoo safe for children?",
+        "answer": "Yes. 100% ad-free, private creations, parental supervision, no audio/video recording of children."
+      },
+      "whatAges": {
+        "question": "What ages is Fidjoo for?",
+        "answer": "Ages 5-12. Younger kids (5-7) create with parents, older kids (8-12) can create independently."
+      },
+      "offlineMode": {
+        "question": "Does Fidjoo work offline?",
+        "answer": "Yes. Created stories can be watched offline anytime. Internet is only needed to create new stories."
+      },
+      "pricing": {
+        "question": "How much does Fidjoo cost?",
+        "answer": "Start free with one story. Then subscriptions ($9.99/month) or credit packs ($7.99-$35.99). One story = 3 credits."
+      },
+      "sleepStories": {
+        "question": "Can I use Fidjoo for sleep stories?",
+        "answer": "Yes. Children create calming sleep stories with gentle themes and happy endings. Ideal for healthy bedtime routines."
       }
     }
   },
