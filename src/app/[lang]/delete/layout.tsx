@@ -23,8 +23,8 @@ export async function generateMetadata({
     title: t.metaTitle,
     description: t.metaDescription,
     robots: {
-      index: false,
-      follow: false,
+      index: true,
+      follow: true,
     },
     alternates: {
       canonical: `/${validLang}/delete`,
