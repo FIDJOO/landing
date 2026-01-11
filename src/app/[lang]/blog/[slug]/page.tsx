@@ -8,6 +8,8 @@ import { blogPosts, getBlogPost } from "@/data/blog";
 import { siteDetails } from "@/data/siteDetails";
 import { BlogPostJsonLd, BreadcrumbJsonLd } from "@/components/JsonLd";
 import { Locale, locales } from "@/i18n/config";
+import BlogSidebar from "@/components/Blog/BlogSidebar";
+import BlogInlineCTA from "@/components/Blog/BlogInlineCTA";
 
 import enMessages from "../../../../../messages/en.json";
 import frMessages from "../../../../../messages/fr.json";
@@ -88,36 +90,62 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-function parseMarkdown(content: string): string {
-  return content
-    .split("\n")
-    .map((line) => {
-      // Headers
-      if (line.startsWith("### ")) {
-        return `<h3 class="text-xl font-semibold text-foreground mt-8 mb-4">${line.slice(4)}</h3>`;
-      }
-      if (line.startsWith("## ")) {
-        return `<h2 class="text-2xl font-semibold text-foreground mt-10 mb-4">${line.slice(3)}</h2>`;
-      }
+function parseMarkdown(content: string): { beforeCTA: string; afterCTA: string } {
+  const lines = content.split("\n");
+  const parsedLines: string[] = [];
+
+  for (const line of lines) {
+    // Headers
+    if (line.startsWith("### ")) {
+      parsedLines.push(`<h3 class="text-xl font-semibold text-foreground mt-8 mb-4">${line.slice(4)}</h3>`);
+    } else if (line.startsWith("## ")) {
+      parsedLines.push(`<h2 class="text-2xl font-semibold text-foreground mt-10 mb-4">${line.slice(3)}</h2>`);
+    } else {
       // Bold text
       const processed = line.replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>");
       // Unordered list items
       if (processed.startsWith("- ")) {
-        return `<li class="ml-6 text-gray-700">${processed.slice(2)}</li>`;
+        parsedLines.push(`<li class="ml-6 text-gray-700">${processed.slice(2)}</li>`);
       }
       // Ordered list items
-      const orderedMatch = processed.match(/^(\d+)\.\s(.*)$/);
-      if (orderedMatch) {
-        return `<li class="ml-6 text-gray-700">${orderedMatch[2]}</li>`;
+      else if (/^(\d+)\.\s/.test(processed)) {
+        const orderedMatch = processed.match(/^(\d+)\.\s(.*)$/);
+        if (orderedMatch) {
+          parsedLines.push(`<li class="ml-6 text-gray-700">${orderedMatch[2]}</li>`);
+        }
       }
       // Empty lines become paragraph breaks
-      if (processed.trim() === "") {
-        return "";
+      else if (processed.trim() === "") {
+        parsedLines.push("");
       }
       // Regular paragraphs
-      return `<p class="text-gray-700 leading-relaxed mb-4">${processed}</p>`;
-    })
-    .join("\n");
+      else {
+        parsedLines.push(`<p class="text-gray-700 leading-relaxed mb-4">${processed}</p>`);
+      }
+    }
+  }
+
+  // Find a good split point (after first h2 or around 40% of content)
+  let splitIndex = Math.floor(parsedLines.length * 0.4);
+
+  // Try to find a ## header after 30% of content to split after it
+  for (let i = Math.floor(parsedLines.length * 0.3); i < Math.floor(parsedLines.length * 0.6); i++) {
+    if (parsedLines[i]?.includes('<h2')) {
+      // Find the end of this section (next h2 or a few paragraphs after)
+      for (let j = i + 1; j < Math.min(i + 6, parsedLines.length); j++) {
+        if (parsedLines[j]?.includes('<h2') || j === i + 5) {
+          splitIndex = j;
+          break;
+        }
+      }
+      break;
+    }
+  }
+
+  return {
+    beforeCTA: parsedLines.slice(0, splitIndex).join("\n"),
+    afterCTA: parsedLines.slice(splitIndex).join("\n"),
+  };
 }
 
 export default async function BlogPostPage({ params }: Props) {
@@ -129,7 +157,7 @@ export default async function BlogPostPage({ params }: Props) {
     notFound();
   }
 
-  const htmlContent = parseMarkdown(post.content);
+  const { beforeCTA, afterCTA } = parseMarkdown(post.content);
   const baseUrl = siteDetails.siteUrl.replace(/\/$/, "");
 
   return (
@@ -149,8 +177,8 @@ export default async function BlogPostPage({ params }: Props) {
           { name: post.title, url: `${baseUrl}/${lang}/blog/${post.slug}` },
         ]}
       />
-      <div className="min-h-screen px-6 sm:px-12 lg:px-24 xl:px-40 py-12 pt-32">
-        <div className="max-w-3xl mx-auto">
+      <div className="min-h-screen px-6 sm:px-8 lg:px-12 xl:px-20 py-12 pt-32">
+        <div className="max-w-7xl mx-auto">
           <Link
             href={`/${lang}/blog`}
             className="inline-flex items-center text-primary hover:underline mb-8"
@@ -172,60 +200,74 @@ export default async function BlogPostPage({ params }: Props) {
             {t.blog.backToBlog}
           </Link>
 
-          <Card className="shadow-lg overflow-hidden">
-            {post.coverImage && (
-              <div className="relative w-full h-64 sm:h-80 md:h-96">
-                <Image
-                  src={post.coverImage}
-                  alt={post.title}
-                  fill
-                  className="object-cover"
-                  priority
-                />
+          <div className="flex gap-8">
+            {/* Main Content */}
+            <div className="flex-1 max-w-3xl">
+              <Card className="shadow-lg overflow-hidden">
+                {post.coverImage && (
+                  <div className="relative w-full h-64 sm:h-80 md:h-96">
+                    <Image
+                      src={post.coverImage}
+                      alt={post.title}
+                      fill
+                      className="object-cover"
+                      priority
+                    />
+                  </div>
+                )}
+                <CardHeader>
+                  <div className="flex items-center gap-4 text-sm text-gray-500 mb-4">
+                    <span>{post.date}</span>
+                    <span>-</span>
+                    <span>{post.readTime}</span>
+                    <span>-</span>
+                    <span>{t.blog.by} {post.author}</span>
+                  </div>
+                  <CardTitle className="text-3xl md:text-4xl font-bold text-foreground">
+                    {post.title}
+                  </CardTitle>
+                  {post.tags && (
+                    <div className="flex flex-wrap gap-2 mt-4">
+                      {post.tags.map((tag) => (
+                        <span
+                          key={tag}
+                          className="px-3 py-1 bg-primary/10 text-primary text-sm rounded-full"
+                        >
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                  )}
+                </CardHeader>
+
+                <Separator />
+
+                <CardContent className="pt-8">
+                  <article className="prose prose-lg max-w-none">
+                    {/* First part of content */}
+                    <div dangerouslySetInnerHTML={{ __html: beforeCTA }} />
+
+                    {/* Inline CTA */}
+                    <BlogInlineCTA />
+
+                    {/* Rest of content */}
+                    <div dangerouslySetInnerHTML={{ __html: afterCTA }} />
+                  </article>
+                </CardContent>
+              </Card>
+
+              <div className="mt-12 text-center">
+                <Link
+                  href={`/${lang}/blog`}
+                  className="text-primary hover:underline font-medium"
+                >
+                  {t.blog.readMoreArticles}
+                </Link>
               </div>
-            )}
-            <CardHeader>
-              <div className="flex items-center gap-4 text-sm text-gray-500 mb-4">
-                <span>{post.date}</span>
-                <span>-</span>
-                <span>{post.readTime}</span>
-                <span>-</span>
-                <span>{t.blog.by} {post.author}</span>
-              </div>
-              <CardTitle className="text-3xl md:text-4xl font-bold text-foreground">
-                {post.title}
-              </CardTitle>
-              {post.tags && (
-                <div className="flex flex-wrap gap-2 mt-4">
-                  {post.tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="px-3 py-1 bg-primary/10 text-primary text-sm rounded-full"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-              )}
-            </CardHeader>
+            </div>
 
-            <Separator />
-
-            <CardContent className="pt-8">
-              <article
-                className="prose prose-lg max-w-none"
-                dangerouslySetInnerHTML={{ __html: htmlContent }}
-              />
-            </CardContent>
-          </Card>
-
-          <div className="mt-12 text-center">
-            <Link
-              href={`/${lang}/blog`}
-              className="text-primary hover:underline font-medium"
-            >
-              {t.blog.readMoreArticles}
-            </Link>
+            {/* Sidebar */}
+            <BlogSidebar />
           </div>
         </div>
       </div>

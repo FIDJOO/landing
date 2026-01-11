@@ -179,6 +179,17 @@
     "by": "Par",
     "minRead": "min de lecture"
   },
+  "blogSidebar": {
+    "downloadTitle": "Télécharger Fidjoo",
+    "downloadDescription": "Transformez l'imagination de vos enfants en histoires animées magiques.",
+    "tryTitle": "Essayez Fidjoo !",
+    "tryDescription": "Créez des histoires magiques avec vos enfants et transformez le temps d'écran en créativité.",
+    "tryButton": "Commencer gratuitement"
+  },
+  "blogInlineCTA": {
+    "title": "Découvrez Fidjoo",
+    "description": "Transformez le temps d'écran passif en moments créatifs de narration. Laissez vos enfants créer leurs propres livres animés !"
+  },
   "footer": {
     "subheading": "Transformez le temps d'écran passif en moments créatifs que toute la famille appréciera.",
     "quickLinks": "Liens rapides",

@@ -179,6 +179,17 @@
     "by": "By",
     "minRead": "min read"
   },
+  "blogSidebar": {
+    "downloadTitle": "Download Fidjoo",
+    "downloadDescription": "Transform your children's imagination into magical animated stories.",
+    "tryTitle": "Try Fidjoo Today!",
+    "tryDescription": "Create magical stories with your children and turn screen time into creativity.",
+    "tryButton": "Get Started Free"
+  },
+  "blogInlineCTA": {
+    "title": "Discover Fidjoo",
+    "description": "Transform passive screen time into creative storytelling moments. Let your children build their own animated storybooks!"
+  },
   "footer": {
     "subheading": "Transform passive screen time into creative storytelling moments your whole family will treasure.",
     "quickLinks": "Quick Links",
