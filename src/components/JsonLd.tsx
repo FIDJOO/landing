@@ -229,6 +229,8 @@ export function BreadcrumbJsonLd({ items }: BreadcrumbJsonLdProps) {
 }
 
 export function PricingJsonLd() {
+  const priceValidUntil = new Date(new Date().setFullYear(new Date().getFullYear() + 1)).toISOString().split('T')[0];
+
   const allOffers = [
     ...subscriptions.map((sub) => ({
       '@type': 'Offer',
@@ -236,7 +238,7 @@ export function PricingJsonLd() {
       price: sub.price,
       priceCurrency: 'EUR',
       description: sub.description,
-      priceValidUntil: new Date(new Date().setFullYear(new Date().getFullYear() + 1)).toISOString().split('T')[0],
+      priceValidUntil,
       availability: 'https://schema.org/InStock',
       itemOffered: {
         '@type': 'Service',
@@ -250,12 +252,19 @@ export function PricingJsonLd() {
       price: pack.price,
       priceCurrency: 'EUR',
       description: pack.description,
-      priceValidUntil: new Date(new Date().setFullYear(new Date().getFullYear() + 1)).toISOString().split('T')[0],
+      priceValidUntil,
       availability: 'https://schema.org/InStock',
       itemOffered: {
         '@type': 'Product',
         name: `${pack.name} - ${pack.credits} credits`,
         description: `One-time purchase of ${pack.credits} credits for ${pack.stories} stories`,
+        offers: {
+          '@type': 'Offer',
+          price: pack.price,
+          priceCurrency: 'EUR',
+          availability: 'https://schema.org/InStock',
+          priceValidUntil,
+        },
       },
     })),
   ];
@@ -296,6 +305,14 @@ export function TestimonialsJsonLd() {
     brand: {
       '@type': 'Brand',
       name: siteDetails.siteName,
+    },
+    aggregateRating: {
+      '@type': 'AggregateRating',
+      ratingValue: '5.0',
+      ratingCount: testimonials.length,
+      reviewCount: testimonials.length,
+      bestRating: '5',
+      worstRating: '1',
     },
     review: testimonials.map((testimonial) => ({
       '@type': 'Review',
