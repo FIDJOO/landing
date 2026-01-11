@@ -10,6 +10,10 @@ const nextConfig = {
         protocol: "https",
         hostname: "api.producthunt.com",
       },
+      {
+        protocol: "https",
+        hostname: "fidjoo.com",
+      },
     ],
     dangerouslyAllowSVG: true,
   },
