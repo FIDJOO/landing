@@ -23,8 +23,10 @@ const PricingColumn: React.FC<Props> = ({ tier }: Props) => {
     const planKeyMap: Record<string, string> = {
         'Family Starter': 'familyStarter',
         'Premium Creator': 'premiumCreator',
-        'Mini Pack': 'miniPack',
-        'Standard Pack': 'standardPack',
+        'Fidjoo Signature': 'fidjooSignature',
+        'Pack Découverte': 'packDecouverte',
+        'Pack Mini': 'miniPack',
+        'Pack Standard': 'standardPack',
     };
 
     const planKey = planKeyMap[name] || 'familyStarter';

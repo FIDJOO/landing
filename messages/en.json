@@ -75,6 +75,8 @@
     "subscriptionSubtitle": "For regular creators",
     "creditPacks": "Credit Packs",
     "creditPacksSubtitle": "One-time purchase, no commitment",
+    "toggleMonthly": "Monthly",
+    "togglePacks": "Packs",
     "or": "or",
     "perMonth": "/month",
     "credits": "credits",
@@ -94,6 +96,14 @@
       "premiumCreator": {
         "name": "Premium Creator",
         "description": "For passionate creators"
+      },
+      "fidjooSignature": {
+        "name": "Fidjoo Signature",
+        "description": "Monthly credits with parental voice"
+      },
+      "packDecouverte": {
+        "name": "Discovery Pack",
+        "description": "Perfect to try Fidjoo"
       },
       "miniPack": {
         "name": "Mini Pack",
