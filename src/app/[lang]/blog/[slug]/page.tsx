@@ -48,8 +48,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const baseUrl = siteDetails.siteUrl.replace(/\/$/, "");
 
   const ogImageUrl = post.coverImage
-    ? post.coverImage
-    : `/api/og?title=${encodeURIComponent(post.title)}&description=${encodeURIComponent(post.excerpt)}`;
+    ? `${baseUrl}${post.coverImage}`
+    : `${baseUrl}/api/og?title=${encodeURIComponent(post.title)}&description=${encodeURIComponent(post.excerpt)}`;
 
   return {
     title: `${post.title} | ${siteDetails.siteName}`,
