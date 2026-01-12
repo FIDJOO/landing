@@ -125,20 +125,39 @@ function parseMarkdown(content: string): { beforeCTA: string; afterCTA: string }
     }
   }
 
-  // Find a good split point (after first h2 or around 40% of content)
-  let splitIndex = Math.floor(parsedLines.length * 0.4);
-
-  // Try to find a ## header after 30% of content to split after it
-  for (let i = Math.floor(parsedLines.length * 0.3); i < Math.floor(parsedLines.length * 0.6); i++) {
+  // Find all h2 header indices
+  const h2Indices: number[] = [];
+  for (let i = 0; i < parsedLines.length; i++) {
     if (parsedLines[i]?.includes('<h2')) {
-      // Find the end of this section (next h2 or a few paragraphs after)
-      for (let j = i + 1; j < Math.min(i + 6, parsedLines.length); j++) {
-        if (parsedLines[j]?.includes('<h2') || j === i + 5) {
-          splitIndex = j;
+      h2Indices.push(i);
+    }
+  }
+
+  // Find the best h2 to split before (around 40-60% of content)
+  let splitIndex = Math.floor(parsedLines.length * 0.5);
+
+  if (h2Indices.length > 0) {
+    // Find an h2 that's roughly in the middle of the article (between 40% and 70%)
+    const targetMin = Math.floor(parsedLines.length * 0.4);
+    const targetMax = Math.floor(parsedLines.length * 0.7);
+
+    for (const h2Index of h2Indices) {
+      if (h2Index >= targetMin && h2Index <= targetMax) {
+        // Split right before this h2
+        splitIndex = h2Index;
+        break;
+      }
+    }
+
+    // If no h2 found in ideal range, find the closest one after 30%
+    if (splitIndex === Math.floor(parsedLines.length * 0.5)) {
+      const minPosition = Math.floor(parsedLines.length * 0.3);
+      for (const h2Index of h2Indices) {
+        if (h2Index >= minPosition) {
+          splitIndex = h2Index;
           break;
         }
       }
-      break;
     }
   }
 

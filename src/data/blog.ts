@@ -36,6 +36,159 @@ export interface IBlogPostWithTranslations extends IBlogPost {
 
 export const blogPosts: IBlogPostWithTranslations[] = [
     {
+        slug: "storytelling-listening-skills-attention",
+        coverImage: "/images/blog/storytelling-listening-skills.jpeg",
+        author: "Fidjoo Team",
+        date: "2026-01-12",
+        tags: ["listening", "attention", "storytelling", "parenting", "child development"],
+        translations: {
+            en: {
+                title: "How Storytelling Improves Kids' Listening Skills and Attention Span (Ages 5–8)",
+                excerpt: "Discover how storytelling helps children aged 5-8 develop listening skills and longer attention spans through calm, engaging narratives told in a familiar voice.",
+                readTime: "4 min read",
+                content: `
+In a world filled with constant stimulation, many parents notice the same challenge:
+
+children struggle to stay focused and listen for more than a few minutes.
+
+For kids aged **5 to 8**, storytelling offers a gentle and effective way to strengthen **listening skills** and **attention**, without pressure or discipline.
+
+## Listening Is a Skill Children Can Learn
+
+Listening doesn't come naturally — it develops over time.
+
+When children follow a story, they learn to:
+
+- Pay attention to details
+- Remember sequences
+- Anticipate what comes next
+
+Stories train the brain to focus in a calm and enjoyable way.
+
+## Why Stories Hold Attention Better Than Instructions
+
+Unlike direct instructions, stories don't demand attention — they invite it.
+
+Children stay engaged because they want to understand:
+
+- Who the characters are
+- What problem they face
+- How the story ends
+
+This natural curiosity supports longer attention spans without frustration.
+
+## A Familiar Voice Makes Listening Easier
+
+Attention improves when children feel emotionally safe.
+
+With Fidjoo, parents can **record their own voice** and become the **narrator** of their child's stories.
+
+Hearing a familiar voice helps children:
+
+- Stay focused for longer
+- Feel calm and receptive
+- Associate listening with comfort
+
+The parent's voice turns listening into a reassuring experience.
+
+## A Healthier Use of Screen Time
+
+Fast-paced content encourages short attention bursts.
+
+Story-based experiences encourage sustained focus.
+
+When screens are used for calm storytelling, they support:
+
+- Active listening
+- Patience
+- Mental presence
+
+It's not about removing screens — it's about using them wisely.
+
+## Small Stories, Big Impact
+
+Improving attention doesn't require long exercises or strict rules.
+
+Sometimes, all it takes is a story — told slowly, clearly, and in a familiar voice.
+
+Over time, these moments help children learn one of life's most important skills: **how to truly listen**.
+                `
+            },
+            fr: {
+                title: "Comment les histoires améliorent l'écoute et l'attention des enfants (5-8 ans)",
+                excerpt: "Découvrez comment les histoires aident les enfants de 5 à 8 ans à développer leurs capacités d'écoute et leur attention grâce à des récits apaisants racontés d'une voix familière.",
+                readTime: "4 min de lecture",
+                content: `
+Dans un monde rempli de stimulations constantes, de nombreux parents remarquent le même défi :
+
+les enfants ont du mal à rester concentrés et à écouter plus de quelques minutes.
+
+Pour les enfants de **5 à 8 ans**, les histoires offrent un moyen doux et efficace de renforcer **l'écoute** et **l'attention**, sans pression ni discipline.
+
+## L'écoute est une compétence que les enfants peuvent apprendre
+
+L'écoute ne vient pas naturellement — elle se développe avec le temps.
+
+Quand les enfants suivent une histoire, ils apprennent à :
+
+- Prêter attention aux détails
+- Mémoriser les séquences
+- Anticiper ce qui va suivre
+
+Les histoires entraînent le cerveau à se concentrer de manière calme et agréable.
+
+## Pourquoi les histoires captent mieux l'attention que les instructions
+
+Contrairement aux instructions directes, les histoires n'exigent pas l'attention — elles l'invitent.
+
+Les enfants restent engagés parce qu'ils veulent comprendre :
+
+- Qui sont les personnages
+- Quel problème ils affrontent
+- Comment l'histoire se termine
+
+Cette curiosité naturelle soutient une attention plus longue sans frustration.
+
+## Une voix familière facilite l'écoute
+
+L'attention s'améliore quand les enfants se sentent en sécurité émotionnelle.
+
+Avec Fidjoo, les parents peuvent **enregistrer leur propre voix** et devenir le **narrateur** des histoires de leur enfant.
+
+Entendre une voix familière aide les enfants à :
+
+- Rester concentrés plus longtemps
+- Se sentir calmes et réceptifs
+- Associer l'écoute au confort
+
+La voix du parent transforme l'écoute en une expérience rassurante.
+
+## Une utilisation plus saine du temps d'écran
+
+Le contenu au rythme rapide encourage des pics d'attention courts.
+
+Les expériences basées sur les histoires encouragent une concentration soutenue.
+
+Quand les écrans sont utilisés pour des histoires apaisantes, ils soutiennent :
+
+- L'écoute active
+- La patience
+- La présence mentale
+
+Il ne s'agit pas de supprimer les écrans — mais de les utiliser intelligemment.
+
+## Petites histoires, grand impact
+
+Améliorer l'attention ne nécessite pas de longs exercices ou de règles strictes.
+
+Parfois, il suffit d'une histoire — racontée lentement, clairement et avec une voix familière.
+
+Avec le temps, ces moments aident les enfants à apprendre l'une des compétences les plus importantes de la vie : **vraiment écouter**.
+                `
+            }
+        }
+    },
+    {
         slug: "kids-emotions-storytelling",
         coverImage: "/images/blog/kids-emotions-storytelling.jpeg",
         author: "Fidjoo Team",
