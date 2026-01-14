@@ -227,3 +227,11 @@ Use helper functions:
 always run pnpm build at the end of each run
 
 each page should have a cannonical url a metadata tag and everything related to seo
+
+
+all blog post should follow thses guidelines OG Image size (7.6 MB) too large for: X, LinkedIn, WhatsApp. Recommended size: < 600 KB
+Image is 5504x3072px. Recommended size is 1200x630px.
+Missing a clear headline in your image
+Missing a call-to-action in your image
+Title is long (78 characters). Optimal: 50-60 characters
+Description is long (179 chars). Optimal: 110-160 chars

@@ -13,6 +13,8 @@ export interface ILocalizedBlogPost extends IBlogPost {
     excerpt: string;
     content: string;
     readTime: string;
+    ogTitle?: string; // Short title for OG (50-60 chars)
+    ogDescription?: string; // Short description for OG (110-160 chars)
 }
 
 export interface IBlogPostTranslations {
@@ -21,12 +23,16 @@ export interface IBlogPostTranslations {
         excerpt: string;
         content: string;
         readTime: string;
+        ogTitle?: string;
+        ogDescription?: string;
     };
     fr: {
         title: string;
         excerpt: string;
         content: string;
         readTime: string;
+        ogTitle?: string;
+        ogDescription?: string;
     };
 }
 
@@ -46,6 +52,8 @@ export const blogPosts: IBlogPostWithTranslations[] = [
                 title: "How Storytelling Improves Kids' Listening Skills and Attention Span (Ages 5–8)",
                 excerpt: "Discover how storytelling helps children aged 5-8 develop listening skills and longer attention spans through calm, engaging narratives told in a familiar voice.",
                 readTime: "4 min read",
+                ogTitle: "How Stories Improve Kids' Listening & Attention",
+                ogDescription: "Learn how storytelling helps children aged 5-8 develop listening skills and longer attention spans through calm narratives.",
                 content: `
 In a world filled with constant stimulation, many parents notice the same challenge:
 
@@ -118,6 +126,8 @@ Over time, these moments help children learn one of life's most important skills
                 title: "Comment les histoires améliorent l'écoute et l'attention des enfants (5-8 ans)",
                 excerpt: "Découvrez comment les histoires aident les enfants de 5 à 8 ans à développer leurs capacités d'écoute et leur attention grâce à des récits apaisants racontés d'une voix familière.",
                 readTime: "4 min de lecture",
+                ogTitle: "Histoires : Écoute et Attention des Enfants",
+                ogDescription: "Comment les histoires aident les enfants de 5 à 8 ans à développer l'écoute et l'attention avec des récits apaisants.",
                 content: `
 Dans un monde rempli de stimulations constantes, de nombreux parents remarquent le même défi :
 
@@ -199,6 +209,8 @@ Avec le temps, ces moments aident les enfants à apprendre l'une des compétence
                 title: "Helping Kids Understand Their Emotions Through Storytelling (Ages 5–8)",
                 excerpt: "Discover how storytelling helps children aged 5-8 name their feelings, build emotional intelligence, and feel safe exploring emotions with a familiar voice.",
                 readTime: "4 min read",
+                ogTitle: "Help Kids Understand Emotions via Stories",
+                ogDescription: "How storytelling helps children aged 5-8 name their feelings and build emotional intelligence in a safe environment.",
                 content: `
 Children experience many emotions every day — joy, frustration, fear, excitement — but they don't always have the words to express them.
 
@@ -269,6 +281,8 @@ When storytelling becomes personal and emotional, children learn something essen
                 title: "Aider les enfants à comprendre leurs émotions grâce aux histoires (5-8 ans)",
                 excerpt: "Découvrez comment les histoires aident les enfants de 5 à 8 ans à nommer leurs sentiments, développer leur intelligence émotionnelle et explorer leurs émotions en toute sécurité.",
                 readTime: "4 min de lecture",
+                ogTitle: "Aider les Enfants à Comprendre leurs Émotions",
+                ogDescription: "Comment les histoires aident les enfants de 5 à 8 ans à nommer leurs sentiments et développer leur intelligence émotionnelle.",
                 content: `
 Les enfants vivent de nombreuses émotions chaque jour — joie, frustration, peur, excitation — mais ils n'ont pas toujours les mots pour les exprimer.
 
@@ -348,6 +362,8 @@ Quand la narration devient personnelle et émotionnelle, les enfants apprennent 
                 title: "Why Letting Kids Create Their Own Stories Builds Confidence (Ages 5-8)",
                 excerpt: "Discover how inventing stories helps children aged 5-8 develop imagination, emotional expression, and confidence - especially when parents become the narrator.",
                 readTime: "4 min read",
+                ogTitle: "Kids Creating Stories Builds Confidence",
+                ogDescription: "How inventing stories helps children aged 5-8 develop imagination, emotional expression, and confidence.",
                 content: `
 Children love stories.
 
@@ -408,6 +424,8 @@ When those stories are narrated with a parent's voice, creativity becomes connec
                 title: "Pourquoi laisser les enfants créer leurs propres histoires renforce leur confiance (5-8 ans)",
                 excerpt: "Découvrez comment inventer des histoires aide les enfants de 5 à 8 ans à développer leur imagination, leur expression émotionnelle et leur confiance - surtout quand les parents deviennent narrateurs.",
                 readTime: "4 min de lecture",
+                ogTitle: "Créer des Histoires Renforce la Confiance",
+                ogDescription: "Comment inventer des histoires aide les enfants de 5 à 8 ans à développer imagination et confiance en soi.",
                 content: `
 Les enfants adorent les histoires.
 
@@ -477,6 +495,8 @@ Quand ces histoires sont narrées avec la voix d'un parent, la créativité devi
                 title: "Bedtime Stories for Kids (5-8): A Calm Night Routine That Truly Connects",
                 excerpt: "Discover how bedtime stories help children aged 5-8 relax, feel safe, and strengthen the bond with their parents through a simple night routine.",
                 readTime: "4 min read",
+                ogTitle: "Bedtime Stories: A Calm Routine That Connects",
+                ogDescription: "How bedtime stories help children aged 5-8 relax, feel safe, and strengthen the bond with parents.",
                 content: `
 Bedtime can be a challenging moment for families with young children.
 
@@ -543,6 +563,8 @@ When stories are calm, personal, and told in a familiar voice, bedtime becomes s
                 title: "Histoires du soir pour enfants (5-8 ans) : une routine apaisante qui crée du lien",
                 excerpt: "Découvrez comment les histoires du soir aident les enfants de 5 à 8 ans à se détendre, se sentir en sécurité et renforcer le lien avec leurs parents.",
                 readTime: "4 min de lecture",
+                ogTitle: "Histoires du Soir : Routine Apaisante",
+                ogDescription: "Comment les histoires du soir aident les enfants de 5 à 8 ans à se détendre et renforcer le lien familial.",
                 content: `
 Le coucher peut être un moment difficile pour les familles avec de jeunes enfants.
 
@@ -618,6 +640,8 @@ Quand les histoires sont calmes, personnelles et racontées avec une voix famili
                 title: "Meaningful Screen Time: How Fidjoo Transforms Passive Viewing into Creative Play",
                 excerpt: "Discover how interactive storytelling can turn screen time into a powerful tool for imagination and learning.",
                 readTime: "4 min read",
+                ogTitle: "Transform Screen Time into Creative Play",
+                ogDescription: "How interactive storytelling turns screen time into a powerful tool for imagination and learning.",
                 content: `
 Screen time is often viewed as a necessary evil by parents. But what if we could transform those digital moments into opportunities for creativity and growth?
 
@@ -654,6 +678,8 @@ Transform your family's screen time today with Fidjoo.
                 title: "Un temps d'écran utile : comment Fidjoo transforme le visionnage passif en jeu créatif",
                 excerpt: "Découvrez comment la narration interactive peut transformer le temps d'écran en un outil puissant pour l'imagination et l'apprentissage.",
                 readTime: "4 min de lecture",
+                ogTitle: "Écran Utile : Du Passif au Créatif",
+                ogDescription: "Comment la narration interactive transforme le temps d'écran en outil puissant pour l'imagination.",
                 content: `
 Le temps d'écran est souvent perçu comme un mal nécessaire par les parents. Mais et si nous pouvions transformer ces moments numériques en opportunités de créativité et de croissance ?
 
@@ -699,6 +725,8 @@ Transformez le temps d'écran de votre famille dès aujourd'hui avec Fidjoo.
                 title: "Building Family Bonds Through Collaborative Storytelling",
                 excerpt: "Learn how co-creating stories with your children can strengthen family connections and create lasting memories.",
                 readTime: "5 min read",
+                ogTitle: "Build Family Bonds Through Storytelling",
+                ogDescription: "How co-creating stories with your children strengthens family connections and creates lasting memories.",
                 content: `
 Some of our fondest childhood memories involve stories. Whether it was a bedtime tale, a silly improvised adventure, or a family legend passed down through generations, stories connect us.
 
@@ -733,6 +761,8 @@ The stories you create together become part of your family's unique culture. Yea
                 title: "Renforcer les liens familiaux grâce à la création d'histoires collaborative",
                 excerpt: "Découvrez comment co-créer des histoires avec vos enfants peut renforcer les liens familiaux et créer des souvenirs durables.",
                 readTime: "5 min de lecture",
+                ogTitle: "Liens Familiaux : Histoires Collaboratives",
+                ogDescription: "Comment co-créer des histoires avec vos enfants renforce les liens familiaux et crée des souvenirs durables.",
                 content: `
 Certains de nos plus beaux souvenirs d'enfance impliquent des histoires. Qu'il s'agisse d'un conte du soir, d'une aventure improvisée farfelue ou d'une légende familiale transmise de génération en génération, les histoires nous connectent.
 
@@ -776,6 +806,8 @@ Les histoires que vous créez ensemble deviennent partie de la culture unique de
                 title: "Why Imagination Matters: The Cognitive Benefits of Creative Play",
                 excerpt: "Explore the science behind imaginative play and why it's crucial for your child's development.",
                 readTime: "6 min read",
+                ogTitle: "Why Imagination Matters for Kids",
+                ogDescription: "Explore the science behind imaginative play and why it's crucial for your child's development.",
                 content: `
 In our rush to prepare children for the future, we sometimes forget that imagination is one of the most valuable skills we can nurture. Here's why creative play matters more than ever.
 
@@ -821,6 +853,8 @@ When we nurture imagination, we give children tools that will serve them for lif
                 title: "Pourquoi l'imagination compte : les bienfaits cognitifs du jeu créatif",
                 excerpt: "Explorez la science derrière le jeu imaginatif et pourquoi il est crucial pour le développement de votre enfant.",
                 readTime: "6 min de lecture",
+                ogTitle: "Pourquoi l'Imagination Compte pour les Enfants",
+                ogDescription: "La science derrière le jeu imaginatif et pourquoi il est crucial pour le développement de votre enfant.",
                 content: `
 Dans notre empressement à préparer les enfants pour l'avenir, nous oublions parfois que l'imagination est l'une des compétences les plus précieuses que nous pouvons cultiver. Voici pourquoi le jeu créatif compte plus que jamais.
 
@@ -881,6 +915,8 @@ export const getBlogPost = (slug: string, locale: Locale): ILocalizedBlogPost | 
         excerpt: translation.excerpt,
         content: translation.content,
         readTime: translation.readTime,
+        ogTitle: translation.ogTitle,
+        ogDescription: translation.ogDescription,
     };
 };
 
