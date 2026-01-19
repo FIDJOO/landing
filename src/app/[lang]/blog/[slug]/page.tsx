@@ -2,8 +2,7 @@ import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Separator } from "@/components/ui/separator";
+import { Card, CardHeader, CardTitle } from "@/components/ui/card";
 import { blogPosts, getBlogPost } from "@/data/blog";
 import { siteDetails } from "@/data/siteDetails";
 import { BlogPostJsonLd, BreadcrumbJsonLd } from "@/components/JsonLd";
@@ -91,19 +90,20 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-function parseMarkdown(content: string): { beforeCTA: string; afterCTA: string } {
+function parseSection(content: string): string {
   const lines = content.split("\n");
   const parsedLines: string[] = [];
 
   for (const line of lines) {
     // Headers
     if (line.startsWith("### ")) {
-      parsedLines.push(`<h3 class="text-xl font-semibold text-foreground mt-8 mb-4">${line.slice(4)}</h3>`);
+      parsedLines.push(`<h3 class="text-xl font-semibold text-foreground mt-6 mb-3">${line.slice(4)}</h3>`);
     } else if (line.startsWith("## ")) {
-      parsedLines.push(`<h2 class="text-2xl font-semibold text-foreground mt-10 mb-4">${line.slice(3)}</h2>`);
+      parsedLines.push(`<h2 class="text-2xl font-semibold text-foreground mb-4">${line.slice(3)}</h2>`);
     } else {
-      // Bold text
-      const processed = line.replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>");
+      // Bold text and italic text
+      let processed = line.replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>");
+      processed = processed.replace(/\*(.*?)\*/g, "<em>$1</em>");
       // Unordered list items
       if (processed.startsWith("- ")) {
         parsedLines.push(`<li class="ml-6 text-gray-700">${processed.slice(2)}</li>`);
@@ -126,45 +126,22 @@ function parseMarkdown(content: string): { beforeCTA: string; afterCTA: string }
     }
   }
 
-  // Find all h2 header indices
-  const h2Indices: number[] = [];
-  for (let i = 0; i < parsedLines.length; i++) {
-    if (parsedLines[i]?.includes('<h2')) {
-      h2Indices.push(i);
-    }
-  }
+  return parsedLines.join("\n");
+}
 
-  // Find the best h2 to split before (around 40-60% of content)
-  let splitIndex = Math.floor(parsedLines.length * 0.5);
+function parseMarkdown(content: string): { sections: string[]; ctaInsertIndex: number } {
+  // Split content by "---" separator
+  const rawSections = content.split(/\n---\n/).map(s => s.trim()).filter(s => s.length > 0);
 
-  if (h2Indices.length > 0) {
-    // Find an h2 that's roughly in the middle of the article (between 40% and 70%)
-    const targetMin = Math.floor(parsedLines.length * 0.4);
-    const targetMax = Math.floor(parsedLines.length * 0.7);
+  // Parse each section
+  const sections = rawSections.map(section => parseSection(section));
 
-    for (const h2Index of h2Indices) {
-      if (h2Index >= targetMin && h2Index <= targetMax) {
-        // Split right before this h2
-        splitIndex = h2Index;
-        break;
-      }
-    }
-
-    // If no h2 found in ideal range, find the closest one after 30%
-    if (splitIndex === Math.floor(parsedLines.length * 0.5)) {
-      const minPosition = Math.floor(parsedLines.length * 0.3);
-      for (const h2Index of h2Indices) {
-        if (h2Index >= minPosition) {
-          splitIndex = h2Index;
-          break;
-        }
-      }
-    }
-  }
+  // Find best position for CTA (around 40-60% of sections)
+  const ctaInsertIndex = Math.max(1, Math.floor(sections.length * 0.5));
 
   return {
-    beforeCTA: parsedLines.slice(0, splitIndex).join("\n"),
-    afterCTA: parsedLines.slice(splitIndex).join("\n"),
+    sections,
+    ctaInsertIndex,
   };
 }
 
@@ -177,7 +154,7 @@ export default async function BlogPostPage({ params }: Props) {
     notFound();
   }
 
-  const { beforeCTA, afterCTA } = parseMarkdown(post.content);
+  const { sections, ctaInsertIndex } = parseMarkdown(post.content);
   const baseUrl = siteDetails.siteUrl.replace(/\/$/, "");
 
   return (
@@ -223,7 +200,8 @@ export default async function BlogPostPage({ params }: Props) {
           <div className="flex gap-8">
             {/* Main Content */}
             <div className="flex-1 max-w-3xl">
-              <Card className="shadow-lg overflow-hidden">
+              {/* Header Card */}
+              <Card className="shadow-lg overflow-hidden mb-6">
                 {post.coverImage && (
                   <div className="relative w-full h-64 sm:h-80 md:h-96">
                     <Image
@@ -259,22 +237,27 @@ export default async function BlogPostPage({ params }: Props) {
                     </div>
                   )}
                 </CardHeader>
-
-                <Separator />
-
-                <CardContent className="pt-8">
-                  <article className="prose prose-lg max-w-none">
-                    {/* First part of content */}
-                    <div dangerouslySetInnerHTML={{ __html: beforeCTA }} />
-
-                    {/* Inline CTA */}
-                    <BlogInlineCTA />
-
-                    {/* Rest of content */}
-                    <div dangerouslySetInnerHTML={{ __html: afterCTA }} />
-                  </article>
-                </CardContent>
               </Card>
+
+              {/* Content Sections as Cards */}
+              <article className="space-y-6">
+                {sections.map((section, index) => (
+                  <div key={index}>
+                    <div className="bg-white rounded-xl shadow-md p-6 sm:p-8">
+                      <div
+                        className="prose prose-lg max-w-none"
+                        dangerouslySetInnerHTML={{ __html: section }}
+                      />
+                    </div>
+                    {/* Insert CTA after the designated section */}
+                    {index === ctaInsertIndex - 1 && (
+                      <div className="my-6">
+                        <BlogInlineCTA />
+                      </div>
+                    )}
+                  </div>
+                ))}
+              </article>
 
               <div className="mt-12 text-center">
                 <Link
