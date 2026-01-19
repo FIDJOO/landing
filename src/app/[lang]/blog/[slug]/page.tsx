@@ -47,7 +47,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const baseUrl = siteDetails.siteUrl.replace(/\/$/, "");
 
   // Always use dynamic OG API for optimized images (1200x630, <600KB, with branding)
-  const ogImageUrl = `${baseUrl}/api/og?&blog=true&slug=${post.slug}`;
+  const ogImageUrl = `${baseUrl}/api/og?&blog=true&slug=${post.slug}&lang=${lang}`;
 
   return {
     title: `${post.title} | ${siteDetails.siteName}`,
