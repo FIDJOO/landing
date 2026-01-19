@@ -353,7 +353,7 @@ Quand la narration devient personnelle et émotionnelle, les enfants apprennent 
     },
     {
         slug: "kids-create-stories-builds-confidence",
-        coverImage: "/images/blog/kids-confidence-storytelling.png",
+        coverImage: "/images/blog/kids-confidence-storytelling.jpeg",
         author: "Fidjoo Team",
         date: "2025-12-29",
         tags: ["confidence", "creativity", "parenting", "storytelling", "child development"],
@@ -486,7 +486,7 @@ Quand ces histoires sont narrées avec la voix d'un parent, la créativité devi
     },
     {
         slug: "bedtime-stories-for-kids-5-8",
-        coverImage: "/images/blog/bedtime-stories.png",
+        coverImage: "/images/blog/bedtime-stories.jpeg",
         author: "Fidjoo Team",
         date: "2025-12-22",
         tags: ["bedtime", "parenting", "storytelling", "sleep routine"],
