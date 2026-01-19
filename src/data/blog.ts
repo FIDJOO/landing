@@ -42,6 +42,191 @@ export interface IBlogPostWithTranslations extends IBlogPost {
 
 export const blogPosts: IBlogPostWithTranslations[] = [
     {
+        slug: "kids-daily-transitions-storytelling",
+        coverImage: "/images/blog/kids-daily-transitions-storytelling.jpeg",
+        author: "Fidjoo Team",
+        date: "2026-01-19",
+        tags: ["transitions", "storytelling", "parenting", "emotional regulation", "routines"],
+        translations: {
+            en: {
+                title: "Helping Kids Handle Daily Transitions Through Storytelling",
+                excerpt: "For many families, the hardest moments aren't the big ones — they're the transitions. Learn how storytelling helps children aged 5-8 move smoothly between activities.",
+                readTime: "4 min read",
+                ogTitle: "Help Kids Handle Transitions via Stories",
+                ogDescription: "Storytelling helps children aged 5-8 handle daily transitions like leaving school or bedtime with less resistance.",
+                content: `
+For many families, the hardest moments of the day aren't the big ones — they're the transitions.
+
+Leaving school, stopping a game, getting ready for dinner or bedtime…
+
+For children aged **5 to 8**, these shifts can feel overwhelming.
+
+Storytelling offers a simple and gentle way to help children move from one moment to another.
+
+---
+
+## Why Transitions Are Hard for Young Children
+
+Children don't switch contexts as easily as adults.
+
+Their emotions often lag behind the schedule.
+
+That's why transitions can trigger:
+
+- Frustration
+- Resistance
+- Emotional overload
+
+They don't need more rules — they need **help crossing the moment**.
+
+---
+
+## Stories Create a Safe "In-Between" Space
+
+Stories act as a bridge.
+
+They help children:
+
+- Slow down mentally
+- Let go of what came before
+- Prepare emotionally for what comes next
+
+A short story can transform a tense moment into a calm transition.
+
+---
+
+## Using a Parent's Voice to Guide Transitions
+
+Transitions feel safer when guided by someone familiar.
+
+With Fidjoo, parents can **record their own voice** and become the **narrator** of their child's stories.
+
+Hearing a parent's voice during these moments:
+
+- Reassures children
+- Reduces resistance
+- Creates emotional continuity
+
+The voice becomes a steady guide through change.
+
+---
+
+## A Thoughtful Use of Screen Time
+
+During transitions, children don't need stimulation — they need grounding.
+
+Story-based experiences encourage:
+
+- Listening
+- Emotional regulation
+- Calm attention
+
+Used intentionally, screens can support smoother transitions instead of creating friction.
+
+---
+
+## Turning Difficult Moments Into Gentle Rituals
+
+Transitions happen every day.
+
+They don't have to be battles.
+
+With storytelling — and a familiar voice — children learn that change can be calm, predictable, and safe.
+
+Sometimes, a short story is all it takes to move forward.
+                `
+            },
+            fr: {
+                title: "Aider les enfants à gérer les transitions quotidiennes grâce aux histoires",
+                excerpt: "Pour de nombreuses familles, les moments les plus difficiles ne sont pas les grands événements — ce sont les transitions. Découvrez comment les histoires aident les enfants de 5 à 8 ans.",
+                readTime: "4 min de lecture",
+                ogTitle: "Aider les Enfants à Gérer les Transitions",
+                ogDescription: "Les histoires aident les enfants de 5-8 ans à gérer les transitions quotidiennes avec moins de résistance.",
+                content: `
+Pour de nombreuses familles, les moments les plus difficiles de la journée ne sont pas les grands événements — ce sont les transitions.
+
+Quitter l'école, arrêter un jeu, se préparer pour le dîner ou le coucher…
+
+Pour les enfants de **5 à 8 ans**, ces changements peuvent sembler accablants.
+
+Les histoires offrent un moyen simple et doux d'aider les enfants à passer d'un moment à l'autre.
+
+---
+
+## Pourquoi les transitions sont difficiles pour les jeunes enfants
+
+Les enfants ne changent pas de contexte aussi facilement que les adultes.
+
+Leurs émotions sont souvent en décalage avec l'emploi du temps.
+
+C'est pourquoi les transitions peuvent déclencher :
+
+- De la frustration
+- De la résistance
+- Une surcharge émotionnelle
+
+Ils n'ont pas besoin de plus de règles — ils ont besoin **d'aide pour traverser le moment**.
+
+---
+
+## Les histoires créent un espace « entre-deux » sécurisant
+
+Les histoires agissent comme un pont.
+
+Elles aident les enfants à :
+
+- Ralentir mentalement
+- Lâcher ce qui précédait
+- Se préparer émotionnellement à ce qui vient ensuite
+
+Une courte histoire peut transformer un moment tendu en une transition calme.
+
+---
+
+## Utiliser la voix d'un parent pour guider les transitions
+
+Les transitions semblent plus sûres quand elles sont guidées par quelqu'un de familier.
+
+Avec Fidjoo, les parents peuvent **enregistrer leur propre voix** et devenir le **narrateur** des histoires de leur enfant.
+
+Entendre la voix d'un parent pendant ces moments :
+
+- Rassure les enfants
+- Réduit la résistance
+- Crée une continuité émotionnelle
+
+La voix devient un guide stable à travers le changement.
+
+---
+
+## Une utilisation réfléchie du temps d'écran
+
+Pendant les transitions, les enfants n'ont pas besoin de stimulation — ils ont besoin d'ancrage.
+
+Les expériences basées sur les histoires encouragent :
+
+- L'écoute
+- La régulation émotionnelle
+- L'attention calme
+
+Utilisés intentionnellement, les écrans peuvent soutenir des transitions plus douces au lieu de créer des frictions.
+
+---
+
+## Transformer les moments difficiles en rituels doux
+
+Les transitions se produisent chaque jour.
+
+Elles ne doivent pas être des batailles.
+
+Avec les histoires — et une voix familière — les enfants apprennent que le changement peut être calme, prévisible et sûr.
+
+Parfois, une courte histoire suffit pour avancer.
+                `
+            }
+        }
+    },
+    {
         slug: "storytelling-listening-skills-attention",
         coverImage: "/images/blog/storytelling-listening-skills.jpeg",
         author: "Fidjoo Team",
