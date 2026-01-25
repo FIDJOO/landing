@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
 import { locales, defaultLocale, francophoneCountries, Locale } from '@/i18n/config';
+import { createMiddlewareClient } from '@/lib/supabase/middleware';
 
 // Paths that should not be processed by the middleware
 const PUBLIC_FILE = /\.(.*)$/;
@@ -22,6 +23,9 @@ const BOT_USER_AGENTS = [
   'DuckDuckBot',
   'Applebot',
 ];
+
+// Protected routes (paths without locale prefix)
+const PROTECTED_ROUTES = ['/shop'];
 
 function isBot(userAgent: string | null): boolean {
   if (!userAgent) return false;
@@ -55,10 +59,28 @@ function getLocaleFromRequest(request: NextRequest): Locale {
   return getPreferredLocale(acceptLanguage);
 }
 
-export function middleware(request: NextRequest) {
+function extractLocaleFromPath(pathname: string): { locale: Locale | null; pathWithoutLocale: string } {
+  for (const locale of locales) {
+    if (pathname.startsWith(`/${locale}/`) || pathname === `/${locale}`) {
+      return {
+        locale,
+        pathWithoutLocale: pathname.replace(`/${locale}`, '') || '/',
+      };
+    }
+  }
+  return { locale: null, pathWithoutLocale: pathname };
+}
+
+function isProtectedRoute(pathWithoutLocale: string): boolean {
+  return PROTECTED_ROUTES.some(route =>
+    pathWithoutLocale.startsWith(route) || pathWithoutLocale === route
+  );
+}
+
+export async function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
-  // Skip public files, API routes, and Next.js internals
+  // Skip public files, API routes (except auth callback), and Next.js internals
   if (
     pathname.startsWith('/_next') ||
     pathname.startsWith('/api') ||
@@ -68,31 +90,44 @@ export function middleware(request: NextRequest) {
     return NextResponse.next();
   }
 
-  // Check if the pathname already has a locale prefix
-  const pathnameHasLocale = locales.some(
-    locale => pathname.startsWith(`/${locale}/`) || pathname === `/${locale}`
-  );
+  // Extract locale info first (no auth needed for locale redirect)
+  const { locale: pathLocale, pathWithoutLocale } = extractLocaleFromPath(pathname);
 
-  if (pathnameHasLocale) {
-    return NextResponse.next();
+  // If path has no locale prefix, redirect to appropriate locale
+  if (!pathLocale) {
+    const userAgent = request.headers.get('user-agent');
+
+    // For bots/crawlers: use rewrite (no redirect) to serve English content
+    if (isBot(userAgent)) {
+      const newUrl = new URL(`/${defaultLocale}${pathname}`, request.url);
+      newUrl.search = request.nextUrl.search;
+      return NextResponse.rewrite(newUrl);
+    }
+
+    // For regular users: redirect to appropriate locale based on geo/language
+    const locale = getLocaleFromRequest(request);
+    const localizedUrl = new URL(`/${locale}${pathname}`, request.url);
+    localizedUrl.search = request.nextUrl.search;
+    return NextResponse.redirect(localizedUrl);
   }
 
-  const userAgent = request.headers.get('user-agent');
-  const newUrl = new URL(`/${defaultLocale}${pathname}`, request.url);
-  newUrl.search = request.nextUrl.search;
+  // Only check auth for protected routes (avoid unnecessary Supabase calls)
+  if (isProtectedRoute(pathWithoutLocale)) {
+    const { supabase, response } = createMiddlewareClient(request);
 
-  // For bots/crawlers: use rewrite (no redirect) to serve English content
-  // This ensures OG previews always show English metadata
-  if (isBot(userAgent)) {
-    return NextResponse.rewrite(newUrl);
+    // Use getUser() for secure validation - getSession() can be spoofed
+    const { data: { user }, error } = await supabase.auth.getUser();
+
+    if (error || !user) {
+      const signInUrl = new URL(`/${pathLocale}/auth/sign-in`, request.url);
+      signInUrl.searchParams.set('redirectTo', pathname);
+      return NextResponse.redirect(signInUrl);
+    }
+
+    return response;
   }
 
-  // For regular users: redirect to appropriate locale based on geo/language
-  const locale = getLocaleFromRequest(request);
-  const localizedUrl = new URL(`/${locale}${pathname}`, request.url);
-  localizedUrl.search = request.nextUrl.search;
-
-  return NextResponse.redirect(localizedUrl);
+  return NextResponse.next();
 }
 
 export const config = {

@@ -6,6 +6,8 @@ import Footer from '@/components/Footer';
 import { locales, Locale, isValidLocale } from '@/i18n/config';
 import { siteDetails } from '@/data/siteDetails';
 import LocaleProvider from '@/components/LocaleProvider';
+import { AuthProvider } from '@/components/AuthProvider';
+import { RevenueCatProvider } from '@/components/RevenueCatProvider';
 
 export async function generateStaticParams() {
   return locales.map((lang) => ({ lang }));
@@ -50,9 +52,13 @@ export default async function LocaleLayout({
 
   return (
     <LocaleProvider locale={lang}>
-      <Header />
-      <main>{children}</main>
-      <Footer />
+      <AuthProvider>
+        <RevenueCatProvider>
+          <Header />
+          <main>{children}</main>
+          <Footer />
+        </RevenueCatProvider>
+      </AuthProvider>
     </LocaleProvider>
   );
 }
