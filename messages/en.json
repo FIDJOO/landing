@@ -758,6 +758,40 @@
     "successMessage": "We will get back to you as soon as possible.",
     "errorMessage": "An error occurred. Please try again later."
   },
+  "auth": {
+    "signIn": "Sign In",
+    "signOut": "Sign Out",
+    "continueWithGoogle": "Continue with Google",
+    "continueWithApple": "Continue with Apple",
+    "email": "Email",
+    "password": "Password",
+    "or": "or",
+    "loading": "Loading...",
+    "noAccount": "Don't have an account? Download the Fidjoo app to get started.",
+    "noAccountTitle": "Account Not Found",
+    "noAccountMessage": "You need to create an account in the Fidjoo app first. Download the app to sign up and start creating magical stories with your children.",
+    "downloadApp": "Download the App",
+    "tryAnotherAccount": "Try Another Account"
+  },
+  "shop": {
+    "title": "Shop",
+    "description": "Purchase credits for your stories",
+    "welcome": "Welcome",
+    "credits": "credits",
+    "buy": "Buy",
+    "processing": "Processing...",
+    "perMonth": "month",
+    "subscription": "Subscription",
+    "subscriptions": "Subscriptions",
+    "creditPacks": "Credit Packs",
+    "noActiveSubscription": "No active subscription",
+    "expiresOn": "Expires",
+    "purchaseHistory": "Purchase History",
+    "noPurchases": "No purchases yet",
+    "manageBilling": "Manage Billing",
+    "manageBillingDescription": "Update your payment method, view invoices, or cancel your subscription.",
+    "openBillingPortal": "Open Billing Portal"
+  },
   "pages": {
     "download": {
       "metaTitle": "Download Fidjoo | Children's Storytelling App",

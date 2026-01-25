@@ -758,6 +758,40 @@
     "successMessage": "Nous vous répondrons dans les plus brefs délais.",
     "errorMessage": "Une erreur s'est produite. Veuillez réessayer plus tard."
   },
+  "auth": {
+    "signIn": "Connexion",
+    "signOut": "Deconnexion",
+    "continueWithGoogle": "Continuer avec Google",
+    "continueWithApple": "Continuer avec Apple",
+    "email": "Email",
+    "password": "Mot de passe",
+    "or": "ou",
+    "loading": "Chargement...",
+    "noAccount": "Pas de compte ? Telechargez l'application Fidjoo pour commencer.",
+    "noAccountTitle": "Compte introuvable",
+    "noAccountMessage": "Vous devez d'abord creer un compte dans l'application Fidjoo. Telechargez l'application pour vous inscrire et commencer a creer des histoires magiques avec vos enfants.",
+    "downloadApp": "Telecharger l'application",
+    "tryAnotherAccount": "Essayer un autre compte"
+  },
+  "shop": {
+    "title": "Boutique",
+    "description": "Achetez des credits pour vos histoires",
+    "welcome": "Bienvenue",
+    "credits": "credits",
+    "buy": "Acheter",
+    "processing": "Traitement...",
+    "perMonth": "mois",
+    "subscription": "Abonnement",
+    "subscriptions": "Abonnements",
+    "creditPacks": "Packs de credits",
+    "noActiveSubscription": "Aucun abonnement actif",
+    "expiresOn": "Expire le",
+    "purchaseHistory": "Historique des achats",
+    "noPurchases": "Aucun achat",
+    "manageBilling": "Gerer la facturation",
+    "manageBillingDescription": "Mettez a jour votre moyen de paiement, consultez vos factures ou annulez votre abonnement.",
+    "openBillingPortal": "Ouvrir le portail de facturation"
+  },
   "pages": {
     "download": {
       "metaTitle": "Télécharger Fidjoo | Application d'histoires pour enfants",
