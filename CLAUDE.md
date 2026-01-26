@@ -28,6 +28,8 @@ pnpm lint       # Run ESLint
 - Tailwind CSS v3 with CSS custom properties for theming
 - Framer Motion for animations
 - Baloo 2 font (Google Fonts) - playful, kid-friendly typography
+- Supabase (Auth + Database)
+- RevenueCat (Web payments, subscriptions, virtual currency)
 
 ### Path Alias
 
@@ -40,6 +42,77 @@ pnpm lint       # Run ESLint
 - `src/data/` - Static content data files (pricing, faq, benefits, hero, etc.)
 - `src/types.ts` - TypeScript interfaces for all data structures
 - `public/images/` - Brand assets organized by color variant (blue, black, white, yellow, green, red)
+
+## Authentication & Payments
+
+### Overview
+
+The app uses **Supabase Auth** for authentication and **RevenueCat** for payments. Users authenticate via Supabase, then their Fidjoo profile (stored in `users` table) links to a RevenueCat customer ID for purchases.
+
+### Environment Variables
+
+```bash
+NEXT_PUBLIC_SUPABASE_URL=...
+NEXT_PUBLIC_SUPABASE_ANON_KEY=...
+NEXT_PUBLIC_REVENUECAT_API_KEY=...
+```
+
+### Auth Architecture
+
+| File | Purpose |
+|------|---------|
+| `src/lib/supabase/client.ts` | Singleton Supabase browser client with lock workaround |
+| `src/components/AuthProvider.tsx` | Context provider exposing `session`, `user`, `fidjooUser`, `signOut` |
+| `src/components/RevenueCatProvider.tsx` | Context provider for RC purchases, offerings, customerInfo, virtualCurrencies |
+
+**FidjooUser** (from `users` table):
+- `auth_id` - Supabase auth UUID
+- `revenuecat_app_user_id` - Links to RevenueCat customer
+- `subscription_status` - `active` | `inactive` | `trial` | `cancelled`
+- `first_name`, `last_name`, `email`, `language`
+
+### Shop Page (`/[lang]/shop`)
+
+Protected route - redirects to sign-in if not authenticated or if no Fidjoo account exists.
+
+**Components** (`src/app/[lang]/shop/components/`):
+- `ShopContent.tsx` - Main shop page orchestrating all components
+- `SubscriptionPricing.tsx` - Subscription tier cards
+- `SubscriptionCard.tsx` - Individual subscription card
+- `CreditPackCard.tsx` - Consumable credit pack cards
+- `ComparisonTable.tsx` - Feature comparison between tiers
+- `SubscriptionStatus.tsx` - Shows current subscription info
+- `PurchaseHistory.tsx` - Past transactions list
+- `CreditsRuleBanner.tsx` - Explains credits (3 FIDJ = 1 story)
+- `ShopLoadingSkeleton.tsx` - Loading state
+
+**Hooks**:
+- `useProducts()` - Fetches RC packages from offerings
+- `useSupabaseProducts()` - Fetches product metadata from Supabase (display_name, credits, badges, features)
+
+### RevenueCat Integration
+
+```tsx
+// Initialize with user's RC ID (from fidjooUser.revenuecat_app_user_id)
+const purchases = initRevenueCat(appUserId);
+
+// Fetch data
+const offerings = await purchases.getOfferings();
+const customerInfo = await purchases.getCustomerInfo();
+const virtualCurrencies = await purchases.getVirtualCurrencies();
+
+// Purchase
+await purchases.purchase({ rcPackage: pkg });
+```
+
+**Virtual Currency**: FIDJ credits - tracked by RevenueCat, displayed via `CreditsBadge` component.
+
+### UI Components
+
+| Component | Location | Usage |
+|-----------|----------|-------|
+| `CreditsBadge` | `src/components/ui/CreditsBadge.tsx` | Displays FIDJ balance with coin icon |
+| `CoinsIcon` | `src/components/ui/CoinsIcon.tsx` | Animated coin stack SVG |
 
 ## Design System
 
