@@ -80,11 +80,13 @@ function isProtectedRoute(pathWithoutLocale: string): boolean {
 export async function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
-  // Skip public files, API routes (except auth callback), and Next.js internals
+  // Skip public files, API routes, Next.js internals, and auth callback
+  // Auth callback must be skipped to preserve PKCE code_verifier cookies
   if (
     pathname.startsWith('/_next') ||
     pathname.startsWith('/api') ||
     pathname.startsWith('/images') ||
+    pathname.includes('/auth/callback') ||
     PUBLIC_FILE.test(pathname)
   ) {
     return NextResponse.next();
