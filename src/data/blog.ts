@@ -42,6 +42,187 @@ export interface IBlogPostWithTranslations extends IBlogPost {
 
 export const blogPosts: IBlogPostWithTranslations[] = [
     {
+        slug: "kids-quiet-moments-storytelling",
+        coverImage: "/images/blog/kids-quiet-moments-storytelling.jpeg",
+        author: "Fidjoo Team",
+        date: "2026-01-26",
+        tags: ["calm", "storytelling", "parenting", "mindfulness", "screen time"],
+        translations: {
+            en: {
+                title: "Why Kids Need Quiet Moments — And How Storytelling Creates Them",
+                excerpt: "Children today are surrounded by noise. For kids aged 5 to 8, learning to enjoy quiet moments is becoming harder, yet more important than ever. Storytelling offers a simple way to reintroduce calm.",
+                readTime: "4 min read",
+                ogTitle: "Kids Need Quiet: Storytelling Creates Calm",
+                ogDescription: "Discover how storytelling creates restorative quiet moments for children ages 5-8, helping them process, relax, and enjoy calm.",
+                content: `
+Children today are surrounded by noise.
+
+Sounds, notifications, fast images, constant stimulation — even at home.
+
+For kids aged **5 to 8**, learning to enjoy **quiet moments** is becoming harder, yet more important than ever.
+
+Storytelling offers a simple way to reintroduce calm, silence, and mental space into a child's day.
+
+---
+
+## Silence Isn't Empty — It's Restorative
+
+Quiet moments allow children to:
+
+- Process what they've experienced
+- Let their thoughts slow down
+- Reconnect with their inner world
+
+Without pauses, children stay in a constant state of alert.
+
+Stories gently create those pauses — without forcing silence.
+
+---
+
+## Why Stories Encourage Calm Without Pressure
+
+Unlike games or videos, stories don't demand quick reactions.
+
+They invite children to:
+
+- Listen
+- Imagine
+- Stay present
+
+The rhythm of a story naturally slows the body and the mind, creating a peaceful mental space.
+
+---
+
+## A Familiar Voice Makes Quiet Feel Safe
+
+Silence can feel uncomfortable for some children — unless it's guided.
+
+With Fidjoo, parents can **record their own voice** and become the **narrator** of their child's stories.
+
+A familiar voice helps children:
+
+- Relax into calm moments
+- Feel secure during quiet time
+- Associate silence with comfort
+
+The voice acts as a gentle anchor in stillness.
+
+---
+
+## Quiet Screen Time Can Exist
+
+Not all screen time has to be stimulating.
+
+Story-based experiences that focus on listening rather than reacting allow screens to support:
+
+- Calm attention
+- Mental rest
+- Emotional regulation
+
+The goal isn't more content — it's **less noise**.
+
+---
+
+## Teaching Children to Be at Ease With Calm
+
+Learning to enjoy quiet moments is a lifelong skill.
+
+Through storytelling — especially when guided by a parent's voice — children discover that calm isn't boring or uncomfortable.
+
+It's a place where imagination breathes.
+
+And sometimes, that's exactly what they need.
+                `
+            },
+            fr: {
+                title: "Pourquoi les enfants ont besoin de moments calmes — Et comment les histoires les créent",
+                excerpt: "Les enfants d'aujourd'hui sont entourés de bruit. Pour les enfants de 5 à 8 ans, apprendre à apprécier les moments de calme devient plus difficile, mais plus important que jamais.",
+                readTime: "4 min de lecture",
+                ogTitle: "Moments de Calme : Les Histoires Apaisent",
+                ogDescription: "Comment les histoires créent des moments de calme réparateurs pour les enfants de 5-8 ans, les aidant à se détendre.",
+                content: `
+Les enfants d'aujourd'hui sont entourés de bruit.
+
+Sons, notifications, images rapides, stimulation constante — même à la maison.
+
+Pour les enfants de **5 à 8 ans**, apprendre à apprécier les **moments de calme** devient plus difficile, mais plus important que jamais.
+
+Les histoires offrent un moyen simple de réintroduire le calme, le silence et l'espace mental dans la journée d'un enfant.
+
+---
+
+## Le silence n'est pas vide — Il est réparateur
+
+Les moments de calme permettent aux enfants de :
+
+- Traiter ce qu'ils ont vécu
+- Laisser leurs pensées ralentir
+- Se reconnecter avec leur monde intérieur
+
+Sans pauses, les enfants restent dans un état d'alerte constant.
+
+Les histoires créent doucement ces pauses — sans forcer le silence.
+
+---
+
+## Pourquoi les histoires encouragent le calme sans pression
+
+Contrairement aux jeux ou aux vidéos, les histoires n'exigent pas de réactions rapides.
+
+Elles invitent les enfants à :
+
+- Écouter
+- Imaginer
+- Rester présents
+
+Le rythme d'une histoire ralentit naturellement le corps et l'esprit, créant un espace mental paisible.
+
+---
+
+## Une voix familière rend le calme rassurant
+
+Le silence peut sembler inconfortable pour certains enfants — sauf s'il est guidé.
+
+Avec Fidjoo, les parents peuvent **enregistrer leur propre voix** et devenir le **narrateur** des histoires de leur enfant.
+
+Une voix familière aide les enfants à :
+
+- Se détendre dans les moments de calme
+- Se sentir en sécurité pendant le temps calme
+- Associer le silence au confort
+
+La voix agit comme une ancre douce dans l'immobilité.
+
+---
+
+## Le temps d'écran calme peut exister
+
+Tout le temps d'écran ne doit pas être stimulant.
+
+Les expériences basées sur les histoires qui se concentrent sur l'écoute plutôt que sur la réaction permettent aux écrans de soutenir :
+
+- L'attention calme
+- Le repos mental
+- La régulation émotionnelle
+
+L'objectif n'est pas plus de contenu — c'est **moins de bruit**.
+
+---
+
+## Apprendre aux enfants à être à l'aise avec le calme
+
+Apprendre à apprécier les moments de calme est une compétence pour la vie.
+
+À travers les histoires — surtout quand elles sont guidées par la voix d'un parent — les enfants découvrent que le calme n'est ni ennuyeux ni inconfortable.
+
+C'est un endroit où l'imagination respire.
+
+Et parfois, c'est exactement ce dont ils ont besoin.
+                `
+            }
+        }
+    },
+    {
         slug: "kids-daily-transitions-storytelling",
         coverImage: "/images/blog/kids-daily-transitions-storytelling.jpeg",
         author: "Fidjoo Team",
