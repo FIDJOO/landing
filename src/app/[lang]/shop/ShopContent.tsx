@@ -1,6 +1,7 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { useRouter } from 'next/navigation';
 import { Locale } from '@/i18n/config';
 import { useAuth } from '@/components/AuthProvider';
 import { useRevenueCat } from '@/components/RevenueCatProvider';
@@ -149,7 +150,8 @@ function PurchaseHistory({
 }
 
 export default function ShopContent({ locale }: ShopContentProps) {
-  const { fidjooUser, isLoading: authLoading, signOut } = useAuth();
+  const router = useRouter();
+  const { fidjooUser, user, isLoading: authLoading, error: authError, signOut } = useAuth();
   const { customerInfo, purchase, isLoading: rcLoading, error: rcError } = useRevenueCat();
   const { products, isLoading: productsLoading, error: productsError } = useProducts();
   const [isPurchasing, setIsPurchasing] = useState(false);
@@ -157,6 +159,19 @@ export default function ShopContent({ locale }: ShopContentProps) {
 
   const t = messages[locale];
 
+  // Redirect to sign-in if auth completes without a user
+  useEffect(() => {
+    if (!authLoading && !user) {
+      router.replace(`/${locale}/auth/sign-in?redirectTo=/${locale}/shop`);
+    }
+  }, [authLoading, user, router, locale]);
+
+  // Redirect to sign-in with no_account message if user exists but no fidjoo account
+  useEffect(() => {
+    if (!authLoading && user && authError === 'no_account') {
+      router.replace(`/${locale}/auth/sign-in`);
+    }
+  }, [authLoading, user, authError, router, locale]);
 
   const handlePurchase = async (pkg: Package) => {
     setIsPurchasing(true);
