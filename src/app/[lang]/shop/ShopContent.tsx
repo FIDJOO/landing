@@ -30,12 +30,12 @@ const messages: Record<Locale, typeof enMessages> = {
   fr: frMessages,
 };
 
-export default function ShopContent({ locale }: ShopContentProps) {
+export default function ShopContent({ locale }: ShopContentProps) {    
   const router = useRouter();
   const { fidjooUser, user, isLoading: authLoading, error: authError, signOut } = useAuth();
-  const { customerInfo, purchase, isLoading: rcLoading, error: rcError, virtualCurrencies } = useRevenueCat();
+  const { customerInfo, purchase, isLoading: rcLoading, error: rcError, virtualCurrencies, refreshVirtualCurrencies } = useRevenueCat();
   const { products, isLoading: productsLoading, error: productsError } = useProducts();
-  const { subscriptions: supabaseSubscriptions, creditPacks: supabaseCreditPacks, isLoading: supabaseLoading, error: supabaseError } = useSupabaseProducts();
+  const { subscriptions: supabaseSubscriptions, creditPacks: supabaseCreditPacks, getIosReferencePrice, isLoading: supabaseLoading, error: supabaseError } = useSupabaseProducts();
   const [isPurchasing, setIsPurchasing] = useState(false);
   const [purchaseError, setPurchaseError] = useState<string | null>(null);
   const [isComparisonOpen, setIsComparisonOpen] = useState(false);
@@ -60,6 +60,7 @@ export default function ShopContent({ locale }: ShopContentProps) {
 
     try {
       await purchase(pkg);
+      await refreshVirtualCurrencies();
     } catch (err) {
       console.error('Purchase error:', err);
       setPurchaseError(err instanceof Error ? err.message : 'Purchase failed');
@@ -128,6 +129,7 @@ export default function ShopContent({ locale }: ShopContentProps) {
           <SubscriptionPricing
             products={subscriptionProducts}
             getSupabaseProduct={getSupabaseProduct}
+            getIosReferencePrice={getIosReferencePrice}
             onPurchase={handlePurchase}
             isPurchasing={isPurchasing}
             t={t}
@@ -171,6 +173,7 @@ export default function ShopContent({ locale }: ShopContentProps) {
                   key={product.id}
                   product={product}
                   supabaseProduct={getSupabaseProduct(product.identifier)}
+                  iosReferencePrice={getIosReferencePrice(product.identifier)}
                   onPurchase={handlePurchase}
                   isPurchasing={isPurchasing}
                   t={t}

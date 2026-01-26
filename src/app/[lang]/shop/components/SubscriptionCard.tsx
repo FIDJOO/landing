@@ -1,6 +1,6 @@
 import type { Package } from '@revenuecat/purchases-js';
 import type { Product } from '@/hooks/useProducts';
-import { CREDITS_PER_STORY, getSubscriptionFeatures, type SupabaseProduct } from '@/hooks/useSupabaseProducts';
+import { CREDITS_PER_STORY, getSubscriptionFeatures, calculateDiscountPercent, type SupabaseProduct } from '@/hooks/useSupabaseProducts';
 import Button3D from '@/components/ui/Button3D';
 import type { ShopComponentProps } from './types';
 
@@ -22,12 +22,18 @@ export function SubscriptionCard({
   const stories = Math.floor(credits / CREDITS_PER_STORY);
   const isRecommended = supabaseProduct?.recommended || false;
   const features = supabaseProduct ? getSubscriptionFeatures(supabaseProduct.metadata) : null;
+  const discountPercent = calculateDiscountPercent(product.priceAmountMicros, supabaseProduct?.reference_price);
 
   return (
     <div className={`relative p-6 bg-card rounded-2xl shadow-md border-2 ${isRecommended ? 'border-primary' : 'border-transparent'}`}>
       {isRecommended && (
         <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-primary text-white px-4 py-1 rounded-full text-sm font-bold">
           {t.shop.recommended}
+        </div>
+      )}
+      {discountPercent && (
+        <div className="absolute -top-3 -right-3 bg-green-500 text-white px-3 py-1 rounded-full text-sm font-bold shadow-md">
+          -{discountPercent}% {t.shop.discountVsApp}
         </div>
       )}
 

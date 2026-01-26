@@ -1,7 +1,7 @@
 import { Check, X } from 'lucide-react';
 import type { Package } from '@revenuecat/purchases-js';
 import type { Product } from '@/hooks/useProducts';
-import { CREDITS_PER_STORY, getSubscriptionFeatures, type SupabaseProduct } from '@/hooks/useSupabaseProducts';
+import { CREDITS_PER_STORY, getSubscriptionFeatures, calculateDiscountPercent, type SupabaseProduct } from '@/hooks/useSupabaseProducts';
 import Button3D from '@/components/ui/Button3D';
 import { Badge } from '@/components/ui/badge';
 import { Separator } from '@/components/ui/separator';
@@ -10,6 +10,7 @@ import type { ShopComponentProps } from './types';
 interface SubscriptionPricingProps extends ShopComponentProps {
   products: Product[];
   getSupabaseProduct: (identifier: string) => SupabaseProduct | undefined;
+  getIosReferencePrice: (identifier: string) => number | null;
   onPurchase: (pkg: Package) => void;
   isPurchasing: boolean;
 }
@@ -17,6 +18,7 @@ interface SubscriptionPricingProps extends ShopComponentProps {
 export function SubscriptionPricing({
   products,
   getSupabaseProduct,
+  getIosReferencePrice,
   onPurchase,
   isPurchasing,
   t,
@@ -42,6 +44,7 @@ export function SubscriptionPricing({
           const isRecommended = supabaseProduct?.recommended || false;
           const features = supabaseProduct ? getSubscriptionFeatures(supabaseProduct.metadata) : null;
           const badge = supabaseProduct?.badge;
+          const discountPercent = calculateDiscountPercent(product.priceAmountMicros, getIosReferencePrice(product.identifier));
 
           return (
             <div
@@ -53,6 +56,11 @@ export function SubscriptionPricing({
               {isRecommended && (
                 <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-primary text-white px-4 py-1 rounded-full text-sm font-bold whitespace-nowrap">
                   {t.shop.recommended}
+                </div>
+              )}
+              {discountPercent && (
+                <div className="absolute -top-3 -right-3 bg-green-500 text-white px-3 py-1 rounded-full text-sm font-bold shadow-md">
+                  -{discountPercent}% {t.shop.discountVsApp}
                 </div>
               )}
 

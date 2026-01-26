@@ -14,6 +14,7 @@ interface RevenueCatContextType {
   purchase: (pkg: Package) => Promise<unknown>;
   refreshCustomerInfo: () => Promise<void>;
   virtualCurrencies: VirtualCurrency | undefined;
+  refreshVirtualCurrencies: () => Promise<void>;
 }
 
 const RevenueCatContext = createContext<RevenueCatContextType | null>(null);
@@ -91,9 +92,17 @@ export function RevenueCatProvider({ children }: { children: ReactNode }) {
     setCustomerInfo(info);
   }, []);
 
+  const refreshVirtualCurrencies = useCallback(async () => {
+    const purchases = getRevenueCatInstance();
+    if (!purchases) return;
+    purchases.invalidateVirtualCurrenciesCache();
+    const virtualCurrencies = await purchases.getVirtualCurrencies();
+    setVirtualCurrencies(virtualCurrencies.all['FIDJ']);
+  }, []);
+
   return (
     <RevenueCatContext.Provider
-      value={{ isConfigured, offerings, customerInfo, isLoading, error, purchase, refreshCustomerInfo, virtualCurrencies }}
+      value={{ isConfigured, offerings, customerInfo, isLoading, error, purchase, refreshCustomerInfo, virtualCurrencies, refreshVirtualCurrencies }}
     >
       {children}
     </RevenueCatContext.Provider>
