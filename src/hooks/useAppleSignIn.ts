@@ -63,13 +63,19 @@ export function useAppleSignIn({ onSuccess, onError }: UseAppleSignInOptions = {
     setIsLoading(true);
 
     try {
-      // Generate nonce for security
-      nonceRef.current = crypto.randomUUID();
+      // Generate raw nonce and hash it for Apple
+      const rawNonce = crypto.randomUUID();
+      nonceRef.current = rawNonce;
 
-      // Initialize Apple Sign In
-      // For popup mode with signInWithIdToken, redirect URI should be the current origin
-      const redirectURI = typeof window !== 'undefined'
-        ? window.location.origin
+      // Apple expects SHA256 hash of nonce, Supabase expects raw nonce
+      const encoder = new TextEncoder();
+      const data = encoder.encode(rawNonce);
+      const hashBuffer = await crypto.subtle.digest('SHA-256', data);
+      const hashArray = Array.from(new Uint8Array(hashBuffer));
+      const hashedNonce = hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+
+      const redirectURI = process.env.NODE_ENV === 'development'
+        ? 'http://localhost:3000'
         : 'https://fidjoo.com';
 
       AppleID.auth.init({
@@ -77,7 +83,7 @@ export function useAppleSignIn({ onSuccess, onError }: UseAppleSignInOptions = {
         scope: 'name email',
         redirectURI,
         usePopup: true,
-        nonce: nonceRef.current,
+        nonce: hashedNonce,
       });
 
       // Trigger sign in
