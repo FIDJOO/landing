@@ -811,7 +811,8 @@
       "feature": "Feature",
       "included": "Included",
       "notIncluded": "Not included"
-    }
+    },
+    "discountVsApp": "vs app"
   },
   "pages": {
     "download": {
