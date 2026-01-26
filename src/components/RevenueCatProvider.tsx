@@ -1,7 +1,7 @@
 'use client';
 
 import { createContext, useContext, useEffect, useState, ReactNode, useCallback } from 'react';
-import type { Offerings, CustomerInfo, Package } from '@revenuecat/purchases-js';
+import type { Offerings, CustomerInfo, Package, VirtualCurrency } from '@revenuecat/purchases-js';
 import { useAuth } from './AuthProvider';
 import { initRevenueCat, closeRevenueCat, getRevenueCatInstance } from '@/lib/revenuecat/client';
 
@@ -13,6 +13,7 @@ interface RevenueCatContextType {
   error: string | null;
   purchase: (pkg: Package) => Promise<unknown>;
   refreshCustomerInfo: () => Promise<void>;
+  virtualCurrencies: VirtualCurrency | undefined;
 }
 
 const RevenueCatContext = createContext<RevenueCatContextType | null>(null);
@@ -24,6 +25,7 @@ export function RevenueCatProvider({ children }: { children: ReactNode }) {
   const [customerInfo, setCustomerInfo] = useState<CustomerInfo | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [virtualCurrencies, setVirtualCurrencies] = useState<VirtualCurrency | undefined>(undefined); 
 
   useEffect(() => {
     if (authLoading) {
@@ -43,15 +45,20 @@ export function RevenueCatProvider({ children }: { children: ReactNode }) {
     const purchases = initRevenueCat(fidjooUser.revenuecat_app_user_id);
     setIsConfigured(true);
 
+    purchases.invalidateVirtualCurrenciesCache();
+
     // Fetch offerings and customer info
     Promise.all([
       purchases.getOfferings(),
       purchases.getCustomerInfo(),
+      purchases.getVirtualCurrencies(),
+
     ])
-      .then(([offeringsData, customerInfoData]) => {
+      .then(([offeringsData, customerInfoData, virtualCurrenciesData]) => {
         setOfferings(offeringsData);
         setCustomerInfo(customerInfoData);
         setError(null);
+        setVirtualCurrencies(virtualCurrenciesData.all['FIDJ']);
       })
       .catch((err) => {
         setError(err.message || 'Failed to load RevenueCat data');
@@ -86,7 +93,7 @@ export function RevenueCatProvider({ children }: { children: ReactNode }) {
 
   return (
     <RevenueCatContext.Provider
-      value={{ isConfigured, offerings, customerInfo, isLoading, error, purchase, refreshCustomerInfo }}
+      value={{ isConfigured, offerings, customerInfo, isLoading, error, purchase, refreshCustomerInfo, virtualCurrencies }}
     >
       {children}
     </RevenueCatContext.Provider>
