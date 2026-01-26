@@ -1,90 +1,68 @@
 'use client';
 
-import { useState, useEffect } from 'react';
-import { getSupabaseBrowserClient } from '@/lib/supabase/client';
+import { useMemo } from 'react';
 import { useRevenueCat } from '@/components/RevenueCatProvider';
 import type { Package } from '@revenuecat/purchases-js';
 
-export interface SupabaseProduct {
+export interface Product {
   id: string;
   identifier: string;
-  revenuecat_product_id: string | null;
-  display_name: string;
-  description: string;
-  credits: number;
-  product_type: 'consumable' | 'subscription';
-  product_category: 'NON_SUBSCRIPTION' | 'SUBSCRIPTION' | null;
-  reference_price: number | null;
-  reference_currency_code: string;
-  recommended: boolean;
-  badge: string | null;
-  position: number | null;
-  is_active: boolean;
-  platform: string;
-  metadata: Record<string, unknown> | null;
-}
-
-export interface EnrichedProduct extends SupabaseProduct {
-  rcPackage: Package | null;
+  displayName: string;
+  description: string | null;
   price: string | null;
-  pricePerMonth: string | null;
+  priceAmountMicros: number | null;
+  currencyCode: string | null;
+  productType: 'consumable' | 'subscription';
+  rcPackage: Package;
 }
 
 export function useProducts() {
-  const [products, setProducts] = useState<EnrichedProduct[]>([]);
-  const [isLoading, setIsLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
+  const { offerings, isLoading, error, isConfigured } = useRevenueCat();
 
-  const { offerings, isLoading: rcLoading, isConfigured } = useRevenueCat();
-  const supabase = getSupabaseBrowserClient();
+  const products = useMemo<Product[]>(() => {
+    if (!isConfigured || !offerings) {
+      return [];
+    }
 
-  useEffect(() => {
-    async function fetchProducts() {
-      setIsLoading(true);
-      setError(null);
+    // Use the "web" offering for web billing products
+    const webOffering = offerings.all['web'];
+    if (!webOffering) {
+      return [];
+    }
 
-      // Fetch active products from Supabase (web platform or null)
-      const { data: supabaseProducts, error: dbError } = await supabase
-        .from('products')
-        .select('*')
-        .eq('is_active', true)
-        .or('platform.eq.web,platform.is.null')
-        .order('position', { ascending: true, nullsFirst: false });
+    // Track seen identifiers to remove duplicates
+    const seenIdentifiers = new Set<string>();
 
-      if (dbError) {
-        setError(dbError.message);
-        setIsLoading(false);
-        return;
-      }
-
-      // Enrich with RevenueCat data if available
-      const enrichedProducts: EnrichedProduct[] = (supabaseProducts || []).map((product: SupabaseProduct) => {
-        let rcPackage: Package | null = null;
-
-        if (isConfigured && offerings?.current && product.revenuecat_product_id) {
-          // Find matching package by product ID
-          rcPackage = offerings.current.availablePackages.find(
-            (pkg) => pkg.webBillingProduct?.identifier === product.revenuecat_product_id
-          ) || null;
-        }
+    return webOffering.availablePackages
+      .map((pkg): Product => {
+        const webProduct = pkg.webBillingProduct;
+        const hasSubscriptionOptions = webProduct?.subscriptionOptions && Object.keys(webProduct.subscriptionOptions).length > 0;
 
         return {
-          ...product,
-          rcPackage,
-          price: rcPackage?.webBillingProduct?.currentPrice?.formattedPrice || null,
-          pricePerMonth: null, // Price per month not available in web billing
+          id: pkg.identifier,
+          identifier: webProduct?.identifier ?? pkg.identifier,
+          displayName: webProduct?.title ?? pkg.identifier,
+          description: webProduct?.description ?? null,
+          price: webProduct?.price?.formattedPrice ?? null,
+          priceAmountMicros: webProduct?.price?.amountMicros ?? null,
+          currencyCode: webProduct?.price?.currency ?? null,
+          productType: hasSubscriptionOptions ? 'subscription' : 'consumable',
+          rcPackage: pkg,
         };
+      })
+      .filter((product) => {
+        // Remove duplicates based on identifier
+        if (seenIdentifiers.has(product.identifier)) {
+          return false;
+        }
+        seenIdentifiers.add(product.identifier);
+        return true;
       });
+  }, [offerings, isConfigured]);
 
-      setProducts(enrichedProducts);
-      setIsLoading(false);
-    }
-
-    if (!rcLoading) {
-      fetchProducts();
-    } else {
-    }
-  }, [offerings, rcLoading, isConfigured, supabase]);
-
-  return { products, isLoading: isLoading || rcLoading, error };
+  return {
+    products,
+    isLoading,
+    error: error ?? null,
+  };
 }
