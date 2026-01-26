@@ -5,9 +5,22 @@ import { useRouter } from 'next/navigation';
 import { Locale } from '@/i18n/config';
 import { useAuth } from '@/components/AuthProvider';
 import { useRevenueCat } from '@/components/RevenueCatProvider';
-import { useProducts, EnrichedProduct } from '@/hooks/useProducts';
+import { useProducts } from '@/hooks/useProducts';
+import { useSupabaseProducts, type SupabaseProduct } from '@/hooks/useSupabaseProducts';
 import Button3D from '@/components/ui/Button3D';
 import type { Package } from '@revenuecat/purchases-js';
+
+import {
+  CreditsRuleBanner,
+  SubscriptionPricing,
+  CreditPackCard,
+  ComparisonTable,
+  SubscriptionStatus,
+  PurchaseHistory,
+  ShopLoadingSkeleton,
+  type ShopContentProps,
+} from './components';
+import { CreditsBadge } from '@/components/ui/CreditsBadge';
 
 import enMessages from '../../../../messages/en.json';
 import frMessages from '../../../../messages/fr.json';
@@ -17,156 +30,24 @@ const messages: Record<Locale, typeof enMessages> = {
   fr: frMessages,
 };
 
-interface ShopContentProps {
-  locale: Locale;
-}
-
-function ProductCard({
-  product,
-  onPurchase,
-  isPurchasing,
-  t,
-}: {
-  product: EnrichedProduct;
-  onPurchase: (pkg: Package) => void;
-  isPurchasing: boolean;
-  t: typeof enMessages;
-}) {
-  const hasRCPackage = !!product.rcPackage;
-  const displayPrice = product.price || (product.reference_price ? `${product.reference_currency_code} ${product.reference_price}` : null);
-
-  return (
-    <div className={`relative p-6 bg-card rounded-2xl shadow-md border-2 ${product.recommended ? 'border-primary' : 'border-transparent'}`}>
-      {product.badge && (
-        <span className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 bg-tertiary text-black text-xs font-bold rounded-full">
-          {product.badge}
-        </span>
-      )}
-
-      <div className="text-center mb-4">
-        <h3 className="text-xl font-bold text-foreground">{product.display_name}</h3>
-        <p className="text-sm text-gray-500 mt-1">{product.description}</p>
-      </div>
-
-      <div className="text-center mb-4">
-        <span className="text-3xl font-bold text-primary">{product.credits}</span>
-        <span className="text-gray-500 ml-1">{t.shop.credits}</span>
-      </div>
-
-      {displayPrice && (
-        <div className="text-center mb-4">
-          <span className="text-2xl font-bold text-foreground">{displayPrice}</span>
-          {product.pricePerMonth && product.product_type === 'subscription' && (
-            <span className="block text-sm text-gray-500">/{t.shop.perMonth}</span>
-          )}
-        </div>
-      )}
-
-      <Button3D
-        variant={product.recommended ? 'primary' : 'secondary'}
-        size="lg"
-        className="w-full"
-        onClick={() => product.rcPackage && onPurchase(product.rcPackage)}
-        disabled={!hasRCPackage || isPurchasing}
-      >
-        {isPurchasing ? t.shop.processing : t.shop.buy}
-      </Button3D>
-    </div>
-  );
-}
-
-function SubscriptionStatus({
-  t,
-  customerInfo,
-}: {
-  t: typeof enMessages;
-  customerInfo: ReturnType<typeof useRevenueCat>['customerInfo'];
-}) {
-  if (!customerInfo) return null;
-
-  const activeSubscriptions = Object.keys(customerInfo.entitlements.active);
-
-  if (activeSubscriptions.length === 0) {
-    return (
-      <div className="p-6 bg-card rounded-2xl shadow-md">
-        <h2 className="text-xl font-bold mb-4 text-foreground">{t.shop.subscription}</h2>
-        <p className="text-gray-500">{t.shop.noActiveSubscription}</p>
-      </div>
-    );
-  }
-
-  return (
-    <div className="p-6 bg-card rounded-2xl shadow-md">
-      <h2 className="text-xl font-bold mb-4 text-foreground">{t.shop.subscription}</h2>
-      <div className="space-y-2">
-        {activeSubscriptions.map((entitlement) => {
-          const ent = customerInfo.entitlements.active[entitlement];
-          return (
-            <div key={entitlement} className="flex justify-between items-center p-3 bg-green-50 dark:bg-green-900/20 rounded-lg">
-              <span className="font-medium text-green-700 dark:text-green-400">{entitlement}</span>
-              {ent.expirationDate && (
-                <span className="text-sm text-gray-500">
-                  {t.shop.expiresOn}: {new Date(ent.expirationDate).toLocaleDateString()}
-                </span>
-              )}
-            </div>
-          );
-        })}
-      </div>
-    </div>
-  );
-}
-
-function PurchaseHistory({
-  t,
-  customerInfo,
-}: {
-  t: typeof enMessages;
-  customerInfo: ReturnType<typeof useRevenueCat>['customerInfo'];
-}) {
-  if (!customerInfo) return null;
-
-  const transactions = customerInfo.nonSubscriptionTransactions || [];
-
-  return (
-    <div className="p-6 bg-card rounded-2xl shadow-md">
-      <h2 className="text-xl font-bold mb-4 text-foreground">{t.shop.purchaseHistory}</h2>
-      {transactions.length === 0 ? (
-        <p className="text-gray-500">{t.shop.noPurchases}</p>
-      ) : (
-        <div className="space-y-2 max-h-64 overflow-y-auto">
-          {transactions.slice(0, 10).map((transaction, index) => (
-            <div key={index} className="flex justify-between items-center p-3 bg-gray-50 dark:bg-gray-800 rounded-lg">
-              <span className="font-medium text-foreground">{transaction.productIdentifier}</span>
-              <span className="text-sm text-gray-500">
-                {new Date(transaction.purchaseDate).toLocaleDateString()}
-              </span>
-            </div>
-          ))}
-        </div> 
-      )}
-    </div>
-  );
-}
-
 export default function ShopContent({ locale }: ShopContentProps) {
   const router = useRouter();
   const { fidjooUser, user, isLoading: authLoading, error: authError, signOut } = useAuth();
-  const { customerInfo, purchase, isLoading: rcLoading, error: rcError } = useRevenueCat();
+  const { customerInfo, purchase, isLoading: rcLoading, error: rcError, virtualCurrencies } = useRevenueCat();
   const { products, isLoading: productsLoading, error: productsError } = useProducts();
+  const { subscriptions: supabaseSubscriptions, creditPacks: supabaseCreditPacks, isLoading: supabaseLoading, error: supabaseError } = useSupabaseProducts();
   const [isPurchasing, setIsPurchasing] = useState(false);
   const [purchaseError, setPurchaseError] = useState<string | null>(null);
+  const [isComparisonOpen, setIsComparisonOpen] = useState(false);
 
   const t = messages[locale];
 
-  // Redirect to sign-in if auth completes without a user
   useEffect(() => {
     if (!authLoading && !user) {
       router.replace(`/${locale}/auth/sign-in?redirectTo=/${locale}/shop`);
     }
   }, [authLoading, user, router, locale]);
 
-  // Redirect to sign-in with no_account message if user exists but no fidjoo account
   useEffect(() => {
     if (!authLoading && user && authError === 'no_account') {
       router.replace(`/${locale}/auth/sign-in`);
@@ -187,28 +68,31 @@ export default function ShopContent({ locale }: ShopContentProps) {
     }
   };
 
-  const isLoading = authLoading || rcLoading || productsLoading;
+  const isLoading = authLoading || rcLoading || productsLoading || supabaseLoading;
 
   if (isLoading) {
-    return (
-      <div className="min-h-screen bg-background py-20">
-        <div className="container mx-auto px-4 text-center">
-          <div className="animate-pulse">
-            <div className="h-8 bg-gray-200 dark:bg-gray-700 rounded w-48 mx-auto mb-4"></div>
-            <div className="h-4 bg-gray-200 dark:bg-gray-700 rounded w-64 mx-auto"></div>
-          </div>
-        </div>
-      </div>
-    );
+    return <ShopLoadingSkeleton />;
   }
 
-  const creditProducts = products.filter(p => p.product_type === 'consumable');
-  const subscriptionProducts = products.filter(p => p.product_type === 'subscription');
+  const creditProducts = products.filter((p) => p.productType === 'consumable');
+  const subscriptionProducts = products.filter((p) => p.productType === 'subscription');
+
+  const getSupabaseProduct = (rcIdentifier: string): SupabaseProduct | undefined => {
+    const allProducts = [...supabaseSubscriptions, ...supabaseCreditPacks];
+    const directMatch = allProducts.find((sp) => sp.identifier === rcIdentifier);
+    if (directMatch) return directMatch;
+
+    const normalize = (s: string) => s.toLowerCase().replace(/[_-]/g, '');
+    return allProducts.find((sp) => {
+      const normalizedRc = normalize(rcIdentifier);
+      const normalizedSp = normalize(sp.identifier);
+      return normalizedRc.includes(normalizedSp) || normalizedSp.includes(normalizedRc);
+    });
+  };
 
   return (
-    <div className="min-h-screen bg-background py-12">
+    <div className="min-h-screen bg-background pt-32 md:pt-40 pb-12">
       <div className="container mx-auto px-4 max-w-6xl">
-        {/* Header */}
         <div className="flex justify-between items-center mb-8">
           <div>
             <h1 className="text-3xl font-bold text-foreground">{t.shop.title}</h1>
@@ -218,50 +102,75 @@ export default function ShopContent({ locale }: ShopContentProps) {
               </p>
             )}
           </div>
-          <Button3D variant="outline" size="sm" onClick={signOut}>
-            {t.auth.signOut}
-          </Button3D>
+          <div className="flex items-center gap-4">
+            {virtualCurrencies && (
+              <CreditsBadge balance={virtualCurrencies.balance} />
+            )}
+            <Button3D variant="outline" size="sm" onClick={signOut}>
+              {t.auth.signOut}
+            </Button3D>
+          </div>
         </div>
 
-        {/* Error messages */}
-        {(rcError || productsError || purchaseError) && (
+        {(rcError || productsError || purchaseError || supabaseError) && (
           <div className="mb-6 p-4 bg-red-100 dark:bg-red-900/30 text-red-700 dark:text-red-400 rounded-lg">
-            {rcError || productsError || purchaseError}
+            {rcError || productsError || purchaseError || supabaseError}
           </div>
         )}
 
-        {/* Subscription Status */}
+        <CreditsRuleBanner t={t} />
+
         <div className="mb-8">
           <SubscriptionStatus t={t} customerInfo={customerInfo} />
         </div>
 
-        {/* Subscription Products */}
         {subscriptionProducts.length > 0 && (
-          <div className="mb-12">
-            <h2 className="text-2xl font-bold mb-6 text-foreground">{t.shop.subscriptions}</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {subscriptionProducts.map((product) => (
-                <ProductCard
-                  key={product.id}
-                  product={product}
-                  onPurchase={handlePurchase}
-                  isPurchasing={isPurchasing}
-                  t={t}
-                />
-              ))}
+          <SubscriptionPricing
+            products={subscriptionProducts}
+            getSupabaseProduct={getSupabaseProduct}
+            onPurchase={handlePurchase}
+            isPurchasing={isPurchasing}
+            t={t}
+          />
+        )}
+
+        {supabaseSubscriptions.length > 0 && (
+          <div className="mb-12 bg-card rounded-2xl shadow-md overflow-hidden">
+            <button
+              onClick={() => setIsComparisonOpen(!isComparisonOpen)}
+              className="w-full p-6 flex items-center justify-between text-left hover:bg-black/5 dark:hover:bg-white/5 transition-colors"
+            >
+              <h2 className="text-2xl font-bold text-foreground">{t.shop.comparison.title}</h2>
+              <svg
+                className={`w-6 h-6 text-foreground transition-transform duration-200 ${isComparisonOpen ? 'rotate-180' : ''}`}
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+            <div
+              className={`grid transition-all duration-200 ease-in-out ${isComparisonOpen ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'}`}
+            >
+              <div className="overflow-hidden">
+                <div className="px-6 pb-6">
+                  <ComparisonTable subscriptions={supabaseSubscriptions} t={t} />
+                </div>
+              </div>
             </div>
           </div>
         )}
 
-        {/* Credit Packs */}
         {creditProducts.length > 0 && (
           <div className="mb-12">
             <h2 className="text-2xl font-bold mb-6 text-foreground">{t.shop.creditPacks}</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {creditProducts.map((product) => (
-                <ProductCard
+                <CreditPackCard
                   key={product.id}
                   product={product}
+                  supabaseProduct={getSupabaseProduct(product.identifier)}
                   onPurchase={handlePurchase}
                   isPurchasing={isPurchasing}
                   t={t}
@@ -271,12 +180,10 @@ export default function ShopContent({ locale }: ShopContentProps) {
           </div>
         )}
 
-        {/* Purchase History */}
         <div className="mb-8">
           <PurchaseHistory t={t} customerInfo={customerInfo} />
         </div>
 
-        {/* Manage Billing */}
         {customerInfo && (
           <div className="p-6 bg-card rounded-2xl shadow-md">
             <h2 className="text-xl font-bold mb-4 text-foreground">{t.shop.manageBilling}</h2>
@@ -285,7 +192,6 @@ export default function ShopContent({ locale }: ShopContentProps) {
               variant="outline"
               size="md"
               onClick={() => {
-                // RevenueCat billing portal - this URL would be configured in RevenueCat dashboard
                 window.open('https://billing.revenuecat.com', '_blank');
               }}
             >

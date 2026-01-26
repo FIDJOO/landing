@@ -25,7 +25,7 @@ export async function generateMetadata({
   const t = messages[validLang];
 
   return {
-    title: t.shop.title + "| FIDJOO",
+    title: t.shop.title ,
     description: t.shop.description,
     alternates: {
       canonical: `${siteDetails.siteUrl}${validLang}/shop`,
