@@ -11,7 +11,7 @@ export async function GET(
 
   const { searchParams } = new URL(request.url);
   const code = searchParams.get('code');
-  const redirectTo = searchParams.get('redirectTo') || `/${locale}`;
+  const redirectTo = searchParams.get('redirectTo') || `/${locale}/shop`;
   const error = searchParams.get('error');
   const errorDescription = searchParams.get('error_description');
 

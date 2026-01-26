@@ -55,7 +55,7 @@ export default function SignInContent({ locale, redirectTo, error }: SignInConte
   // Redirect if already authenticated and has account
   useEffect(() => {
     if (!authLoading && user && fidjooUser) {
-      router.push(redirectTo || `/${locale}`);
+      router.push(redirectTo || `/${locale}/shop`);
     }
   }, [user, fidjooUser, authLoading, router, redirectTo, locale]);
 
