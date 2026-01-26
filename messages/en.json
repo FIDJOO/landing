@@ -771,7 +771,8 @@
     "noAccountTitle": "Account Not Found",
     "noAccountMessage": "You need to create an account in the Fidjoo app first. Download the app to sign up and start creating magical stories with your children.",
     "downloadApp": "Download the App",
-    "tryAnotherAccount": "Try Another Account"
+    "tryAnotherAccount": "Try Another Account",
+    "createAccount": "Create an Account"
   },
   "shop": {
     "title": "Shop",

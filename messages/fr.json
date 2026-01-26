@@ -771,7 +771,8 @@
     "noAccountTitle": "Compte introuvable",
     "noAccountMessage": "Vous devez d'abord creer un compte dans l'application Fidjoo. Telechargez l'application pour vous inscrire et commencer a creer des histoires magiques avec vos enfants.",
     "downloadApp": "Telecharger l'application",
-    "tryAnotherAccount": "Essayer un autre compte"
+    "tryAnotherAccount": "Essayer un autre compte",
+    "createAccount": "Créer un compte"
   },
   "shop": {
     "title": "Boutique",

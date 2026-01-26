@@ -266,9 +266,16 @@ export default function SignInContent({ locale, redirectTo, error }: SignInConte
           </Button3D>
         </form>
 
-        <p className="mt-6 text-center text-sm text-gray-500 dark:text-gray-400">
-          {t.auth.noAccount}
-        </p>
+        <div className="mt-6 text-center">
+          <p className="text-sm text-gray-500 dark:text-gray-400 mb-3">
+            {t.auth.noAccount}
+          </p>
+          <Link href={`/${locale}/download`}>
+            <Button3D variant="outline" size="md" className="w-full">
+              {t.auth.createAccount}
+            </Button3D>
+          </Link>
+        </div>
       </div>
     </div>
   );
