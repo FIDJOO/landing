@@ -778,11 +778,14 @@
     "description": "Achetez des credits pour vos histoires",
     "welcome": "Bienvenue",
     "credits": "credits",
+    "stories": "histoires",
     "buy": "Acheter",
+    "subscribe": "S'abonner",
     "processing": "Traitement...",
     "perMonth": "mois",
     "subscription": "Abonnement",
     "subscriptions": "Abonnements",
+    "subscriptionDescription": "Choisissez l'offre qui correspond aux besoins de votre famille.",
     "creditPacks": "Packs de credits",
     "noActiveSubscription": "Aucun abonnement actif",
     "expiresOn": "Expire le",
@@ -790,7 +793,24 @@
     "noPurchases": "Aucun achat",
     "manageBilling": "Gerer la facturation",
     "manageBillingDescription": "Mettez a jour votre moyen de paiement, consultez vos factures ou annulez votre abonnement.",
-    "openBillingPortal": "Ouvrir le portail de facturation"
+    "openBillingPortal": "Ouvrir le portail de facturation",
+    "creditsRule": "1 histoire = 3 credits",
+    "creditsRuleDescription": "Chaque histoire animee coute 3 credits",
+    "recommended": "Recommande",
+    "popular": "Populaire",
+    "features": {
+      "personalizedStories": "Histoires personnalisees",
+      "fiveProfiles": "Jusqu'a 5 profils enfant",
+      "noAds": "Sans publicite",
+      "parentVoice": "Clonage vocal parental",
+      "earlyAccess": "Acces anticipe aux nouvelles fonctionnalites"
+    },
+    "comparison": {
+      "title": "Comparer les offres",
+      "feature": "Fonctionnalite",
+      "included": "Inclus",
+      "notIncluded": "Non inclus"
+    }
   },
   "pages": {
     "download": {

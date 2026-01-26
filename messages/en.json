@@ -778,11 +778,14 @@
     "description": "Purchase credits for your stories",
     "welcome": "Welcome",
     "credits": "credits",
+    "stories": "stories",
     "buy": "Buy",
+    "subscribe": "Subscribe",
     "processing": "Processing...",
     "perMonth": "month",
     "subscription": "Subscription",
     "subscriptions": "Subscriptions",
+    "subscriptionDescription": "Choose the plan that fits your family's storytelling needs.",
     "creditPacks": "Credit Packs",
     "noActiveSubscription": "No active subscription",
     "expiresOn": "Expires",
@@ -790,7 +793,24 @@
     "noPurchases": "No purchases yet",
     "manageBilling": "Manage Billing",
     "manageBillingDescription": "Update your payment method, view invoices, or cancel your subscription.",
-    "openBillingPortal": "Open Billing Portal"
+    "openBillingPortal": "Open Billing Portal",
+    "creditsRule": "1 story = 3 credits",
+    "creditsRuleDescription": "Each animated story costs 3 credits to create",
+    "recommended": "Recommended",
+    "popular": "Popular",
+    "features": {
+      "personalizedStories": "Personalized stories",
+      "fiveProfiles": "Up to 5 child profiles",
+      "noAds": "Ad-free experience",
+      "parentVoice": "Parent voice cloning",
+      "earlyAccess": "Early access to new features"
+    },
+    "comparison": {
+      "title": "Compare Plans",
+      "feature": "Feature",
+      "included": "Included",
+      "notIncluded": "Not included"
+    }
   },
   "pages": {
     "download": {
