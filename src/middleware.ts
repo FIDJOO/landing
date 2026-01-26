@@ -95,6 +95,15 @@ export async function middleware(request: NextRequest) {
   // Extract locale info first (no auth needed for locale redirect)
   const { locale: pathLocale, pathWithoutLocale } = extractLocaleFromPath(pathname);
 
+  // Safety net: if OAuth code param lands on wrong route, redirect to callback
+  const code = request.nextUrl.searchParams.get('code');
+  if (code && !pathname.includes('/auth/callback')) {
+    const locale = pathLocale || getLocaleFromRequest(request);
+    const callbackUrl = new URL(`/${locale}/auth/callback`, request.url);
+    callbackUrl.search = request.nextUrl.search;
+    return NextResponse.redirect(callbackUrl);
+  }
+
   // If path has no locale prefix, redirect to appropriate locale
   if (!pathLocale) {
     const userAgent = request.headers.get('user-agent');

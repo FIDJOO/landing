@@ -60,8 +60,10 @@ export default function SignInContent({ locale, redirectTo, error }: SignInConte
   }, [user, fidjooUser, authLoading, router, redirectTo, locale]);
 
   const getCallbackUrl = () => {
-    const origin = typeof window !== 'undefined' ? window.location.origin : '';
-    const callback = `${origin}/${locale}/auth/callback`;
+    const baseUrl = process.env.NODE_ENV === 'development'
+      ? 'http://localhost:3000'
+      : 'https://fidjoo.com';
+    const callback = `${baseUrl}/${locale}/auth/callback`;
     return redirectTo ? `${callback}?redirectTo=${encodeURIComponent(redirectTo)}` : callback;
   };
 
