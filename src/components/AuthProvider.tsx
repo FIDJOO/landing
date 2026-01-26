@@ -1,6 +1,6 @@
 'use client';
 
-import { createContext, useContext, useEffect, useState, ReactNode, useCallback } from 'react';
+import { createContext, useContext, useEffect, useState, ReactNode, useRef } from 'react';
 import { Session, User, AuthChangeEvent } from '@supabase/supabase-js';
 import { getSupabaseBrowserClient } from '@/lib/supabase/client';
 
@@ -35,70 +35,41 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
-  const supabase = getSupabaseBrowserClient();
-
-  const fetchFidjooUser = useCallback(async (authId: string) => {
-    const { data, error: dbError } = await supabase
-      .from('users')
-      .select('id, auth_id, revenuecat_app_user_id, email, first_name, last_name, subscription_status, language, created_at')
-      .eq('auth_id', authId)
-      .single();
-
-    if (dbError) {
-      console.error('Error fetching Fidjoo user:', dbError);
-      setFidjooUser(null);
-      if (dbError.code === 'PGRST116') {
-        setError('no_account');
-      }
-    } else {
-      setFidjooUser(data);
-      setError(null);
-    }
-    setIsLoading(false);
-  }, [supabase]);
+  // Use ref to ensure supabase client is stable across renders
+  const supabaseRef = useRef(getSupabaseBrowserClient());
+  const supabase = supabaseRef.current;
 
   useEffect(() => {
     let mounted = true;
 
-    // Get initial session with error handling
-    const initAuth = async () => {
-      try {
-        // Use getUser() for secure validation (getSession() reads cookies which can be stale)  
-        const result = await supabase.auth.getUser();
+    const fetchFidjooUser = async (authId: string) => {
+      const { data, error: dbError } = await supabase
+        .from('users')
+        .select('id, auth_id, revenuecat_app_user_id, email, first_name, last_name, subscription_status, language, created_at')
+        .eq('auth_id', authId)
+        .single();
 
-        const { data: { user: authUser }, error: userError } = result;
-        if (!mounted) return;
+      if (!mounted) return;
 
-        if (userError || !authUser) {
-          // No valid user - clear state and stop loading
-          setSession(null);
-          setUser(null);
-          setIsLoading(false);
-          return;
+      if (dbError) {
+        console.error('Error fetching Fidjoo user:', dbError);
+        setFidjooUser(null);
+        if (dbError.code === 'PGRST116') {
+          setError('no_account');
         }
-
-        // Get session for the session object (needed for some operations)
-        const { data: { session: currentSession } } = await supabase.auth.getSession();
-
-        if (!mounted) return;
-
-        setSession(currentSession);
-        setUser(authUser);
-        await fetchFidjooUser(authUser.id);
-      } catch (err) {
-        console.error('[AuthProvider] Auth initialization error:', err);
-        if (mounted) {
-          setIsLoading(false);
-        }
+      } else {
+        setFidjooUser(data);
+        setError(null);
       }
+      setIsLoading(false);
     };
 
-    initAuth();
-
-    // Listen for auth changes
+    // Listen for auth changes - this fires IMMEDIATELY with initial state
+    // No need to call getUser() separately - onAuthStateChange handles it
     const { data: { subscription } } = supabase.auth.onAuthStateChange(
-      async (_event: AuthChangeEvent, newSession: Session | null) => {
+      async (event: AuthChangeEvent, newSession: Session | null) => {
         if (!mounted) return;
+        console.log('[AuthProvider] Auth state changed:', event, newSession?.user?.id);
 
         setSession(newSession);
         setUser(newSession?.user ?? null);
@@ -117,7 +88,8 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       mounted = false;
       subscription.unsubscribe();
     };
-  }, [supabase, fetchFidjooUser]);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []); // Empty deps - supabase is stable via useRef
 
   async function signOut() {
     await supabase.auth.signOut();
@@ -127,7 +99,17 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
   async function refreshUser() {
     if (user) {
-      await fetchFidjooUser(user.id);
+      const { data, error: dbError } = await supabase
+        .from('users')
+        .select('id, auth_id, revenuecat_app_user_id, email, first_name, last_name, subscription_status, language, created_at')
+        .eq('auth_id', user.id)
+        .single();
+
+      if (dbError) {
+        console.error('Error refreshing Fidjoo user:', dbError);
+      } else {
+        setFidjooUser(data);
+      }
     }
   }
 
